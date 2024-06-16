@@ -32,7 +32,7 @@ function Teacher() {
               <Signer />
               <LoginMethod />
               <Link className="other" to="Steps">
-                Sign up with email
+                التسجيل بالبريد الإلكتروني
               </Link>
             </React.Fragment>
           ) : (

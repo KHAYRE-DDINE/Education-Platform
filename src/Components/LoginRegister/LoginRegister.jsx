@@ -17,7 +17,7 @@ export const setIdPersonContext = createContext(null);
 function LoginRegister() {
   const language = useContext(LanguageContext);
 
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(0);
 
   return (
     <idPersonContext.Provider value={id}>

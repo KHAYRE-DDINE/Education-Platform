@@ -11,7 +11,7 @@ function Under13() {
         </Link>
       ) : (
         <Link className="other" to="ByUsername">
-          Sign up with email
+          التسجيل باختيار اسم مستخدم
         </Link>
       )}
     </div>

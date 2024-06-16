@@ -79,7 +79,7 @@
 }
 
 .inputs fieldset.email.error::after {
-    content: "Please enter a valid email format like example@email.com";
+    content: attr(data-error);
     position: absolute;
     height: 20px;
     width: 100%;
@@ -106,7 +106,6 @@
     width: 100%;
     border-radius: 10px;
     height: 40px;
-    cursor: pointer;
     width: 366px;
     font-family: noto sans;
     font-size: 14px;

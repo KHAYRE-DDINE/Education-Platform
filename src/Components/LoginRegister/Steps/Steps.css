@@ -84,7 +84,7 @@
 
 /************ Validation ***************/
 .inputs fieldset.password.error::after {
-    content: "Your password must be at least 8 characters long.";
+    content: attr(data-error);
     position: absolute;
     height: 20px;
     width: 100%;

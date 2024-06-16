@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@306&family=Caveat:wght@600;700&family=Chakra+Petch:ital,wght@0,400;0,600;1,600&family=League+Spartan:wght@900&family=Noto+Sans+Arabic:wght@100..900&family=Oswald:wght@200..700&family=Outfit:wght@200;300;400;800&family=Poppins:wght@400;500&family=Roboto:wght@300;400;500;700;900&family=Rubik:ital,wght@0,400;0,500;1,300;1,400&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -29,9 +34,13 @@ body {
     font-style: normal;
 }
 
+body.arabic {
+    direction: rtl;
+}
+
 /***************************** ERROR *****************************/
 fieldset.username.error::after {
-    content: attr(data-err);
+    content: attr(data-error);
     position: absolute;
     height: 20px;
     width: 100%;
@@ -68,6 +77,10 @@ fieldset.username.error input {
     top: 100%;
 }
 
+.fgPassword p.terms {
+    top: auto !important;
+}
+
 p.terms {
     font-family: Noto Sans;
     color: var(--second-color);
@@ -85,4 +98,10 @@ p.terms a {
     font-weight: 500;
 }
 
-/***************************** Terms && Privacy *****************************/
+/***************************** Media Queries *****************************/
+/* 
+@media (max-width :790px) {
+    .face {
+        display: none !important;
+    }
+} */

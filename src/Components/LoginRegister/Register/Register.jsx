@@ -1,23 +1,17 @@
-import React, {
-  useState,
-  useContext,
-  useRef,
-  useEffect,
-  createContext,
-} from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, createContext } from "react";
 import "./Register.css";
 import Learner from "../Signer/Learner";
 import Teacher from "../Signer/Teacher";
 import Parent from "../Signer/Parent";
 import { idPersonContext } from "../LoginRegister";
-import logo from "../../../images/logo.svg";
 import { LanguageContext } from "../../../App";
+import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
+import Face from "../Face/Face";
 
 export const setEmailContext = createContext();
 export const valueEmailContext = createContext();
 
-function Register({ isMatched, whileWriting, inpEmailOne, setInpPassword }) {
+function Register() {
   const language = useContext(LanguageContext);
   const idContext = useContext(idPersonContext);
   const [withEmail, setWithEmail] = useState(true);
@@ -26,9 +20,9 @@ function Register({ isMatched, whileWriting, inpEmailOne, setInpPassword }) {
     <setEmailContext.Provider value={setWithEmail}>
       <valueEmailContext.Provider value={withEmail}>
         {language === "english" ? (
-          <div className="login ">
+          <div className="login Rg">
             <div className="wrapper">
-              <div className="register">
+              <div className="register english">
                 <h1 className="title">Sign up</h1>
                 {idContext === 0 ? (
                   <Learner />
@@ -40,30 +34,16 @@ function Register({ isMatched, whileWriting, inpEmailOne, setInpPassword }) {
                   ""
                 )}
 
-                <p className="terms">
-                  By signing up to Al Rihla Academy, you agree to our 
-                  <Link to="/Terms">Terms of use</Link> and 
-                  <Link to="/Privacy">Privacy Policy</Link>.
-                </p>
+                <TermsPrivacy info="By signing up" />
               </div>
             </div>
-            <div className="face face-register">
-              <div className="info">
-                <div className="logo">
-                  <img src={logo} alt="Logo" />
-                </div>
-                <h1>
-                  Join Al Rihla Academy for <br /> the best E-learning
-                </h1>
-                <p>Log in to Al Rihla Academy to get started!</p>
-              </div>
-            </div>
+            <Face />
           </div>
         ) : (
-          <div className="login ">
+          <div className="login Rg">
             <div className="wrapper">
-              <div className="register">
-                <h1 className="title">Sign up</h1>
+              <div className="register arabic">
+                <h1 className="title">تسجيل</h1>
                 {idContext === 0 ? (
                   <Learner />
                 ) : idContext === 1 ? (
@@ -74,24 +54,10 @@ function Register({ isMatched, whileWriting, inpEmailOne, setInpPassword }) {
                   ""
                 )}
 
-                <p className="terms">
-                  By signing up to Al Rihla Academy, you agree to our 
-                  <Link to="/Terms">Terms of use</Link> and 
-                  <Link to="/Privacy">Privacy Policy</Link>.
-                </p>
+                <TermsPrivacy />
               </div>
             </div>
-            <div className="face face-register">
-              <div className="info">
-                <div className="logo">
-                  <img src={logo} alt="Logo" />
-                </div>
-                <h1>
-                  Join Al Rihla Academy for <br /> the best E-learning
-                </h1>
-                <p>Log in to Al Rihla Academy to get started!</p>
-              </div>
-            </div>
+            <Face />
           </div>
         )}
       </valueEmailContext.Provider>

@@ -1,0 +1,32 @@
+.lessons .lesson {
+    position: relative;
+}
+
+.lessons .lesson span {
+    position: relative;
+    background-color: aqua;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lessons .lesson span::after,
+.lessons .lesson span::before {
+    content: "";
+    height: 25px;
+    width: 2px;
+    position: absolute;
+    background: red;
+    z-index: -1;
+}
+
+.lessons .lesson:not(:first-of-type) span::before {
+    top: -100%;
+}
+
+.lessons .lesson span::after {
+    top: 100%;
+}

@@ -1,42 +1,56 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import LoginMethod from "../LoginMethod/LoginMethod";
-import logo from "../../../images/logo.svg";
 import { Link } from "react-router-dom";
-import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import BoxesCode from "../BoxesCode/BoxesCode";
 import { LanguageContext } from "../../../App";
+import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
+import Face from "../Face/Face";
 
 function Login() {
   const language = useContext(LanguageContext);
-  const [isDisabled, setIsDisabled] = useState(true);
   const [theWay, setTheWay] = useState("withPassword");
   const [isMatched, setIsMatched] = useState(true);
-  const [isCorrect, setIsCorrect] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(true);
+  const [codeClass, setCodeClass] = useState([]);
+  const [isFull, setIsFull] = useState(false);
   const [getPassword, setGetPassword] = useState(false);
-  const [inpEmailOne, setInpEmailOne] = useState("");
-  const [inpEmailTwo, setInpEmailTwo] = useState("");
-  const [inpPassword, setInpPassword] = useState("");
-  console.log(language);
+  const [info, setInfo] = useState({
+    email: "",
+    password: "",
+  });
   const whileWriting = (event) => {
     const pattern = /^(.+)@(.+)\.([a-zA-Z]{2,})$/;
-    setInpEmailOne(event.target.value);
-    setInpEmailTwo(event.target.value);
+    setInfo({ ...info, [event.target.name]: event.target.value });
     setIsMatched(pattern.test(event.target.value));
-    setIsDisabled(!isDisabled);
   };
   const changeInputs = () => {
-    setInpEmailOne("");
-    setInpEmailTwo("");
-    setInpPassword("");
+    setInfo({ ...info, email: "", password: "" });
     setTheWay(theWay === "email" ? "withPassword" : "email");
     setGetPassword(theWay === "email" && isMatched ? !getPassword : "");
   };
-  console.log(window.innerHeight);
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
+    if (info.email === "khirdin@gmail.com") {
+      setGetPassword(true);
+    } else {
+      setGetPassword(false);
+    }
   };
+  const checkPAssValidation = () => {
+    if (info.password === "12345678") {
+      setIsCorrect(true);
+      alert("Password is correct");
+    } else {
+      alert("Password is incorrect");
+      setIsCorrect(false);
+    }
+  };
+  useEffect(() => {
+    setInfo({ ...info, password: codeClass.join("") });
+  }, [codeClass]);
+
   return (
     <div className="login">
       {language === "english" ? (
@@ -47,9 +61,7 @@ function Login() {
               <LoginMethod
                 theWay={theWay}
                 setTheWay={setTheWay}
-                setInpEmailOne={setInpEmailOne}
-                setInpEmailTwo={setInpEmailTwo}
-                setInpPassword={setInpPassword}
+                setInfo={setInfo}
               />
               <Link className="other" to="#" onClick={() => changeInputs()}>
                 {theWay === "email"
@@ -64,14 +76,19 @@ function Login() {
                   className="inputs"
                   onSubmit={(e) => handleForm(e)}
                 >
-                  <fieldset className={!isMatched ? "email error" : "email"}>
+                  <fieldset
+                    className={!isMatched ? "email error" : "email"}
+                    data-error={
+                      "Please enter a valid email format like example@mail.com"
+                    }
+                  >
                     <label htmlFor="email-or-username">
                       Email or username
                       <b>*</b>
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
-                      value={inpEmailOne}
+                      value={info.email}
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
@@ -79,43 +96,42 @@ function Login() {
                   </fieldset>
                   {getPassword ? (
                     <fieldset className="get">
-                      .<BoxesCode />
+                      <BoxesCode
+                        setCodeClass={setCodeClass}
+                        setIsFull={setIsFull}
+                        isFound={isCorrect}
+                        dataError="Error message."
+                      />
                       <input
                         type="submit"
                         value="Login"
-                        onClick={
-                          inpEmailTwo !== "" && isMatched
-                            ? () => setGetPassword(!getPassword)
-                            : console.log("nothing")
-                        }
-                        className={
-                          inpEmailTwo !== "" && isMatched ? "blue" : ""
-                        }
+                        className={info.email !== "" && isMatched ? "blue" : ""}
+                        onClick={() => checkPAssValidation()}
                       />
                     </fieldset>
                   ) : (
                     <input
                       type="submit"
                       value="Get Password"
-                      onClick={
-                        inpEmailTwo !== "" && isMatched
-                          ? () => setGetPassword(!getPassword)
-                          : console.log("nothing")
-                      }
-                      className={inpEmailTwo !== "" && isMatched ? "blue" : ""}
+                      className={info.email !== "" && isMatched ? "blue" : ""}
                     />
                   )}
                 </form>
               ) : (
                 <form action="" className="inputs">
-                  <fieldset className={!isMatched ? "email error" : "email"}>
+                  <fieldset
+                    className={!isMatched ? "email error" : "email"}
+                    data-error={
+                      "Please enter a valid email format like example@mail.com"
+                    }
+                  >
                     <label htmlFor="email-or-username">
                       Email or username
                       <b>*</b>
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
-                      value={inpEmailTwo}
+                      value={info.email}
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
@@ -128,15 +144,17 @@ function Login() {
                       <Link to="ForgotPassword">Forgot password?</Link>
                     </label>
                     <input
-                      onChange={(event) => setInpPassword(event.target.value)}
+                      onChange={(event) =>
+                        setInfo({ ...info, password: event.target.password })
+                      }
                       type="password"
                       name="password"
-                      placeholder="······"
+                      placeholder="●●●●●●●●"
                     />
                   </fieldset>
                   <input
                     className={
-                      inpEmailTwo !== "" && inpPassword !== "" && isMatched
+                      info.email !== "" && info.password !== "" && isMatched
                         ? "blue"
                         : ""
                     }
@@ -150,41 +168,21 @@ function Login() {
                 <Link to="/Register"> Create an account</Link>
               </p>
 
-              <p className="terms">
-                By logging in to Al Rihla Academy, you agree to our 
-                <Link to="/Terms">Terms of use</Link> and 
-                <Link to="/Privacy">Privacy Policy</Link>.
-              </p>
+              <TermsPrivacy info="By logging in" />
             </div>
           </div>
-          <div className="face">
-            <div className="info">
-              <div className="logo">
-                <img src={logo} alt="Logo" />
-              </div>
-              <h1>
-                Join Al Rihla Academy for <br /> the best E-learning
-              </h1>
-              <p>Log in to Al Rihla Academy to get started!</p>
-            </div>
-          </div>
+          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <div className="wrapper">
             <div className="form">
-              <h1 className="title">Log in</h1>
-              <LoginMethod
-                theWay={theWay}
-                setTheWay={setTheWay}
-                setInpEmailOne={setInpEmailOne}
-                setInpEmailTwo={setInpEmailTwo}
-                setInpPassword={setInpPassword}
-              />
+              <h1 className="title">تسجيل الدخول</h1>
+              <LoginMethod theWay={theWay} setTheWay={setTheWay} info={info} />
               <Link className="other" to="#" onClick={() => changeInputs()}>
                 {theWay === "email"
-                  ? "Continue with email"
-                  : "Continue one time with password"}
+                  ? "التسجيل بدون كلمة السر"
+                  : "التسجيل بالبريد الإلكتروني"}
               </Link>
               <span className="or">or</span>
               {theWay === "email" ? (
@@ -194,58 +192,59 @@ function Login() {
                   className="inputs"
                   onSubmit={(e) => handleForm(e)}
                 >
-                  <fieldset className={!isMatched ? "email error" : "email"}>
+                  <fieldset
+                    className={!isMatched ? "email error" : "email"}
+                    data-error={
+                      " example@mail.com الرجاء إدخال تنسيق بريد إلكتروني صالح مثل"
+                    }
+                  >
                     <label htmlFor="email-or-username">
-                      Email or username
+                      البريد الإلكتروني أو إسم المستخدم
                       <b>*</b>
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
-                      value={inpEmailOne}
+                      value={info.email}
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
+                      disabled={!getPassword ? false : true}
                     />
                   </fieldset>
                   {getPassword ? (
                     <fieldset className="get">
-                      .<BoxesCode />
+                      <BoxesCode />
                       <input
                         type="submit"
-                        value="Login"
-                        onClick={
-                          inpEmailTwo !== "" && isMatched
-                            ? () => setGetPassword(!getPassword)
-                            : console.log("nothing")
-                        }
-                        className={
-                          inpEmailTwo !== "" && isMatched ? "blue" : ""
-                        }
+                        value="تسجيل الدخول"
+                        className={info.email !== "" && isMatched ? "blue" : ""}
+                        disabled={info.email !== "" && isMatched ? false : true}
                       />
                     </fieldset>
                   ) : (
                     <input
                       type="submit"
-                      value="Get Password"
-                      onClick={
-                        inpEmailTwo !== "" && isMatched
-                          ? () => setGetPassword(!getPassword)
-                          : console.log("nothing")
-                      }
-                      className={inpEmailTwo !== "" && isMatched ? "blue" : ""}
+                      value="احصل على كلمة مرور"
+                      className={info.email !== "" && isMatched ? "blue" : ""}
+                      disabled={info.email !== "" && isMatched ? false : true}
                     />
                   )}
                 </form>
               ) : (
                 <form action="" className="inputs">
-                  <fieldset className={!isMatched ? "email error" : "email"}>
+                  <fieldset
+                    className={!isMatched ? "email error" : "email"}
+                    data-error={
+                      "الرجاء إدخال تنسيق بريد إلكتروني صالح مثل example@mail.com."
+                    }
+                  >
                     <label htmlFor="email-or-username">
-                      Email or username
+                      البريد الإلكتروني أو إسم المستخدم
                       <b>*</b>
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
-                      value={inpEmailTwo}
+                      value={info.email}
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
@@ -253,51 +252,49 @@ function Login() {
                   </fieldset>
                   <fieldset className="password">
                     <label htmlFor="password">
-                      Password
+                      كلمة المرور
                       <b>*</b>
-                      <Link to="ForgotPassword">Forgot password?</Link>
+                      <Link
+                        to="ForgotPassword"
+                        style={{ left: 0, right: "initial" }}
+                      >
+                        نسيت كلمة المرور؟
+                      </Link>
                     </label>
                     <input
-                      onChange={(event) => setInpPassword(event.target.value)}
+                      onChange={(event) =>
+                        setInfo({ ...info, password: event.target.password })
+                      }
                       type="password"
                       name="password"
-                      placeholder="*******"
+                      placeholder="●●●●●●●●"
                     />
                   </fieldset>
                   <input
                     className={
-                      inpEmailTwo !== "" && inpPassword !== "" && isMatched
+                      info.email !== "" && info.password !== "" && isMatched
                         ? "blue"
                         : ""
                     }
                     type="submit"
-                    value="Log in"
+                    value="تسجيل الدخول"
+                    disabled={
+                      info.email !== "" && info.password !== "" && isMatched
+                        ? false
+                        : true
+                    }
                   />
                 </form>
               )}
               <p>
-                Don't have an account yet?
-                <Link to="/Register"> Create an account</Link>
+                لا تملك حسابا بعد؟
+                <Link to="/Register">إنشاء حساب </Link>
               </p>
 
-              <p className="terms">
-                By logging in to Al Rihla Academy, you agree to our 
-                <Link to="/Terms">Terms of use</Link> and 
-                <Link to="/Privacy">Privacy Policy</Link>.
-              </p>
+              <TermsPrivacy />
             </div>
           </div>
-          <div className="face">
-            <div className="info">
-              <div className="logo">
-                <img src={logo} alt="Logo" />
-              </div>
-              <h1>
-                Join Al Rihla Academy for <br /> the best E-learning
-              </h1>
-              <p>Log in to Al Rihla Academy to get started!</p>
-            </div>
-          </div>
+          <Face />
         </React.Fragment>
       )}
     </div>

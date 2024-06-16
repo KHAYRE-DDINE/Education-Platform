@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./BoxesCode.css";
 import { LanguageContext } from "../../../App";
-function BoxesCode({ dataError }) {
+
+function BoxesCode({ dataError, isFound, setCodeClass, setIsFull }) {
   const language = useContext(LanguageContext);
   const [otp, setOtp] = useState(new Array(8).fill(""));
-  const [isFound, setIsFound] = useState(true);
 
   const handleOtp = (e, idx) => {
     setOtp([
@@ -20,7 +20,17 @@ function BoxesCode({ dataError }) {
     ) {
       e.target.previousSibling.focus();
     }
+
+    if (e.target.nextSibling === null && e.target.value) {
+      setIsFull(true);
+    } else {
+      setIsFull(false);
+    }
   };
+
+  useEffect(() => {
+    setCodeClass(otp);
+  }, [otp]);
 
   return (
     <div className="boxesCode">
@@ -31,6 +41,7 @@ function BoxesCode({ dataError }) {
         >
           {otp.map((o, idx) => (
             <input
+              className={/[\W_]/.test(o) ? "err" : ""}
               key={idx}
               type="text"
               maxLength={1}
@@ -44,9 +55,11 @@ function BoxesCode({ dataError }) {
         <div
           className={isFound ? "password" : "error password"}
           data-error={dataError}
+          style={{ direction: "ltr" }}
         >
           {otp.map((o, idx) => (
             <input
+              className={/\W/.test(o) ? "err" : ""}
               key={idx}
               type="text"
               maxLength={1}

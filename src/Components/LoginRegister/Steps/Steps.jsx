@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import "./Steps.css";
 import "../Login/Login.css";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../images/logo.svg";
+import { useNavigate } from "react-router-dom";
 import { LanguageContext } from "../../../App";
 import ValidationForm from "../ValidationForm/ValidationForm";
+import Face from "../Face/Face";
+import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
 
-function Steps({ setWithEmail }) {
+function Steps() {
   const language = useContext(LanguageContext);
   const [values, setValues] = useState({
     email: "",
@@ -25,6 +26,7 @@ function Steps({ setWithEmail }) {
   const handleForm = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="steps login stepsToSignUp">
       {language === "english" ? (
@@ -36,14 +38,17 @@ function Steps({ setWithEmail }) {
               onSubmit={(e) => handleForm(e)}
             >
               <h1 className="title">Sign up</h1>
-              <fieldset className={error.email ? "email error" : "email"}>
+              <fieldset
+                className={error.email ? "email error" : "email"}
+                data-error="Please enter a valid email format like example@mail.com"
+              >
                 <label htmlFor="email-or-username">Your email</label>
                 <input
                   type="email"
                   name="email"
                   placeholder="example@mail.com"
                   onChange={(ev) => handleValues(ev)}
-                  onBlur={() => setError(ValidationForm(values))}
+                  onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
               <fieldset className="name">
@@ -68,6 +73,7 @@ function Steps({ setWithEmail }) {
               </fieldset>
               <fieldset
                 className={error.password ? "password error" : "password"}
+                data-error="Your password must be at least 8 characters long."
               >
                 <label htmlFor="password">Password</label>
                 <span>
@@ -77,9 +83,9 @@ function Steps({ setWithEmail }) {
                 <input
                   type="password"
                   name="password"
-                  placeholder="······"
+                  placeholder="●●●●●●●●"
                   onChange={(ev) => handleValues(ev)}
-                  onBlur={() => setError(ValidationForm(values))}
+                  onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
               <fieldset>
@@ -96,26 +102,21 @@ function Steps({ setWithEmail }) {
                       : ""
                   }
                   value="Sign up"
+                  disabled={
+                    values["First name"] !== "" &&
+                    values["Last name"] !== "" &&
+                    values.email !== "" &&
+                    values.password !== "" &&
+                    Object.keys(error).length === 0
+                      ? false
+                      : true
+                  }
                 />
               </fieldset>
             </form>
-            <p className="terms">
-              By signing up to Al Rihla Academy, you agree to our 
-              <Link to="/Terms">Terms of use</Link> and 
-              <Link to="/Privacy">Privacy Policy</Link>.
-            </p>
+            <TermsPrivacy info="By signing up" />
           </div>
-          <div className="face">
-            <div className="info">
-              <div className="logo">
-                <img src={logo} alt="Logo" />
-              </div>
-              <h1>
-                Join Al Rihla Academy for <br /> the best E-learning
-              </h1>
-              <p>Log in to Al Rihla Academy to get started!</p>
-            </div>
-          </div>
+          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
@@ -125,20 +126,25 @@ function Steps({ setWithEmail }) {
               className="inputs form"
               onSubmit={(e) => handleForm(e)}
             >
-              <h1 className="title">Sign up</h1>
-              <fieldset className={error.email ? "email error" : "email"}>
-                <label htmlFor="email-or-username">Your email</label>
+              <h1 className="title">تسجيل</h1>
+              <fieldset
+                className={error.email ? "email error" : "email"}
+                data-error={
+                  "الرجاء إدخال تنسيق بريد إلكتروني صالح مثل example@email.com"
+                }
+              >
+                <label htmlFor="email-or-username">البريد الإلكتروني</label>
                 <input
                   type="email"
                   name="email"
                   placeholder="example@mail.com"
                   onChange={(ev) => handleValues(ev)}
-                  onBlur={() => setError(ValidationForm(values))}
+                  onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
               <fieldset className="name">
                 <fieldset>
-                  <label htmlFor="First name">First name</label>
+                  <label htmlFor="First name">الاسم العائلي</label>
                   <input
                     type="text"
                     name="First name"
@@ -147,7 +153,7 @@ function Steps({ setWithEmail }) {
                   />
                 </fieldset>
                 <fieldset>
-                  <label htmlFor="Last name">Last name</label>
+                  <label htmlFor="Last name">الاسم الشخصي</label>
                   <input
                     type="text"
                     name="Last name"
@@ -158,22 +164,25 @@ function Steps({ setWithEmail }) {
               </fieldset>
               <fieldset
                 className={error.password ? "password error" : "password"}
+                data-error={
+                  "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل."
+                }
               >
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">كلمة المرور</label>
                 <span>
-                  Passwords should be at least 8 characters long and should
-                  contain a mixture of letters, numbers, and other characters.
+                  يجب أن تتكون كلمات المرور من 8 أحرف على الأقل ويجب أن تحتوي
+                  على مزيج من الأحرف والأرقام والأحرف الأخرى.
                 </span>
                 <input
                   type="password"
                   name="password"
-                  placeholder="······"
+                  placeholder="●●●●●●●●"
                   onChange={(ev) => handleValues(ev)}
-                  onBlur={() => setError(ValidationForm(values))}
+                  onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
               <fieldset>
-                <button onClick={() => navigate(-1)}>back</button>
+                <button onClick={() => navigate(-1)}>الرجوع</button>
                 <input
                   type="submit"
                   className={
@@ -185,27 +194,22 @@ function Steps({ setWithEmail }) {
                       ? "blue"
                       : ""
                   }
-                  value="Sign up"
+                  value="الرجوع"
+                  disabled={
+                    values["First name"] !== "" &&
+                    values["Last name"] !== "" &&
+                    values.email !== "" &&
+                    values.password !== "" &&
+                    Object.keys(error).length === 0
+                      ? false
+                      : true
+                  }
                 />
               </fieldset>
             </form>
-            <p className="terms">
-              By signing up to Al Rihla Academy, you agree to our 
-              <Link to="/Terms">Terms of use</Link> and 
-              <Link to="/Privacy">Privacy Policy</Link>.
-            </p>
+            <TermsPrivacy />
           </div>
-          <div className="face">
-            <div className="info">
-              <div className="logo">
-                <img src={logo} alt="Logo" />
-              </div>
-              <h1>
-                Join Al Rihla Academy for <br /> the best E-learning
-              </h1>
-              <p>Log in to Al Rihla Academy to get started!</p>
-            </div>
-          </div>
+          <Face />
         </React.Fragment>
       )}
     </div>

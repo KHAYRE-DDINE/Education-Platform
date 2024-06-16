@@ -17,7 +17,7 @@ function Above13() {
         <div className="signup">
           <LoginMethod />
           <Link className="other" to="Steps">
-            Sign up with email
+            التسجيل بالبريد الإلكتروني
           </Link>
         </div>
       )}

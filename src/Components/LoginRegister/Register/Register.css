@@ -30,7 +30,7 @@
 
 .register .signer {
     border: 1px solid var(--link-color);
-    width: 369px;
+    width: 368.3px;
     height: 44px;
     border-radius: 8px;
     overflow: hidden;
@@ -62,26 +62,53 @@
     gap: 8px;
 }
 
-.register .birth form input {
+.register .birth form .select {
+    position: relative;
+}
+
+.register .birth form select {
+    text-transform: capitalize;
+    color: var(--second-color);
     width: 117px;
     height: 44px;
     border-radius: 8px;
     border: 1px solid #CCD2E6;
     Padding: 10px 12px 10px 12px;
     outline: none;
+    font-weight: 600;
+    font-size: 14px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
-.register .birth form input::placeholder {
-    color: #CCD2E6;
-    letter-spacing: 1px;
+.register .birth form .select:after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--second-color);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .7;
 }
 
-.register .birth form input.error {
+.register.english .birth form .select:after {
+    right: 10px;
+}
+
+.register.arabic .birth form .select:after {
+    left: 10px;
+}
+
+.register .birth form select.error {
     border-color: var(--required-color);
     background-color: var(--error-background);
 }
 
-.register .birth form input.error::placeholder {
+.register .birth form select.error::placeholder {
     color: var(--required-color);
 }
 
@@ -97,4 +124,8 @@
 
 .register .links a {
     color: var(--link-color);
+}
+
+.Rg .face {
+    height: 100vh;
 }

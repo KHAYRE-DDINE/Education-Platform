@@ -1,0 +1,11 @@
+header .box-lang {
+    width: 88px;
+}
+
+header .box-lang select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    text-align: center;
+}
