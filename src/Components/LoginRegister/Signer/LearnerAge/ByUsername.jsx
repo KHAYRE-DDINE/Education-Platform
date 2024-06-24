@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import "../Signer.css";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ValidationForm from "../../ValidationForm/ValidationForm";
 import { LanguageContext } from "../../../../App";
 import TermsPrivacy from "../../TermsPrivacy/TermsPrivacy";
-import Face from "../../Face/Face";
+import useAuthContext from "../../../authentication/AuthContext";
+
 function ByUsername() {
   const language = useContext(LanguageContext);
   const [values, setValues] = useState({
@@ -13,6 +14,7 @@ function ByUsername() {
     password: "",
   });
   const [error, setError] = useState({});
+  const { register } = useAuthContext();
 
   function handleValues(event) {
     const newValues = { ...values, [event.target.name]: event.target.value };
@@ -20,8 +22,9 @@ function ByUsername() {
   }
   const navigate = useNavigate();
 
-  const handleForm = (e) => {
+  const handleLearnerForm = async (e) => {
     e.preventDefault();
+    register(values);
   };
 
   return (
@@ -30,9 +33,8 @@ function ByUsername() {
         <React.Fragment>
           <div className="wrapper ">
             <form
-              action=""
               className="inputs form"
-              onSubmit={(e) => handleForm(e)}
+              onSubmit={(e) => handleLearnerForm(e)}
             >
               <h1 className="title">Sign up</h1>
               <fieldset
@@ -93,38 +95,34 @@ function ByUsername() {
                 <input
                   type="submit"
                   className={
-                    values["First name"] !== "" &&
-                    values["Last name"] !== "" &&
+                    values.username !== "" &&
                     values.email !== "" &&
                     values.password !== "" &&
                     Object.keys(error).length === 0
                       ? "blue"
                       : ""
                   }
-                  disabled={
-                    values["First name"] !== "" &&
-                    values["Last name"] !== "" &&
-                    values.email !== "" &&
-                    values.password !== "" &&
-                    Object.keys(error).length === 0
-                      ? false
-                      : true
-                  }
+                  // disabled={
+                  //   values.username !== "" &&
+                  //   values.email !== "" &&
+                  //   values.password !== "" &&
+                  //   Object.keys(error).length === 0
+                  //     ? false
+                  //     : true
+                  // }
                   value="Sign up"
                 />
               </fieldset>
             </form>
             <TermsPrivacy info="By signing up" />
           </div>
-          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <div className="wrapper ">
             <form
-              action=""
-              className="inputs form"
-              onSubmit={(e) => handleForm(e)}
+              className="inputs form text-right"
+              onSubmit={(e) => handleLearnerForm(e)}
             >
               <h1 className="title">تسجيل</h1>
               <fieldset
@@ -136,9 +134,9 @@ function ByUsername() {
                 <label htmlFor="email-or-username">
                   البريد الإلكتروني لولي الأمر
                 </label>
-                <span style={{ textAlign: "start" }}>
+                <span className="text-right">
                   نحن متحمسون للبدء، ولكننا بحاجة إلى إخطار والديك أو ولي أمرك
-                  بشأن حسابك.
+                  بشأن حسابك
                 </span>
                 <input
                   type="email"
@@ -153,9 +151,9 @@ function ByUsername() {
                 data-error={"قصير جدا."}
               >
                 <label htmlFor="username">اسم المستخدم</label>
-                <span style={{ textAlign: "start" }}>
+                <span className="text-right">
                   استخدم الحروف والأرقام فقط. من أجل سلامتك، لا تستخدم اسمك
-                  الحقيقي.
+                  الحقيقي
                 </span>
                 <input
                   type="text"
@@ -166,15 +164,19 @@ function ByUsername() {
                 />
               </fieldset>
               <fieldset
-                className={error.password ? "password error" : "password"}
+                className={
+                  error.password
+                    ? "password error text-right"
+                    : "password text-right"
+                }
                 data-error={
-                  "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل."
+                  "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
                 }
               >
                 <label htmlFor="password">كلمة المرور</label>
-                <span style={{ textAlign: "start" }}>
+                <span className="text-right">
                   يجب أن تتكون كلمات المرور من 8 أحرف على الأقل ويجب أن تحتوي
-                  على مزيج من الأحرف والأرقام والأحرف الأخرى.
+                  على مزيج من الأحرف والأرقام والأحرف الأخرى
                 </span>
                 <input
                   type="password"
@@ -184,13 +186,12 @@ function ByUsername() {
                   onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
-              <fieldset>
+              <fieldset className="!flex-row-reverse">
                 <button onClick={() => navigate(-1)}>الرجوع</button>
                 <input
                   type="submit"
                   className={
-                    values["First name"] !== "" &&
-                    values["Last name"] !== "" &&
+                    values.username !== "" &&
                     values.email !== "" &&
                     values.password !== "" &&
                     Object.keys(error).length === 0
@@ -198,8 +199,7 @@ function ByUsername() {
                       : ""
                   }
                   disabled={
-                    values["First name"] !== "" &&
-                    values["Last name"] !== "" &&
+                    values.username !== "" &&
                     values.email !== "" &&
                     values.password !== "" &&
                     Object.keys(error).length === 0
@@ -212,7 +212,6 @@ function ByUsername() {
             </form>
             <TermsPrivacy />
           </div>
-          <Face />
         </React.Fragment>
       )}
     </div>

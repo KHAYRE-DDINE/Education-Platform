@@ -4,8 +4,8 @@ import "../Login/Login.css";
 import { useNavigate } from "react-router-dom";
 import { LanguageContext } from "../../../App";
 import ValidationForm from "../ValidationForm/ValidationForm";
-import Face from "../Face/Face";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
+import useAuthContext from "../../authentication/AuthContext";
 
 function Steps() {
   const language = useContext(LanguageContext);
@@ -16,6 +16,7 @@ function Steps() {
     password: "",
   });
   const [error, setError] = useState({});
+  const { register } = useAuthContext();
 
   function handleValues(event) {
     const newValues = { ...values, [event.target.name]: event.target.value };
@@ -25,6 +26,7 @@ function Steps() {
 
   const handleForm = (e) => {
     e.preventDefault();
+    register(values);
   };
 
   return (
@@ -116,14 +118,13 @@ function Steps() {
             </form>
             <TermsPrivacy info="By signing up" />
           </div>
-          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <div className="wrapper ">
             <form
               action=""
-              className="inputs form"
+              className="inputs form text-right"
               onSubmit={(e) => handleForm(e)}
             >
               <h1 className="title">تسجيل</h1>
@@ -163,15 +164,15 @@ function Steps() {
                 </fieldset>
               </fieldset>
               <fieldset
-                className={error.password ? "password error" : "password"}
+                className={error.password ? "password error " : "password "}
                 data-error={
-                  "يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل."
+                  ". يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
                 }
               >
                 <label htmlFor="password">كلمة المرور</label>
                 <span>
                   يجب أن تتكون كلمات المرور من 8 أحرف على الأقل ويجب أن تحتوي
-                  على مزيج من الأحرف والأرقام والأحرف الأخرى.
+                  على مزيج من الأحرف والأرقام والأحرف الأخرى
                 </span>
                 <input
                   type="password"
@@ -181,7 +182,7 @@ function Steps() {
                   onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
-              <fieldset>
+              <fieldset className="!flex-row-reverse">
                 <button onClick={() => navigate(-1)}>الرجوع</button>
                 <input
                   type="submit"
@@ -209,7 +210,6 @@ function Steps() {
             </form>
             <TermsPrivacy />
           </div>
-          <Face />
         </React.Fragment>
       )}
     </div>

@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Login/Login.css";
 import "./ForgotPassword.css";
 import { LanguageContext } from "../../../App";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
-import Face from "../Face/Face";
 
 function ForgotPassword() {
   const language = useContext(LanguageContext);
@@ -17,13 +16,11 @@ function ForgotPassword() {
   const whileWriting = (event) => {
     const pattern = /^(.+)@(.+)\.([a-zA-Z]{2,})$/;
     setIsMatched(pattern.test(event.target.value));
-    setEmail(isMatched ? event.target.value : "");
+    setEmail(event.target.value);
   };
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(email);
     if (email === "ahrarkhirdin@gmail.com") {
       setNewPassword(true);
       setFound(true);
@@ -38,7 +35,7 @@ function ForgotPassword() {
       {language === "english" ? (
         <React.Fragment>
           <div className="form forgot">
-            <h1 className="title">Forgot Password</h1>
+            <h1 className="title text-left">Forgot Password</h1>
             {newPassword ? (
               <form
                 action="#"
@@ -121,11 +118,10 @@ function ForgotPassword() {
             )}
             <TermsPrivacy info="By signing up" />
           </div>
-          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <div className="form forgot">
+          <div className="form forgot text-right">
             <h1 className="title">نسيت كلمة السر</h1>
             {newPassword ? (
               <form
@@ -150,7 +146,7 @@ function ForgotPassword() {
                     كلمة المرور الجديدة
                   </label>
                   <br />
-                  <span>
+                  <span className="text-right">
                     يجب أن تتكون كلمات المرور من 8 أحرف على الأقل ويجب أن تحتوي
                     على مزيج من الأحرف والأرقام والأحرف الأخرى.
                   </span>
@@ -158,12 +154,12 @@ function ForgotPassword() {
                     className="form-control"
                     type="password"
                     id="resetPassword"
-                    placeholder="*******"
+                    placeholder="●●●●●●●●"
                     onChange={(v) => setPassword(v.target.value)}
                     value={password}
                   />
                 </fieldset>
-                <fieldset>
+                <fieldset className="flex flex-row-reverse">
                   <button onClick={() => setNewPassword(false)}>الرجوع</button>
                   <input
                     type="submit"
@@ -176,15 +172,15 @@ function ForgotPassword() {
             ) : (
               <form
                 action="#"
-                className="writeYourEmail"
+                className="writeYourEmail text-right"
                 method="get"
                 onSubmit={(e) => handleForm(e)}
               >
                 <fieldset
                   className={!found ? "error mb-3 email" : "email"}
                   data-error={
-                    "عذرًا، لا يمكننا العثور على حساب أكاديمية الرحلة متصل بـ " +
-                    email
+                    email +
+                    " عذرًا، لا يمكننا العثور على حساب أكاديمية الرحلة متصل بـ "
                   }
                 >
                   <label htmlFor="resetPassword" className="form-label">
@@ -200,7 +196,7 @@ function ForgotPassword() {
                   />
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="!mt-0 !flex-row-reverse">
                   <button onClick={() => navigate(-1)}>الرجوع</button>
                   <input
                     type="submit"
@@ -213,7 +209,6 @@ function ForgotPassword() {
             )}
             <TermsPrivacy />
           </div>
-          <Face />
         </React.Fragment>
       )}
     </div>

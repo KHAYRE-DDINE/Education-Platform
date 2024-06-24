@@ -28,7 +28,6 @@ import {
 } from "@heroicons/react/20/solid";
 
 import { TbWorld } from "react-icons/tb";
-import { Button, Dropdown } from "bootstrap";
 import DropDownProfile from "./DropDown/DropDownProfile";
 import DropDownNotification from "./DropDown/DropDownNotification";
 
@@ -92,7 +91,7 @@ function Header() {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-5">
           <div className="box-lang flex items-center justify-around relative text-sm font-semibold leading-6 text-gray-900 capitalize">
-            <div className="language-icon absolute left-1">
+            <div className="language-icon absolute left-0">
               <TbWorld />
             </div>
             <select name="language " className="capitalize outline-none">
@@ -100,7 +99,7 @@ function Header() {
               <option value="english">english</option>
             </select>
             <ChevronDownIcon
-              className="-mr-1 h-5 w-5 text-gray-400 absolute right-1"
+              className="-mr-1 h-5 w-5 text-gray-400 absolute right-0"
               aria-hidden="true"
             />
           </div>
@@ -169,14 +168,14 @@ function Header() {
                   )}
                 </Disclosure>
 
-                <Button className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                  notification
-                </Button>
+                <button className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                  <DropDownNotification />
+                </button>
               </div>
               <div className="py-6">
-                <Button className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                  <Dropdown />
-                </Button>
+                <button className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                  <DropDownProfile />
+                </button>
               </div>
             </div>
           </div>

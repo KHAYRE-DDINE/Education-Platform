@@ -38,7 +38,6 @@
     line-height: 18.2px;
     color: #8B92A7;
     margin: 6px 0 3px;
-    text-align: start;
 }
 
 .steps .inputs fieldset span::after,
@@ -46,8 +45,6 @@
     content: none;
 
 }
-
-.steps .inputs fieldset input {}
 
 .steps .inputs fieldset input[type="submit"] {
     width: 160px;
@@ -78,9 +75,6 @@
 .steps .inputs fieldset.name input {
     width: 178.5px;
 }
-
-
-
 
 /************ Validation ***************/
 .inputs fieldset.password.error::after {

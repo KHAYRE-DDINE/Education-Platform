@@ -6,7 +6,6 @@ import Parent from "../Signer/Parent";
 import { idPersonContext } from "../LoginRegister";
 import { LanguageContext } from "../../../App";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
-import Face from "../Face/Face";
 
 export const setEmailContext = createContext();
 export const valueEmailContext = createContext();
@@ -37,12 +36,11 @@ function Register() {
                 <TermsPrivacy info="By signing up" />
               </div>
             </div>
-            <Face />
           </div>
         ) : (
           <div className="login Rg">
             <div className="wrapper">
-              <div className="register arabic">
+              <div className="register text-right">
                 <h1 className="title">تسجيل</h1>
                 {idContext === 0 ? (
                   <Learner />
@@ -57,7 +55,6 @@ function Register() {
                 <TermsPrivacy />
               </div>
             </div>
-            <Face />
           </div>
         )}
       </valueEmailContext.Provider>

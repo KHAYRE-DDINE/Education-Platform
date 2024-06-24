@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@306&family=Caveat:wght@600;700&family=Chakra+Petch:ital,wght@0,400;0,600;1,600&family=League+Spartan:wght@900&family=Noto+Sans+Arabic:wght@100..900&family=Oswald:wght@200..700&family=Outfit:wght@200;300;400;800&family=Poppins:wght@400;500&family=Roboto:wght@300;400;500;700;900&family=Rubik:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -38,6 +39,10 @@ body.arabic {
     direction: rtl;
 }
 
+.outlet {
+    width: 443px;
+}
+
 /***************************** ERROR *****************************/
 fieldset.username.error::after {
     content: attr(data-error);
@@ -50,12 +55,12 @@ fieldset.username.error::after {
 }
 
 fieldset.username.error input {
-    border-color: var(--required-color);
-    background-color: var(--error-background);
+    border-color: var(--required-color) !important;
+    background-color: var(--error-background) !important;
 }
 
 .inputs fieldset.username.error ::placeholder {
-    color: var(--required-color);
+    color: var(--required-color) !important;
 }
 
 /***************************** Terms && Privacy *****************************/
@@ -69,7 +74,7 @@ fieldset.username.error input {
 }
 
 .register p.terms {
-    margin-top: 130px;
+    left: 43px;
 }
 
 .login .form p.terms {

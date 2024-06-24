@@ -30,3 +30,63 @@
 .lessons .lesson span::after {
     top: 100%;
 }
+
+/********************Right Side***********************/
+.right-side .details .name-class .name,
+.right-side .teachers .all-teachers .teacher .name {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.right-side .details .name-class .class,
+.right-side .teachers .all-teachers .teacher .subject {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: gray;
+    font-weight: 700;
+    display: block;
+    margin: 0;
+}
+
+.right-side .calender .date {
+    width: 45px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.right-side .calender .date b {
+    text-transform: capitalize;
+    margin-top: -3px;
+    font-weight: 500;
+}
+
+.right-side .details .badges {
+    width: 143px;
+}
+
+.right-side .details .badges strong {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+.right-side .teachers .all-teachers .teacher,
+.right-side .all-progress .progressBar {
+    padding: 5px 15px;
+    height: 55px;
+    font-size: 13px;
+}
+
+.right-side .teachers .all-teachers .teacher:last-of-type,
+.right-side .all-progress .progressBar:last-of-type {
+    border-bottom: none;
+}
+
+.right-side .all-progress .progressBar span {
+    font-size: 12px;
+}

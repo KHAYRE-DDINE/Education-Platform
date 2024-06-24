@@ -17,7 +17,7 @@ function Teacher() {
             <React.Fragment>
               <Signer />
               <LoginMethod />
-              <Link className="other" to="Steps">
+              <Link className="other" to="steps">
                 Sign up with email
               </Link>
             </React.Fragment>
@@ -31,7 +31,7 @@ function Teacher() {
             <React.Fragment>
               <Signer />
               <LoginMethod />
-              <Link className="other" to="Steps">
+              <Link className="other" to="steps">
                 التسجيل بالبريد الإلكتروني
               </Link>
             </React.Fragment>

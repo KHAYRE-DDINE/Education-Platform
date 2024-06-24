@@ -27,8 +27,8 @@ function Signer() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <p>مرحبا بكم في أكاديمية الرحلة، انضم إلينا ك:</p>
-          <div className="signer">
+          <p> : مرحبا بكم في أكاديمية الرحلة، انضم إلينا</p>
+          <div className="signer flex flex-row-reverse">
             {personAr.map((e, idx) => (
               <button
                 key={idx}

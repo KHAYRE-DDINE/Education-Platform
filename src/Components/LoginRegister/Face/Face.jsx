@@ -1,13 +1,26 @@
 import React, { useContext } from "react";
+import { useLocation } from "react-router-dom";
+import "./Face.css";
 import { LanguageContext } from "../../../App";
 import logo from "../../../images/logo.svg";
 
 function Face() {
   const language = useContext(LanguageContext);
+
+  const location = useLocation();
+
   return (
     <React.Fragment>
       {language === "english" ? (
-        <div className="face">
+        <div
+          className={`face bg-secondary-200 flex justify-center items-center ${
+            location.pathname === "/LoginRegister"
+              ? "h-firstHeightFace"
+              : location.pathname.includes("/ByUsername")
+              ? "h-secondHeightFace"
+              : ""
+          }`}
+        >
           <div className="info">
             <div className="logo">
               <img src={logo} alt="Logo" />
@@ -19,7 +32,15 @@ function Face() {
           </div>
         </div>
       ) : (
-        <div className="face">
+        <div
+          className={`face bg-secondary-200 flex justify-center items-center ${
+            location.pathname === "/LoginRegister"
+              ? "h-firstHeightFace"
+              : location.pathname.includes("/ByUsername")
+              ? "h-secondHeightFace"
+              : ""
+          }`}
+        >
           <div className="info">
             <div className="logo">
               <img src={logo} alt="Logo" />

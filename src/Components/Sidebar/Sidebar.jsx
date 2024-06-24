@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Sidebar.css";
+import { useNavigate } from "react-router-dom";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaHardHat } from "react-icons/fa";
 
@@ -15,31 +16,41 @@ function Sidebar({ sidebarWidth, setSidebarWidth }) {
     { listName: "notice", listIcon: <FaHardHat /> },
     { listName: "account", listIcon: <FaHardHat /> },
   ];
-
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      navigate("dashboard/current learning");
+    }
+  }, []);
+
   return (
     <div
       className="sidebar fixed h-screen bg-gray-200"
       style={{ width: `${sidebarWidth}px` }}
     >
       <div className="logo p-4">
-        <h2 className="uppercase text-primary">al rihla</h2>
+        <h2 className="uppercase text-primary font-bold text-2xl">al rihla</h2>
       </div>
       <div className="list">
         <ul className="dash-links px-4">
           <li
             className={
-              location.pathname === "/"
-                ? " px-2 py-2 capitalize bg-primary rounded-3 "
-                : " px-2 py-2 capitalize rounded-3 "
+              location.pathname === "/" ||
+              location.pathname.includes("dashboard")
+                ? " px-2 py-2 capitalize bg-primary rounded-md"
+                : " px-2 py-2 capitalize rounded-md"
             }
           >
             <NavLink
-              to="/"
+              to="dashboard/current learning"
               className={({ isActive, isPending }) =>
-                isActive
-                  ? "text-white flex items-center"
-                  : "text-black flex items-center"
+                isActive ||
+                location.pathname.includes("dashboard") ||
+                location.pathname === "/"
+                  ? "text-white flex items-center s"
+                  : "text-normalColor flex items-center"
               }
             >
               dashboard
@@ -49,8 +60,8 @@ function Sidebar({ sidebarWidth, setSidebarWidth }) {
             <li
               className={
                 location.pathname === `/${l.listName}`
-                  ? "py-2 px-2 capitalize underline-none bg-primary rounded-3 "
-                  : "py-2 px-2 capitalize underline-none rounded-3 "
+                  ? "py-2 px-2 capitalize underline-none bg-primary rounded-md "
+                  : "py-2 px-2 capitalize underline-none rounded-md "
               }
               key={id}
             >
@@ -59,7 +70,7 @@ function Sidebar({ sidebarWidth, setSidebarWidth }) {
                 className={({ isActive, isPending }) =>
                   isActive
                     ? " text-white flex items-center"
-                    : "flex items-center text-black "
+                    : "flex items-center text-normalColor "
                 }
               >
                 {l.listIcon} {l.listName}

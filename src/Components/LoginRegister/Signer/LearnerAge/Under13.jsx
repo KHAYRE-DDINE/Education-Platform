@@ -6,11 +6,11 @@ function Under13() {
   return (
     <div className="under">
       {language === "english" ? (
-        <Link className="other" to="ByUsername">
+        <Link className="other" to="register-by-username">
           Sign up with email
         </Link>
       ) : (
-        <Link className="other" to="ByUsername">
+        <Link className="other" to="register-by-username">
           التسجيل باختيار اسم مستخدم
         </Link>
       )}

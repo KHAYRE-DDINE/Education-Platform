@@ -45,7 +45,10 @@
     background: white;
     text-transform: capitalize;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: Noto Sans;
+    font-size: 14px;
+    line-height: 19.6px;
 }
 
 .register .signer .btn.clicked {
@@ -80,19 +83,16 @@
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+    font-family: Noto Sans;
+    line-height: 19.6px;
 }
 
-.register .birth form .select:after {
-    content: "";
-    width: 0.8em;
-    height: 0.5em;
-    background-color: var(--second-color);
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    display: inline-block;
+.register .birth form .select img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     opacity: .7;
+    right: 12px;
 }
 
 .register.english .birth form .select:after {

@@ -6,7 +6,6 @@ import "../Steps/Steps.css";
 import BoxesCode from "../BoxesCode/BoxesCode";
 import { LanguageContext } from "../../../App";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
-import Face from "../Face/Face";
 
 function ClassCode() {
   const language = useContext(LanguageContext);
@@ -42,7 +41,7 @@ function ClassCode() {
               className="inputs form"
               onSubmit={(e) => handleForm(e)}
             >
-              <h1 className="title">Join class</h1>
+              <h1 className="title !pb-0">Join class</h1>
               {showDetails ? (
                 <React.Fragment>
                   <fieldset>
@@ -107,21 +106,20 @@ function ClassCode() {
             </form>
             <TermsPrivacy info="By signing up" />
           </div>
-          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <div className="wrapper">
             <form
               action=""
-              className="inputs form"
+              className="inputs form text-right"
               onSubmit={(e) => handleForm(e)}
             >
-              <h1 className="title">انضم إلى الفصل</h1>
+              <h1 className="title !pb-0">انضم إلى الفصل</h1>
               {showDetails ? (
                 <React.Fragment>
                   <fieldset>
-                    <label htmlFor="Class-Code">You are joining:</label>
+                    <label htmlFor="Class-Code">: ستنضم إلى</label>
                     <h1 className="name" style={{ textAlign: "center" }}>
                       Mr. Kamal - Math
                     </h1>
@@ -137,7 +135,7 @@ function ClassCode() {
                         height: "44px",
                       }}
                     >
-                      Join class
+                      انضم إلى الفصل
                     </button>
                     <button
                       style={{
@@ -148,15 +146,15 @@ function ClassCode() {
                       }}
                       onClick={() => setShowDetails(false)}
                     >
-                      I'm in a different class
+                      أنا في فصل دراسي مختلف
                     </button>
                   </fieldset>
                 </React.Fragment>
               ) : (
                 <React.Fragment>
                   <fieldset>
-                    <label htmlFor="Class-Code">رمز الفصل</label>
-                    <span style={{ textAlign: "start" }}>
+                    <label htmlFor="class-Code">رمز الفصل</label>
+                    <span className="text-right">
                       أدخل رمز الفصل المكون من 8 أحرف الذي تلقيته من معلمك أو
                       أحد والديك.
                     </span>
@@ -169,7 +167,7 @@ function ClassCode() {
                     codeClass={codeClass}
                     setIsFull={setIsFull}
                   />
-                  <fieldset>
+                  <fieldset className="!flex-row-reverse">
                     <button onClick={() => navigate(-1)}>الرجوع</button>
                     <input
                       type="submit"
@@ -183,7 +181,6 @@ function ClassCode() {
             </form>
             <TermsPrivacy />
           </div>
-          <Face />
         </React.Fragment>
       )}
     </div>

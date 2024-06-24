@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import BoxesCode from "../BoxesCode/BoxesCode";
 import { LanguageContext } from "../../../App";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
-import Face from "../Face/Face";
+import useAuthContext from "../../authentication/AuthContext";
 
 function Login() {
   const language = useContext(LanguageContext);
@@ -15,6 +15,8 @@ function Login() {
   const [codeClass, setCodeClass] = useState([]);
   const [isFull, setIsFull] = useState(false);
   const [getPassword, setGetPassword] = useState(false);
+  const { login } = useAuthContext();
+
   const [info, setInfo] = useState({
     email: "",
     password: "",
@@ -30,13 +32,16 @@ function Login() {
     setGetPassword(theWay === "email" && isMatched ? !getPassword : "");
   };
 
-  const handleForm = async (e) => {
-    e.preventDefault();
-    if (info.email === "khirdin@gmail.com") {
-      setGetPassword(true);
-    } else {
-      setGetPassword(false);
-    }
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    login(info);
+
+    // if (info.email === "khirdin@gmail.com") {
+    //   setGetPassword(true);
+    // } else {
+    //   setGetPassword(false);
+    // }
   };
   const checkPAssValidation = () => {
     if (info.password === "12345678") {
@@ -70,12 +75,7 @@ function Login() {
               </Link>
               <span className="or">or</span>
               {theWay === "email" ? (
-                <form
-                  action=""
-                  method="post"
-                  className="inputs"
-                  onSubmit={(e) => handleForm(e)}
-                >
+                <form className="inputs" onSubmit={(e) => handleLogin(e)}>
                   <fieldset
                     className={!isMatched ? "email error" : "email"}
                     data-error={
@@ -118,7 +118,7 @@ function Login() {
                   )}
                 </form>
               ) : (
-                <form action="" className="inputs">
+                <form className="inputs" onSubmit={(e) => handleLogin(e)}>
                   <fieldset
                     className={!isMatched ? "email error" : "email"}
                     data-error={
@@ -141,7 +141,7 @@ function Login() {
                     <label htmlFor="password">
                       Password
                       <b>*</b>
-                      <Link to="ForgotPassword">Forgot password?</Link>
+                      <Link to="/forgot-password">Forgot password?</Link>
                     </label>
                     <input
                       onChange={(event) =>
@@ -158,6 +158,11 @@ function Login() {
                         ? "blue"
                         : ""
                     }
+                    disabled={
+                      info.email !== "" && info.password !== "" && isMatched
+                        ? false
+                        : true
+                    }
                     type="submit"
                     value="Log in"
                   />
@@ -165,19 +170,18 @@ function Login() {
               )}
               <p>
                 Don't have an account yet?
-                <Link to="/Register"> Create an account</Link>
+                <Link to="/register"> Create an account</Link>
               </p>
 
               <TermsPrivacy info="By logging in" />
             </div>
           </div>
-          <Face />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <div className="wrapper">
             <div className="form">
-              <h1 className="title">تسجيل الدخول</h1>
+              <h1 className="title text-right">تسجيل الدخول</h1>
               <LoginMethod theWay={theWay} setTheWay={setTheWay} info={info} />
               <Link className="other" to="#" onClick={() => changeInputs()}>
                 {theWay === "email"
@@ -187,10 +191,8 @@ function Login() {
               <span className="or">or</span>
               {theWay === "email" ? (
                 <form
-                  action=""
-                  method="post"
-                  className="inputs"
-                  onSubmit={(e) => handleForm(e)}
+                  className="inputs text-right"
+                  onSubmit={(e) => handleLogin(e)}
                 >
                   <fieldset
                     className={!isMatched ? "email error" : "email"}
@@ -213,12 +215,18 @@ function Login() {
                   </fieldset>
                   {getPassword ? (
                     <fieldset className="get">
-                      <BoxesCode />
+                      <BoxesCode
+                        setCodeClass={setCodeClass}
+                        setIsFull={setIsFull}
+                        isFound={isCorrect}
+                        dataError="Error message."
+                      />
                       <input
                         type="submit"
                         value="تسجيل الدخول"
                         className={info.email !== "" && isMatched ? "blue" : ""}
                         disabled={info.email !== "" && isMatched ? false : true}
+                        onClick={() => checkPAssValidation()}
                       />
                     </fieldset>
                   ) : (
@@ -231,7 +239,7 @@ function Login() {
                   )}
                 </form>
               ) : (
-                <form action="" className="inputs">
+                <form className="inputs text-right">
                   <fieldset
                     className={!isMatched ? "email error" : "email"}
                     data-error={
@@ -239,8 +247,8 @@ function Login() {
                     }
                   >
                     <label htmlFor="email-or-username">
-                      البريد الإلكتروني أو إسم المستخدم
                       <b>*</b>
+                      البريد الإلكتروني أو إسم المستخدم
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
@@ -252,10 +260,10 @@ function Login() {
                   </fieldset>
                   <fieldset className="password">
                     <label htmlFor="password">
-                      كلمة المرور
                       <b>*</b>
+                      كلمة المرور
                       <Link
-                        to="ForgotPassword"
+                        to="/forgot-password"
                         style={{ left: 0, right: "initial" }}
                       >
                         نسيت كلمة المرور؟
@@ -286,15 +294,14 @@ function Login() {
                   />
                 </form>
               )}
-              <p>
+              <p className="text-right">
                 لا تملك حسابا بعد؟
-                <Link to="/Register">إنشاء حساب </Link>
+                <Link to="/register"> إنشاء حساب</Link>
               </p>
 
               <TermsPrivacy />
             </div>
           </div>
-          <Face />
         </React.Fragment>
       )}
     </div>
