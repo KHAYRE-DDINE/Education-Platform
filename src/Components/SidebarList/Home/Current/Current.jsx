@@ -122,12 +122,12 @@ function Current() {
                 <p className="lesson-name my-auto ml-3 text-normalColor">
                   {l.name}
                 </p>
-                {(courses[idx].lessons[idx - 1]?.status === "completed" ||
-                  courses[idx].lessons[idx - 1]) && (
-                  <button className="bg-primary text-white rounded-md py-1 px-3 absolute right-0">
-                    {l.status !== "finished" ? "continue" : "finished"}
-                  </button>
-                )}
+                {/* {(courses[idx].lessons[idx - 1]?.status === "completed" ||
+                  courses[idx].lessons[idx - 1]) && ( */}
+                <button className="bg-primary text-white rounded-md py-1 px-3 absolute right-0">
+                  {l.status !== "finished" ? "continue" : "finished"}
+                </button>
+                {/* )} */}
               </div>
             ))}
           </div>

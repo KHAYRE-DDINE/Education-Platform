@@ -13,10 +13,10 @@ function Face() {
     <React.Fragment>
       {language === "english" ? (
         <div
-          className={`face bg-secondary-200 flex justify-center items-center ${
-            location.pathname === "/LoginRegister"
+          className={`face md:visible invisible w-0 md:w-[65%] bg-secondary-200 flex justify-center items-center ${
+            location.pathname === "/login"
               ? "h-firstHeightFace"
-              : location.pathname.includes("/ByUsername")
+              : location.pathname.includes("/register-by-username")
               ? "h-secondHeightFace"
               : ""
           }`}

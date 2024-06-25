@@ -12,7 +12,7 @@ function LoginRegister() {
   return (
     <idPersonContext.Provider value={id}>
       <setIdPersonContext.Provider value={setId}>
-        <div className="page flex justify-between ">
+        <div className="page flex justify-center md:justify-between ">
           <div className="outlet">
             <Outlet />
           </div>

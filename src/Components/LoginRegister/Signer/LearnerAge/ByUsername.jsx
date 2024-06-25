@@ -102,14 +102,14 @@ function ByUsername() {
                       ? "blue"
                       : ""
                   }
-                  // disabled={
-                  //   values.username !== "" &&
-                  //   values.email !== "" &&
-                  //   values.password !== "" &&
-                  //   Object.keys(error).length === 0
-                  //     ? false
-                  //     : true
-                  // }
+                  disabled={
+                    values.username !== "" &&
+                    values.email !== "" &&
+                    values.password !== "" &&
+                    Object.keys(error).length === 0
+                      ? false
+                      : true
+                  }
                   value="Sign up"
                 />
               </fieldset>
