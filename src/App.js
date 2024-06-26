@@ -8,7 +8,7 @@ import ByUsername from './Components/LoginRegister/Signer/LearnerAge/ByUsername'
 import ClassCode from './Components/LoginRegister/ClassCode/ClassCode';
 import LoginRegister from './Components/LoginRegister/LoginRegister';
 import Register from './Components/LoginRegister/Register/Register';
-import Dashboard from "./Components/Dashboard/Dashboard"
+import Dashboard from "./Components/Dashboards/Dashboards"
 import Home from "./Components/SidebarList/Home/Home"
 import Library from './Components/SidebarList/Library/Library';
 import Class from './Components/SidebarList/Class/Class';
