@@ -26,7 +26,7 @@ function Steps() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    register(values);
+    // register(values);
   };
 
   return (
@@ -129,6 +129,7 @@ function Steps() {
             >
               <h1 className="title">تسجيل</h1>
               <fieldset
+                style={{ direction: "rtl" }}
                 className={error.email ? "email error" : "email"}
                 data-error={
                   "الرجاء إدخال تنسيق بريد إلكتروني صالح مثل example@email.com"
@@ -143,8 +144,8 @@ function Steps() {
                   onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
-              <fieldset className="name">
-                <fieldset>
+              <fieldset style={{ direction: "rtl" }} className="name">
+                <fieldset style={{ direction: "rtl" }}>
                   <label htmlFor="First name">الاسم العائلي</label>
                   <input
                     type="text"
@@ -153,7 +154,7 @@ function Steps() {
                     onChange={(ev) => handleValues(ev)}
                   />
                 </fieldset>
-                <fieldset>
+                <fieldset style={{ direction: "rtl" }}>
                   <label htmlFor="Last name">الاسم الشخصي</label>
                   <input
                     type="text"
@@ -164,6 +165,7 @@ function Steps() {
                 </fieldset>
               </fieldset>
               <fieldset
+                style={{ direction: "rtl" }}
                 className={error.password ? "password error " : "password "}
                 data-error={
                   ". يجب أن تتكون كلمة المرور الخاصة بك من 8 أحرف على الأقل"
@@ -182,7 +184,7 @@ function Steps() {
                   onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
-              <fieldset className="!flex-row-reverse">
+              <fieldset style={{ direction: "rtl" }}>
                 <button onClick={() => navigate(-1)}>الرجوع</button>
                 <input
                   type="submit"
@@ -195,7 +197,7 @@ function Steps() {
                       ? "blue"
                       : ""
                   }
-                  value="الرجوع"
+                  value="تسجيل"
                   disabled={
                     values["First name"] !== "" &&
                     values["Last name"] !== "" &&

@@ -32,7 +32,6 @@ function Register() {
                 ) : (
                   ""
                 )}
-
                 <TermsPrivacy info="By signing up" />
               </div>
             </div>

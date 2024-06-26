@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
     await csrf();
     try {
       await axios.post("/login", data);
-      console.log(data);
       getUser();
       navigate("/");
     } catch (e) {
@@ -31,7 +30,6 @@ export const AuthProvider = ({ children }) => {
   const register = async ({ ...data }) => {
     await csrf();
     try {
-      console.log("success");
       await axios.post("/register", data);
       getUser();
       navigate("/");

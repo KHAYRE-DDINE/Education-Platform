@@ -35,13 +35,13 @@ function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    login(info);
+    // login(info);
 
-    // if (info.email === "khirdin@gmail.com") {
-    //   setGetPassword(true);
-    // } else {
-    //   setGetPassword(false);
-    // }
+    if (info.email === "khirdin@gmail.com") {
+      setGetPassword(true);
+    } else {
+      setGetPassword(false);
+    }
   };
   const checkPAssValidation = () => {
     if (info.password === "12345678") {
@@ -195,7 +195,7 @@ function Login() {
                   onSubmit={(e) => handleLogin(e)}
                 >
                   <fieldset
-                    className={!isMatched ? "email error" : "email"}
+                    className={!isMatched ? "email error " : "email"}
                     data-error={
                       " example@mail.com الرجاء إدخال تنسيق بريد إلكتروني صالح مثل"
                     }
@@ -241,14 +241,15 @@ function Login() {
               ) : (
                 <form className="inputs text-right">
                   <fieldset
+                    style={{ direction: "rtl" }}
                     className={!isMatched ? "email error" : "email"}
                     data-error={
                       "الرجاء إدخال تنسيق بريد إلكتروني صالح مثل example@mail.com."
                     }
                   >
                     <label htmlFor="email-or-username">
-                      <b>*</b>
                       البريد الإلكتروني أو إسم المستخدم
+                      <b>*</b>
                     </label>
                     <input
                       onChange={(event) => whileWriting(event)}
@@ -258,10 +259,10 @@ function Login() {
                       placeholder="example@mail.com"
                     />
                   </fieldset>
-                  <fieldset className="password">
+                  <fieldset className="password" style={{ direction: "rtl" }}>
                     <label htmlFor="password">
-                      <b>*</b>
                       كلمة المرور
+                      <b>*</b>
                       <Link
                         to="/forgot-password"
                         style={{ left: 0, right: "initial" }}

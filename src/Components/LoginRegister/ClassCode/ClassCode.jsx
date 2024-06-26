@@ -144,7 +144,7 @@ function ClassCode() {
                         width: "367px",
                         height: "44px",
                       }}
-                      onClick={() => setShowDetails(false)}
+                      onClick={() => handleInputs()}
                     >
                       أنا في فصل دراسي مختلف
                     </button>
@@ -160,7 +160,7 @@ function ClassCode() {
                     </span>
                   </fieldset>
                   <BoxesCode
-                    dataError="لم نتمكن من العثور على فصل دراسي بهذا الرمز، يرجى إدخال رمز صالح."
+                    dataError="لم نتمكن من العثور على فصل دراسي بهذا الرمز، يرجى إدخال رمز صالح"
                     isFound={isFound}
                     setIsFound={setIsFound}
                     setCodeClass={setCodeClass}
@@ -173,7 +173,6 @@ function ClassCode() {
                       type="submit"
                       value="إستمر"
                       className={isFull ? "blue" : ""}
-                      onClick={() => setShowDetails(true)}
                     />
                   </fieldset>
                 </React.Fragment>

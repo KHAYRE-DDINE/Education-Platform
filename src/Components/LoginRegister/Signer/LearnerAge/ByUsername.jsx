@@ -24,7 +24,7 @@ function ByUsername() {
 
   const handleLearnerForm = async (e) => {
     e.preventDefault();
-    register(values);
+    // register(values);
   };
 
   return (
@@ -126,10 +126,9 @@ function ByUsername() {
             >
               <h1 className="title">تسجيل</h1>
               <fieldset
+                style={{ direction: "rtl" }}
                 className={error.email ? "email error" : "email"}
-                data-error={
-                  ".example@email.com الرجاء إدخال تنسيق بريد إلكتروني صالح مثل"
-                }
+                data-error="الرجاء إدخال تنسيق بريد إلكتروني صالح مثل example@email.com"
               >
                 <label htmlFor="email-or-username">
                   البريد الإلكتروني لولي الأمر
@@ -147,6 +146,7 @@ function ByUsername() {
                 />
               </fieldset>
               <fieldset
+                style={{ direction: "rtl" }}
                 className={error.username ? "username error" : "username"}
                 data-error={"قصير جدا."}
               >
@@ -164,6 +164,7 @@ function ByUsername() {
                 />
               </fieldset>
               <fieldset
+                style={{ direction: "rtl" }}
                 className={
                   error.password
                     ? "password error text-right"
@@ -186,7 +187,7 @@ function ByUsername() {
                   onBlur={() => setError(() => ValidationForm(values))}
                 />
               </fieldset>
-              <fieldset className="!flex-row-reverse">
+              <fieldset style={{ direction: "rtl" }}>
                 <button onClick={() => navigate(-1)}>الرجوع</button>
                 <input
                   type="submit"

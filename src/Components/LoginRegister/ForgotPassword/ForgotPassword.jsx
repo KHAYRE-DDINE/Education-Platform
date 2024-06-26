@@ -178,13 +178,10 @@ function ForgotPassword() {
               >
                 <fieldset
                   className={!found ? "error mb-3 email" : "email"}
-                  data-error={
-                    email +
-                    " عذرًا، لا يمكننا العثور على حساب أكاديمية الرحلة متصل بـ "
-                  }
+                  data-error={`${email} عذرًا، لا يمكننا العثور على حساب أكاديمية الرحلة متصل بـ `}
                 >
                   <label htmlFor="resetPassword" className="form-label">
-                    أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور:
+                    : أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور
                   </label>
                   <input
                     className="form-control"

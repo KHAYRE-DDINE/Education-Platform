@@ -86,8 +86,6 @@ function Learner() {
     setAge(year + dayToYear + monthToYear);
   };
 
-
-
   return (
     <React.Fragment>
       {language === "english" ? (
@@ -219,7 +217,7 @@ function Learner() {
             )}
             <div className="links">
               <Link to="class-code">أدخل رمز الفصل</Link>
-              <Link to="login-register">هل لديك حساب؟</Link>
+              <Link to="/login">هل لديك حساب؟</Link>
             </div>
           </div>
         </div>

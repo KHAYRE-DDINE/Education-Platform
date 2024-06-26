@@ -33,10 +33,10 @@ function Face() {
         </div>
       ) : (
         <div
-          className={`face bg-secondary-200 flex justify-center items-center ${
-            location.pathname === "/LoginRegister"
+          className={`face md:visible invisible w-0 md:w-[65%] bg-secondary-200 flex justify-center items-center ${
+            location.pathname === "/login"
               ? "h-firstHeightFace"
-              : location.pathname.includes("/ByUsername")
+              : location.pathname.includes("/register-by-username")
               ? "h-secondHeightFace"
               : ""
           }`}
@@ -46,7 +46,7 @@ function Face() {
               <img src={logo} alt="Logo" />
             </div>
             <h1>
-              انضم إلى أكاديمية الرحلة للحصو <br /> على أفضل تعليم إلكتروني
+              انضم إلى أكاديمية الرحلة للحصول <br /> على أفضل تعليم إلكتروني
             </h1>
             <p>قم بالتسجيل في أكاديمية الرحلة للبدء! لتعليم إلكتروني أفضل </p>
           </div>

@@ -1,14 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LanguageContext } from "../../../App";
 
 function TermsPrivacy({ info }) {
   const language = useContext(LanguageContext);
+  const location = useLocation();
   return (
     <React.Fragment>
       {language === "english" ? (
         <div>
-          <p className="terms">
+          <p
+            className={`terms ${
+              location.pathname.includes("register")
+                ? "!left-auto !translate-x-0"
+                : ""
+            }`}
+          >
             {info} to Al Rihla Academy, you agree to our
             <Link to="/Terms" className="text-link">
               {" "}
@@ -24,7 +31,13 @@ function TermsPrivacy({ info }) {
         </div>
       ) : (
         <div>
-          <p className="terms">
+          <p
+            className={`terms ${
+              location.pathname.includes("register")
+                ? "!left-auto !translate-x-0"
+                : ""
+            }`}
+          >
             من خلال التسجيل في أكاديمية الرحلة، فإنك توافق على
             <Link to="/Terms" className="text-link">
               {" "}
