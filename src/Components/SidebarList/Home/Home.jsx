@@ -46,19 +46,19 @@ function Home() {
   const location = useLocation();
 
   return (
-    <div className="home grid grid-cols-3 gap-10 pb-4">
+    <div className="home grid grid-cols-1 md:grid-cols-3 gap-10 pb-4">
       <section className="courses col-span-2">
-        <div className="top-section flex items-center">
-          <h2 className="mr-2 text-3xl"> My learning</h2>
-          <div className="move flex items-center">
+        <div className="top-section mb-7">
+          <h2 className="mr-2 text-3xl mb-6"> My learning</h2>
+          <div className="move after:bg-grayD flex items-center">
             {move.map((e, idx) => (
               <Link
                 key={idx}
                 to={e}
                 className={
                   location.pathname.includes(e.substring(0, 6))
-                    ? "text-primary mx-3 capitalize"
-                    : "text-textColor mx-3 capitalize"
+                    ? "text-primary active mr-3 capitalize after:bg-primary"
+                    : "text-textColor mr-3 capitalize after:bg-primary"
                 }
               >
                 {e}
@@ -70,10 +70,10 @@ function Home() {
       </section>
       <section className="right-side">
         <div className="profile-info rounded-xl border-2 border-grayD border-solid px-3 py-2">
-          <div className="details flex justify-between items-center">
+          <div className="details flex-wrap flex justify-between items-center">
             <div className="left flex items-center">
               <div className="photo"></div>
-              <div className="name-class ml-3">
+              <div className="name-class">
                 <h5 className="name">khalid al walid</h5>
                 <span className="class">7th grade</span>
               </div>
@@ -81,27 +81,27 @@ function Home() {
             <div className="badges flex items-center justify-between">
               <span className="badge-item flex justify-center items-center">
                 <CiBadgeDollar />
-                <strong>0</strong>
+                <strong className="text-grayD">0</strong>
               </span>
               <span className="badge-item flex justify-center items-center">
                 <CiBadgeDollar />
-                <strong>0</strong>
+                <strong className="text-grayD">0</strong>
               </span>
               <span className="badge-item flex justify-center items-center">
                 <CiBadgeDollar />
-                <strong>0</strong>
+                <strong className="text-grayD">0</strong>
               </span>
               <span className="badge-item flex justify-center items-center">
                 <CiBadgeDollar />
-                <strong>0</strong>
+                <strong className="text-grayD">0</strong>
               </span>
               <span className="badge-item flex justify-center items-center">
                 <CiBadgeDollar />
-                <strong>0</strong>
+                <strong className="text-grayD">0</strong>
               </span>
             </div>
           </div>
-          <div className="calender gap-3 flex justify-start items-center pt-4">
+          <div className="calender flex-wrap gap-3 flex justify-start items-center pt-4">
             <span
               className={`date rounded-mds border-2 border-solid border-gray-300${
                 today ? "text-white bg-primary" : "text-black bg-white"
@@ -182,16 +182,9 @@ function Home() {
                   <span className="capitalize font-bold pb-1 inline-block">
                     {p.subject}
                   </span>
-                  <div
-                    className="progress"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    aria-valuenow={p.progress}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
+                  <div className="progress bg-grayD">
                     <div
-                      className="progress-bar"
+                      className="progress-bar bg-primary"
                       style={{ width: p.progress + "%" }}
                     >
                       {p.progress}%

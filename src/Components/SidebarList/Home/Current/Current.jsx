@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Current() {
   const [courses, setCourses] = useState([
@@ -36,7 +36,7 @@ function Current() {
     {
       title: "Arabic",
       length: "12",
-      color: "green",
+      color: "#453",
       lessons: [
         {
           id: "2x",
@@ -67,7 +67,7 @@ function Current() {
     {
       title: "Physique",
       length: "12",
-      color: "green",
+      color: "#fff",
       lessons: [
         {
           id: "2x",
@@ -98,16 +98,12 @@ function Current() {
   ]);
   const [isCompleted, setIsCompleted] = useState(false);
 
-  useEffect(() => {
-    console.log(courses[0].lessons[0].previousSibling);
-  }, []);
-
   return (
-    <div className="grid grid-cols-2 gap-8 mt-3">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-3">
       {courses.map((c, idx) => (
         <div key={idx} className="course">
           <div className="top-section flex justify-between py-3 border-b-2 border-grayD border-b-solid">
-            <p className="my-auto">{c.title}</p>
+            <p className="my-auto text-normalColor">{c.title}</p>
             {c.length > 5 && (
               <button className="text-link">see all ({c.length})</button>
             )}
@@ -118,7 +114,9 @@ function Current() {
                 key={idx}
                 className="lesson flex justify-start relative mt-6"
               >
-                <span className={`circle text-[${c.color}]`}>{l.id}</span>
+                <span className={`circle !bg-[${c.color}] after:bg-grayD`}>
+                  {l.id}
+                </span>
                 <p className="lesson-name my-auto ml-3 text-normalColor">
                   {l.name}
                 </p>

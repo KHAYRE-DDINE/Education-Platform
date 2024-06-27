@@ -90,6 +90,12 @@ function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-5">
+          <input
+            type="search"
+            name="searching"
+            className=""
+            placeholder="Placeholder"
+          />
           <div className="box-lang flex items-center justify-around relative text-sm font-semibold leading-6 text-gray-900 capitalize">
             <div className="language-icon absolute left-0">
               <TbWorld />
@@ -103,10 +109,10 @@ function Header() {
               aria-hidden="true"
             />
           </div>
-          <button className="text-sm font-semibold leading-6 text-gray-900">
+          <button className="text-sm font-semibold leading-3 text-gray-900">
             <DropDownNotification />
           </button>
-          <button className="text-sm font-semibold leading-6 text-gray-900">
+          <button className="text-sm font-semibold leading-3 text-gray-900">
             <DropDownProfile />
           </button>
         </PopoverGroup>

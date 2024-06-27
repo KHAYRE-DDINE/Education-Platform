@@ -2,4 +2,9 @@
     display: flex;
 }
 
-.dashboard .layout {}
+
+@media (max-width :768px) {
+    .dashboard .layout {
+        width: 100% !important;
+    }
+}

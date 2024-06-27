@@ -27,8 +27,7 @@ function Sidebar({ sidebarWidth, setSidebarWidth }) {
 
   return (
     <div
-      className="sidebar fixed h-screen bg-gray-200"
-      style={{ width: `${sidebarWidth}px` }}
+      className={`sidebar invisible md:visible w-0 md:w-[${sidebarWidth}px] fixed h-screen bg-gray-200`}
     >
       <div className="logo p-4">
         <h2 className="uppercase text-primary font-bold text-2xl">al rihla</h2>

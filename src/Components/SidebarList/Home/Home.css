@@ -1,10 +1,35 @@
+.home .courses {
+    position: relative;
+}
+
+.home .move::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    margin-top: 42px;
+}
+
+.home .move a {
+    position: relative;
+}
+
+.home .move a.active::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    margin-top: 32px;
+    left: 0;
+    z-index: 55;
+}
+
 .lessons .lesson {
     position: relative;
 }
 
 .lessons .lesson span {
     position: relative;
-    background-color: aqua;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -19,8 +44,12 @@
     height: 25px;
     width: 2px;
     position: absolute;
-    background: red;
     z-index: -1;
+}
+
+.lessons .lesson:last-of-type span:after,
+.lessons .lesson:last-of-type span:before {
+    height: 15px;
 }
 
 .lessons .lesson:not(:first-of-type) span::before {
@@ -49,6 +78,8 @@
     margin: 0;
 }
 
+
+
 .right-side .calender .date {
     width: 45px;
     height: 60px;
@@ -71,14 +102,16 @@
 }
 
 .right-side .details .badges strong {
-    font-size: 12px;
-    margin-left: 1px;
+    line-height: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 2px;
 }
 
 .right-side .teachers .all-teachers .teacher,
 .right-side .all-progress .progressBar {
-    padding: 5px 15px;
-    height: 55px;
+    padding: 7px 15px;
+    height: 60px;
     font-size: 13px;
 }
 
@@ -89,4 +122,13 @@
 
 .right-side .all-progress .progressBar span {
     font-size: 12px;
+}
+
+.right-side .all-progress .progressBar .progress .progress-bar {
+    text-align: end;
+    padding-right: 5px;
+    color: white;
+    height: 20px;
+    line-height: 20px;
+    font-size: 11px;
 }

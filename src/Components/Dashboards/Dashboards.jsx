@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./Dashboard.css";
+import React, { useState } from "react";
+import "./Dashboards.css";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import { Outlet } from "react-router-dom";

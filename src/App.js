@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './Components/LoginRegister/Login/Login';
@@ -29,7 +29,6 @@ export const setLanguageContext = createContext(0)
 
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
-
   return (
     <div className="App">
       <BrowserRouter>

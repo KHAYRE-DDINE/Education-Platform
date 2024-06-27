@@ -9,3 +9,15 @@ header .box-lang select {
     width: 100%;
     text-align: center;
 }
+
+header input[type="search"] {
+    background-color: #ccc3;
+    padding: 7px 19px 7px 36px;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%);
+    width: 438px;
+    height: 46px;
+    border-radius: 7px;
+    outline: none;
+}
