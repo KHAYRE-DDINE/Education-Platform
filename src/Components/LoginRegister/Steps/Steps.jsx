@@ -6,13 +6,14 @@ import { LanguageContext } from "../../../App";
 import ValidationForm from "../ValidationForm/ValidationForm";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
 import useAuthContext from "../../authentication/AuthContext";
+import axios from "../../api/axios";
 
 function Steps() {
   const language = useContext(LanguageContext);
   const [values, setValues] = useState({
     email: "",
     "First name": "",
-    "Last name": "",
+    "Last name": "", 
     password: "",
   });
   const [error, setError] = useState({});
@@ -24,9 +25,9 @@ function Steps() {
   }
   const navigate = useNavigate();
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
-    // register(values);
+    register(values);
   };
 
   return (

@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   const register = async ({ ...data }) => {
     await csrf();
     try {
-      await axios.post("/register", data);
+      await axios.post("/register/steps", data);
       getUser();
       navigate("/");
     } catch (e) {

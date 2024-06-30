@@ -4,18 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: " #1865F2",
+        primary: { "100": "#1865F2", "200": "#1865f296" },
         secondary: { '100': '#3B4A78', '200': '#2D2C53' },
         link: "#1865F2",
         required: "#F54747",
         backgroundErr: "#f5474742",
         grayD: "#ccc",
-        normalColor: "black"
+        normalColor: "#374151"
       },
       height: {
         firstHeightFace: "838px",
-        secondHeightFace: "730px"
-      }
+        secondHeightFace: "730px",
+      },
+
     },
   },
   plugins: [],

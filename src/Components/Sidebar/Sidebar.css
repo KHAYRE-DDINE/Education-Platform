@@ -1,25 +1,8 @@
-.sidebar {}
-
 .list .dash-links li {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-}
-
-.list .dash-links li:first-of-type {
-    margin-bottom: 18px;
-}
-
-.list .dash-links li:first-of-type::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    height: 2px;
-    width: 100%;
-    background-color: red;
-    left: 0;
-
 }
 
 .list .dash-links li a {

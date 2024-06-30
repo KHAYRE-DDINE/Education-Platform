@@ -10,14 +10,23 @@ header .box-lang select {
     text-align: center;
 }
 
-header input[type="search"] {
-    background-color: #ccc3;
+header .search-input {
+    margin-right: 22px;
+}
+
+header .search-input input {
+    border: 1px solid #ccc;
     padding: 7px 19px 7px 36px;
-    position: absolute;
-    right: 50%;
-    transform: translate(50%);
-    width: 438px;
-    height: 46px;
-    border-radius: 7px;
+    width: 346px;
     outline: none;
+    border-radius: 7px;
+    height: 42px;
+}
+
+header .search-input svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 7px;
+
 }
