@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@306&family=Caveat:wght@600;700&family=Chakra+Petch:ital,wght@0,400;0,600;1,600&family=League+Spartan:wght@900&family=Noto+Sans+Arabic:wght@100..900&family=Oswald:wght@200..700&family=Outfit:wght@200;300;400;800&family=Poppins:wght@400;500&family=Roboto:wght@300;400;500;700;900&family=Rubik:ital,wght@0,400;0,500;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -41,6 +43,7 @@ body.arabic {
 
 .outlet {
     width: 443px;
+    margin: 0 auto;
 }
 
 /***************************** ERROR *****************************/
@@ -69,22 +72,9 @@ fieldset.username.error input {
     margin: 14px 38px 6px;
 }
 
-.byusername p.terms {
-    top: 100%;
-}
-
 .register p.terms {
-left: 50%;
+    left: 50%;
     transform: translateX(-50%);
-}
-
-.login .form p.terms {
-    margin-top: 120px;
-    top: 100%;
-}
-
-.fgPassword p.terms {
-    top: auto !important;
 }
 
 p.terms {
@@ -94,7 +84,7 @@ p.terms {
     opacity: 1 !important;
     width: 350px;
     position: absolute;
-    bottom: 10px;
+    bottom: 23px;
     font-size: 14px !important;
     line-height: 19.6px;
     text-align: center;
@@ -104,10 +94,37 @@ p.terms a {
     font-weight: 500;
 }
 
+.login .form {
+    position: relative;
+    min-height: 100vh;
+}
+
 /***************************** Media Queries *****************************/
-/* 
-@media (max-width :790px) {
-    .face {
-        display: none !important;
+
+@media (max-width : 768px) {
+    .outlet {
+        width: 100%;
     }
-} */
+
+    .wrapper {
+        Width: 100%;
+    }
+
+    .register {
+        padding: 30px 15px;
+    }
+
+    .login {
+        display: block;
+    }
+}
+
+@media (min-width: 640px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1024px) {}
+
+@media (min-width: 1280px) {}
+
+@media (min-width: 1536px) {}

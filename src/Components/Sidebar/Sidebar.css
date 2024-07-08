@@ -9,6 +9,10 @@
     font-weight: 500;
 }
 
-.list .dash-links li a svg {
+.list .dash-links li a img {
     margin-right: 13px;
+}
+
+.list .dash-links li.arabic a img {
+    margin-left: 13px;
 }

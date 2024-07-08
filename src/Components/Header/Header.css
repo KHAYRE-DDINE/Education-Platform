@@ -30,3 +30,7 @@ header .search-input svg {
     margin-left: 7px;
 
 }
+
+header .logo {
+    width: 300px;
+}

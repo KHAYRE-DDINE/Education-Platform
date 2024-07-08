@@ -1,5 +1,6 @@
+/********************Welcome***********************/
 .home .search-input {
-    margin-right: 22px;
+    /* margin-right: 22px; */
 }
 
 .home .search-input input {
@@ -31,4 +32,162 @@
     width: 100%;
     height: 1px;
     bottom: -16px;
+}
+
+/********************Tests***********************/
+
+
+@media (min-width: 640px) {
+
+    .tests .all-tests .cover {
+        width: 280px;
+        height: max-content;
+    }
+
+    .tests .all-tests .cover .test {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .tests .all-tests {
+        gap: 12px;
+        row-gap: 14px;
+    }
+
+    .tests .all-tests .cover {
+        width: 48.7%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tests .all-tests {
+        gap: 11px;
+    }
+
+}
+
+@media (min-width: 1280px) {}
+
+@media (min-width: 1536px) {}
+
+/********************Subjects***********************/
+@media (max-width: 768px) {
+    .home .all-subjects {
+        justify-content: center;
+    }
+
+    .home .subjects .subject {
+        width: 100%;
+        max-width: 265px;
+    }
+}
+
+@media (min-width: 640px) {}
+
+@media (min-width: 768px) {
+    .subjects .all-subjects .subject {
+        width: 48%;
+    }
+}
+
+@media (min-width: 1024px) {}
+
+@media (min-width: 1280px) {}
+
+@media (min-width: 1536px) {}
+
+/********************Lessons***********************/
+.home .lessons .course span {
+    width: 39px;
+    height: 38px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (min-width: 640px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1024px) {}
+
+@media (min-width: 1280px) {}
+
+@media (min-width: 1536px) {}
+
+/********************Right Side***********************/
+.right-side {
+    border-left: 1px solid;
+    padding-left: 10px;
+}
+
+.right-side .details .name-class .name {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.right-side .details .name-class .class {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: gray;
+    font-weight: 700;
+    display: block;
+    margin: 0;
+}
+
+.right-side .teachers .box {
+    padding: 6px 10px;
+    margin-bottom: 18px;
+}
+
+.right-side .teachers .notice {
+    font-size: 14px;
+    color: #929292;
+    margin: 5px 0;
+}
+
+.right-side .teachers .unit {
+    font-weight: bold;
+}
+
+.right-side .calender .date {
+    width: 55px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.right-side .calender .date b {
+    text-transform: capitalize;
+    margin-top: -3px;
+    font-weight: 500;
+}
+
+.right-side .details .badges {
+    /* width: 143px; */
+}
+
+.right-side .details .badges strong {
+    line-height: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 2px;
+}
+
+.right-side .profile-info .name-class {
+    margin-left: 9px;
+}
+
+@media (max-width: 768px) {
+    .right-side {
+        grid-column: span 2;
+    }
 }

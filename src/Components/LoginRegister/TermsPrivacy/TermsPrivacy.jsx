@@ -8,7 +8,7 @@ function TermsPrivacy({ info }) {
   return (
     <React.Fragment>
       {language === "english" ? (
-        <div>
+        <div className="privacy">
           <p
             className={`terms ${
               location.pathname.includes("register")
