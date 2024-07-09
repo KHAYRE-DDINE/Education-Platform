@@ -18,6 +18,7 @@ function Dashboard() {
   const location = useLocation();
   const language = useContext(LanguageContext);
   const role = useContext(roleContext);
+  
   const AdminList = [
     { listName: "dashboard", listIcon: dashboard },
     { listName: "recent", listIcon: recent },
@@ -40,12 +41,12 @@ function Dashboard() {
   ];
   const StudentsList = [
     { listName: "dashboard", listIcon: dashboard },
-    { listName: "recent", listIcon: recent },
-    { listName: "teachers", listIcon: teachers },
+    { listName: "courses", listIcon: recent },
+    { listName: "assignments", listIcon: teachers },
     { listName: "classes", listIcon: classes },
-    { listName: "library", listIcon: library },
-    { listName: "routine", listIcon: routine },
-    { listName: "notice", listIcon: notice },
+    { listName: "calendar", listIcon: library },
+    { listName: "message", listIcon: routine },
+    { listName: "Library", listIcon: notice },
     { listName: "account", listIcon: account },
   ];
   return (

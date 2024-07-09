@@ -1,7 +1,7 @@
 import React from "react";
 
 function Recent() {
-  return <div>Recent Recent</div>;
+  return <div className="courses">courses</div>;
 }
 
 export default Recent;
