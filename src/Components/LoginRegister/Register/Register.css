@@ -24,7 +24,7 @@
     line-height: 19.6px;
     font-size: 15px;
     margin: 14px 0 6px;
-    display:block;
+    display: block;
     opacity: .8;
 }
 
@@ -128,4 +128,17 @@
 
 .Rg .face {
     height: 100vh;
+}
+
+@media(max-width: 640px) {
+
+.signer {
+        width: 299px !important;
+        margin: auto;
+    }
+
+ .signer .btn {
+        width: 99px !important;
+    }
+
 }

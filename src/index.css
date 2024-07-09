@@ -43,6 +43,7 @@ body.arabic {
 
 .outlet {
     width: 443px;
+    position: relative;
     margin: 0 auto;
 }
 
@@ -95,7 +96,6 @@ p.terms a {
 }
 
 .login .form {
-    position: relative;
     min-height: 100vh;
 }
 
@@ -103,7 +103,13 @@ p.terms a {
 
 @media (max-width : 768px) {
     .outlet {
-        width: 100%;
+        width: 414px;
+        margin: 0;
+        min-height: 800px;
+    }
+
+    .page {
+        justify-content: center !important;
     }
 
     .wrapper {
@@ -111,15 +117,22 @@ p.terms a {
     }
 
     .register {
-        padding: 30px 15px;
+        padding: 30px 15px !important;
     }
 
     .login {
         display: block;
+        justify-content: center;
     }
 }
 
-@media (min-width: 640px) {}
+@media(max-width: 640px) {
+    p.terms {
+        width: 300px !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width : 768px) {}
 
 @media (min-width: 768px) {}
 

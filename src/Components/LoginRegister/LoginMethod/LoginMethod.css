@@ -29,3 +29,11 @@
     background-color: inherit;
     border: 1px solid #c7c4c4;
 }
+
+@media(max-width: 640px) {
+
+    .way a,
+    .other {
+        width: 300px;
+    }
+}

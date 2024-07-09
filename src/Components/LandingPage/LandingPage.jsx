@@ -19,10 +19,11 @@ import teach from "../../images/Frame 55.svg";
 import teach1 from "../../images/Frame.svg";
 import "./LandingPage.css";
 import Definition from "./Definition/Definition";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 
 function LandingPage() {
   const [active, setActive] = useState("student");
+  const navigate = useNavigate();
   return (
     <div className="landing-page overflow-hidden">
       <div className="header">
@@ -30,8 +31,11 @@ function LandingPage() {
           <img src={logo} alt="logo" />
           <span className="text-colorGray-700 capitalize">al rihla</span>
         </div>
-        <div className="btn bg-colorBlue-600">
-          <button className="">Join beta</button>
+        <div
+          onClick={() => navigate("login")}
+          className="btn cursor-pointer bg-colorBlue-600"
+        >
+          <button>Join beta</button>
         </div>
       </div>
       <div className="introduction relative">

@@ -127,3 +127,28 @@
 .login .form p a {
     color: var(--link-color);
 }
+
+@media(max-width: 640px) {
+    .login .wrapper {
+        Width: max-content !important;
+        margin: 0 !important;
+    }
+
+    .login .form {
+        padding: 29px 0 0 !important;
+        width: 300px !important;
+        margin: 0 37px !important;
+    }
+
+    .login input {
+        width: 300px !important;
+    }
+
+    .login input[type="submit"] {
+        width: 300px !important;
+    }
+
+
+}
+
+@media (min-width: 640px) and (max-width : 768px) {}

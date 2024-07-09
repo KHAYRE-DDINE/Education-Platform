@@ -22,7 +22,7 @@ export const setRoleContext = createContext(0)
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
   const { user } = useAuthContext()
-  const [role, setRole] = useState("student")
+  const [role, setRole] = useState(null)
   return (
     <div className="App">
       <LanguageContext.Provider value={platformLanguage}>
@@ -45,11 +45,11 @@ function App() {
                       <Route element={<Dashboard />}>
                         <Route index element={<AdminDashboard />} />
                         <Route path="/dashboard/*" element={<AdminDashboard />} />
-                      </Route> : role === null ?
+                      </Route> :
+                      role === null ?
                         <React.Fragment>
-                          <Route path="/" element={<LandingPage />} />
+                          <Route exact path="/" element={<LandingPage />} />
                           <Route element={< LoginRegister />}>
-                            <Route index element={< Login />} />
                             <Route path="login" element={< Login />} />
                             <Route path="forgot-password" element={< ForgotPassword />} />
                             <Route path="register" element={< Register />} />
