@@ -54,3 +54,12 @@
 .boxesCode .password input::placeholder {
     color: #CCD2E6;
 }
+
+
+@media (max-width: 640px) {
+    .boxesCode .password input {
+        width: 31px !important;
+        height: 32px !important;
+        padding: 0 0 0px 7px !important;
+    }
+}

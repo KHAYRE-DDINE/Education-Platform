@@ -70,7 +70,7 @@ fieldset.username.error input {
 /***************************** Terms && Privacy *****************************/
 .steps p.terms {
     text-align: center;
-    margin: 14px 38px 6px;
+    /* margin: 14px 38px 6px; */
 }
 
 .register p.terms {
@@ -113,7 +113,7 @@ p.terms a {
     }
 
     .wrapper {
-        Width: 100%;
+        Width: 100% !important;
     }
 
     .register {
@@ -122,19 +122,26 @@ p.terms a {
 
     .login {
         display: block;
-        justify-content: center;
+        justify-content: center !important;
     }
 }
 
 @media(max-width: 640px) {
     p.terms {
         width: 300px !important;
+        position: absolute;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
 
 @media (min-width: 640px) and (max-width : 768px) {}
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .steps p.terms {
+        margin: 14px 38px 6px;
+    }
+}
 
 @media (min-width: 1024px) {}
 

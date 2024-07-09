@@ -132,13 +132,31 @@
 
 @media(max-width: 640px) {
 
-.signer {
+    .signer {
         width: 299px !important;
         margin: auto;
     }
 
- .signer .btn {
+    .signer .btn {
         width: 99px !important;
     }
 
+    .register :is(p, .birth span) {
+        width: 300px;
+        margin: 14px auto 6px;
+    }
+
+    .register .title {
+        width: 300px;
+        margin: auto;
+    }
+
+    .register .birth form {
+        width: 300px;
+        margin: auto;
+    }
+
+    .register .birth form select {
+        width: 95px;
+    }
 }

@@ -96,3 +96,26 @@
 .inputs fieldset.password.error>input::placeholder {
     color: var(--required-color);
 }
+
+
+@media(max-width: 640px) {
+    .steps .inputs {
+        padding: 30px 0;
+    }
+
+    .steps .inputs>fieldset:last-of-type {
+        padding-right: 0;
+    }
+
+    .steps .inputs fieldset input[type="submit"] {
+        width: 160px !important;
+    }
+
+    .steps .inputs fieldset.name {
+        flex-direction: column;
+    }
+
+    .steps .inputs fieldset.name input:first-of-type {
+        margin-bottom: 0;
+    }
+}
