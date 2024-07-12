@@ -14,6 +14,7 @@ import AdminDashboard from "./Components/Dashboards/AdminDashboard/AdminDashboar
 import Dashboard from "./Components/Dashboards/Dashboards";
 import useAuthContext from './Components/authentication/AuthContext';
 import LandingPage from './Components/LandingPage/LandingPage';
+
 export const LanguageContext = createContext(0)
 export const setLanguageContext = createContext(0)
 export const roleContext = createContext(0)
@@ -22,8 +23,9 @@ export const setRoleContext = createContext(0)
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
   const { user } = useAuthContext()
-  const [role, setRole] = useState("student")
-  
+  // const [role, setRole] = useState("student")
+  const [role, setRole] = useState(null)
+
   return (
     <div className="App">
       <LanguageContext.Provider value={platformLanguage}>

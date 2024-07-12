@@ -18,7 +18,7 @@ function Dashboard() {
   const location = useLocation();
   const language = useContext(LanguageContext);
   const role = useContext(roleContext);
-  
+
   const AdminList = [
     { listName: "dashboard", listIcon: dashboard },
     { listName: "recent", listIcon: recent },
@@ -66,9 +66,12 @@ function Dashboard() {
             setSidebarWidth={setSidebarWidth}
           />
           <div
-            className={`under-layout absolute right-0 h-screen px-4 xlg:px-10 `}
+            className={`under-layout absolute right-0 px-4 py-5 xlg:px-10 `}
             style={{ width: `calc(100% - ${sidebarWidth}px)` }}
           >
+            <h1 className="capitalize text-3xl my-6">
+              welcome, khalid al walid
+            </h1>
             <Outlet />
           </div>
         </main>

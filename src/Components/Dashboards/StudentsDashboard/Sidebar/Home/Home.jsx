@@ -177,10 +177,8 @@ function Home() {
     <div className="home grid grid-cols-1 lg:grid-cols-3 gap-10 ">
       {language === "english" ? (
         <React.Fragment>
-          <section className="welcome col-span-2 py-5">
-            <h1 className="capitalize text-3xl mb-7">
-              welcome, khalid al walid
-            </h1>
+          <section className="welcome col-span-2 ">
+
             <div className="tests mb-[40px]">
               <div className="head mb-4 flex justify-between">
                 <h3>Your tests</h3>
