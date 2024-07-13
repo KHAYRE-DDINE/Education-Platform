@@ -1,7 +1,8 @@
 import React from "react";
+import "./Courses.css";
 
-function Recent() {
+function Courses() {
   return <div className="courses">courses</div>;
 }
 
-export default Recent;
+export default Courses;

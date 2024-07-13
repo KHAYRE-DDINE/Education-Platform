@@ -229,7 +229,7 @@ function LandingPage() {
                       alt="setting"
                     />
                     <img
-                      className=" absolute w-[11%] bottom-[43%] left-[16.25rem] b-[40px]"
+                      className=" absolute w-[11%] bottom-[43%] left-[47%] b-[40px]"
                       src={chimie}
                       alt="chimie"
                     />
@@ -254,7 +254,7 @@ function LandingPage() {
                       alt="square"
                     />
                     <img
-                      className="absolute bottom-[100px] left-[160px] z-50"
+                      className="absolute bottom-[100px] left-[30%] z-50"
                       src={x2}
                       alt="x2"
                     />

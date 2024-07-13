@@ -14,6 +14,7 @@ import AdminDashboard from "./Components/Dashboards/AdminDashboard/AdminDashboar
 import Dashboard from "./Components/Dashboards/Dashboards";
 import useAuthContext from './Components/authentication/AuthContext';
 import LandingPage from './Components/LandingPage/LandingPage';
+import ResetPassword from './Components/LoginRegister/ForgotPassword/ResetPassword/ResetPassword';
 
 export const LanguageContext = createContext(0)
 export const setLanguageContext = createContext(0)
@@ -23,8 +24,8 @@ export const setRoleContext = createContext(0)
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
   const { user } = useAuthContext()
-  // const [role, setRole] = useState("student")
-  const [role, setRole] = useState(null)
+  const [role, setRole] = useState("student")
+  // const [role, setRole] = useState(null)
 
   return (
     <div className="App">
@@ -54,7 +55,9 @@ function App() {
                           <Route exact path="/" element={<LandingPage />} />
                           <Route element={< LoginRegister />}>
                             <Route path="login" element={< Login />} />
-                            <Route path="forgot-password" element={< ForgotPassword />} />
+                            <Route path="forgot-password" element={< ForgotPassword />} >
+                              <Route path="password-reset" element={<ResetPassword />} />
+                            </Route>
                             <Route path="register" element={< Register />} />
                             <Route path="register/steps" element={< Steps />} />
                             <Route path="register/register-by-username" element={< ByUsername />} />
