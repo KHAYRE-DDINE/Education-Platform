@@ -1,4 +1,8 @@
 /********************Welcome***********************/
+.home .welcome {
+    width: 80%;
+}
+
 .home .search-input {
     /* margin-right: 22px; */
 }

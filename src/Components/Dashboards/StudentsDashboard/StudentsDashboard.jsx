@@ -10,6 +10,9 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../../../App";
 import Account from "./Sidebar/Account/Account";
 import Calender from "./Sidebar/Calendar/Calendar";
+import Current from "./Sidebar/Courses/Current/Current";
+import Archived from "./Sidebar/Courses/Archived/Archived";
+import Completed from "./Sidebar/Courses/Completed/Completed";
 
 function StudentsDashboard() {
   const language = useContext(LanguageContext);
@@ -20,7 +23,11 @@ function StudentsDashboard() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="courses" element={<Courses />} />
+            <Route path="courses" element={<Courses />}>
+              <Route path="current learning" element={<Current />} />
+              <Route path="Archived" element={<Archived />} />
+              <Route path="Completed" element={<Completed />} />
+            </Route>
             <Route path="classes" element={<Classes />} />
             <Route path="calendar" element={<Calender />} />
             <Route path="library" element={<Library />} />
@@ -35,7 +42,11 @@ function StudentsDashboard() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="courses" element={<Courses />} />
+            <Route path="courses" element={<Courses />}>
+              <Route path="current learning" element={<Current />} />
+              <Route path="Archived" element={<Archived />} />
+              <Route path="Completed" element={<Completed />} />
+            </Route>
             <Route path="classes" element={<Classes />} />
             <Route path="calendar" element={<Calender />} />
             <Route path="library" element={<Library />} />

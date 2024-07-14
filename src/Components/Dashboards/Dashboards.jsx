@@ -49,11 +49,12 @@ function Dashboard() {
     { listName: "Library", listIcon: notice },
     { listName: "account", listIcon: account },
   ];
+
   return (
     <div className=" dashboard min-h-screen">
       <Header />
       {language === "english" ? (
-        <main className={`layout flex  relative top-[91px]`}>
+        <main className={`layout flex relative top-[91px]`}>
           <Sidebar
             list={
               role === "student"
@@ -66,12 +67,9 @@ function Dashboard() {
             setSidebarWidth={setSidebarWidth}
           />
           <div
-            className={`under-layout absolute right-0 px-4 py-5 xlg:px-10 `}
+            className={`under-layout absolute right-0 pl-4 xlg:px-10 `}
             style={{ width: `calc(100% - ${sidebarWidth}px)` }}
           >
-            <h1 className="capitalize text-3xl my-6">
-              welcome, khalid al walid
-            </h1>
             <Outlet />
           </div>
         </main>
@@ -89,7 +87,7 @@ function Dashboard() {
             setSidebarWidth={setSidebarWidth}
           />
           <div
-            className={`under-layout absolute left-0 h-screen px-10 py-5`}
+            className={`under-layout absolute left-0 pr-4 xlg:px-10`}
             style={{ width: `calc(100% - ${sidebarWidth}px)` }}
           >
             <Outlet />

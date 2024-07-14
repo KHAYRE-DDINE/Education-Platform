@@ -16,7 +16,7 @@ header .search-input {
 
 header .search-input input {
     border: 1px solid #ccc;
-    padding: 7px 19px 7px 36px;
+    padding: 11px 19px 7px 36px;
     width: 346px;
     outline: none;
     border-radius: 7px;
@@ -28,7 +28,6 @@ header .search-input svg {
     top: 50%;
     transform: translateY(-50%);
     margin-left: 7px;
-
 }
 
 header .logo {

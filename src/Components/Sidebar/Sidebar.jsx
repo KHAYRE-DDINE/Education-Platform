@@ -33,7 +33,7 @@ function Sidebar({ sidebarWidth, setSidebarWidth, list }) {
                         l.listName === "dashboard" ? `home` : `${l.listName}`
                       }`
                     )
-                      ? `py-2 px-2 capitalize underline-none bg-primary-01 rounded-sm border-l-[3px] border-solid border-primary-0`
+                      ? `py-2 px-2 capitalize underline-none bg-blue-100 rounded-sm border-l-[3px] border-solid border-primary-100`
                       : "py-2 px-2 capitalize underline-none rounded-md"
                   }
                   key={id}
@@ -46,7 +46,7 @@ function Sidebar({ sidebarWidth, setSidebarWidth, list }) {
                     }
                     className={({ isActive, isPending }) =>
                       isActive
-                        ? ` text-primary-0 flex items-center`
+                        ? ` text-primary-100 flex items-center`
                         : "flex items-center text-normalColor "
                     }
                   >
