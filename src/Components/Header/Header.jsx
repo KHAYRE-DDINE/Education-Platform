@@ -14,9 +14,9 @@ function Header() {
   const setLanguage = useContext(setLanguageContext);
   const Language = useContext(LanguageContext);
 
-  const changeLanguage = (e) => {
-    setLanguage(e.target.value);
-  };
+  // const changeLanguage = (e) => {
+  //   setLanguage(e.target.value);
+  // };
   //  <div className="box-lang flex items-center justify-around relative text-sm font-semibold leading-6 text-gray-900 capitalize">
   //    <div className="language-icon absolute left-0">
   //      <TbWorld />
@@ -37,7 +37,7 @@ function Header() {
         <header className="bg-white z-[9999] fixed w-[100%] flex items-center justify-between  border-b-[1px] border-solid border-grayD">
           <div className="logo p-4 flex">
             <button className="bg-primary-100 rounded-full w-8 h-8 mr-5"></button>
-            <h2 className="uppercase text-primary font-bold text-2xl flex">
+            <h2 className="w-[180px] uppercase text-primary font-bold text-2xl flex">
               <img className="mr-2" src={logo} alt="logo" />
               al rihla
             </h2>
@@ -72,7 +72,7 @@ function Header() {
         <header className="bg-white z-[9999] fixed w-[100%] flex flex-row-reverse items-center justify-between  border-b-[1px] border-solid border-grayD">
           <div className="logo p-4 flex flex-row-reverse">
             <button className="bg-primary-100 rounded-full w-8 h-8 ml-5"></button>
-            <h2 className="uppercase text-primary font-bold text-2xl flex flex-row-reverse">
+            <h2 className="w-[180px] uppercase text-primary font-bold text-2xl flex flex-row-reverse">
               <img className="ml-2" src={logo} alt="logo" />
               al rihla
             </h2>

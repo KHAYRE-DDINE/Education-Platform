@@ -176,7 +176,7 @@ function Home() {
   return (
     <div>
       {language === "english" ? (
-        <div className="home flex  gap-6 ">
+        <div className="home flex flex-col xl:flex-row gap-6 ">
           <section className="welcome ">
             <h1 className="capitalize text-3xl my-6">
               welcome, khalid al walid
@@ -282,7 +282,7 @@ function Home() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 xlg:grid-cols-2 gap-8 mt-3">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-3">
                 {courses.map((c, idx) => (
                   <div key={idx} className="course">
                     <div className="top-section flex justify-between py-3 border-b-2 border-grayD border-b-solid">
@@ -463,7 +463,7 @@ function Home() {
           </section>
         </div>
       ) : (
-        <div className="home flex flex-row-reverse gap-6 ">
+        <div className="home flex flex-col xl:flex-row-reverse gap-6 ">
           <section className="welcome ">
             <h1 className="capitalize text-3xl my-6">
               welcome, khalid al walid
@@ -569,7 +569,7 @@ function Home() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 xlg:grid-cols-2 gap-8 mt-3">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-3">
                 {courses.map((c, idx) => (
                   <div key={idx} className="course">
                     <div className="top-section flex flex-row-reverse justify-between py-3 border-b-2 border-grayD border-b-solid">

@@ -54,7 +54,7 @@ function Courses() {
   return (
     <div className="courses flex gap-6">
       <div className="left-side">
-        <h1 className="capitalize text-3xl my-6">courses</h1>
+        <h1 className="capitalize text-3xl mb-6">courses</h1>
         <div className="top-section mb-7">
           <div className="move after:bg-grayD flex items-center">
             <Link
