@@ -45,10 +45,68 @@
     padding: 13px;
 }
 
+.rbc-calendar {
+    margin-top: 85px;
+}
+
 .rbc-toolbar {
     justify-content: end !important;
+    margin-right: 230px;
 }
 
 .rbc-toolbar .rbc-toolbar-label {
     flex-grow: 0 !important;
+}
+
+.choose {
+    width: max-content;
+    right: 17px;
+    display: flex;
+    align-items: center;
+}
+
+select {}
+
+select {
+    outline: none;
+    background-color: #8080806e;
+    margin: 0 5px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    min-width: 95px;
+    text-transform: capitalize;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 100%;
+    line-height: 33px;
+}
+
+.d-w-m,
+.select {
+    height: 40px;
+    position: relative;
+}
+
+.d-w-m svg,
+.select svg {
+    position: absolute;
+    right: 10px;
+    top: 51%;
+    font-size: x-large;
+    transform: translateY(-50%);
+}
+
+.css-1utx3w7 {
+    width: max-content;
+}
+
+button.chakra-button.bg-grayD.css-p7mkev,
+button.chakra-button.css-p7mkev {
+    width: 40px;
+    height: 40px;
+    font-size: x-large;
+    border-radius: 7px;
+    color: #1a1a1aad;
+    background-color: #ccc;
+    margin: 0 5px;
 }

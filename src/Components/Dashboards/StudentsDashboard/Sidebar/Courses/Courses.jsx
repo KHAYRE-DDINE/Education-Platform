@@ -165,6 +165,22 @@ function Courses() {
             </Link>
           </div>
         </div>
+        <div className="alerts right-box rounded-lg border-[1px] border-solid !border-grayD">
+          <div className="head flex justify-between !border-grayD ">
+            <h3>upcoming classes</h3>
+            <button className="text-primary-100 border-none">view all</button>
+          </div>
+          <div className="content">
+            <div className="image">
+              <img src="" alt="" />
+            </div>
+            <h2 className="title">start enrolling classes</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <Link to="more" className="text-primary-100 after:bg-primary-100">
+              Read more
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

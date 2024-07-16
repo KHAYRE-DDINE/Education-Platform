@@ -1,0 +1,37 @@
+.table {
+    width: 600px;
+}
+
+.table thead {}
+
+.table thead tr {}
+
+.table thead tr th {
+    text-align: start;
+    padding: 9px 0;
+}
+
+.table tbody {}
+
+.table tbody tr {}
+
+.table tbody tr td {}
+
+tr {
+    border-bottom: 1px solid;
+}
+
+.fzvXhU.rdt_Table.sc-aYaIB {
+    border-bottom: 1px solid #ccc;
+}
+
+div#cell-6-1 div {
+    cursor: pointer;
+}
+
+div#cell-3-1 div {
+    background-color: #80808045;
+    padding: 0 10px;
+    border-radius: 9px;
+    width: 100px;
+}

@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import dashboard from "../../images/dashboard.svg";
 import recent from "../../images/recent.svg";
-import teachers from "../../images/teachers.svg";
+import Assignment from "../../images/Assignment.svg";
 import classes from "../../images/classes.svg";
 import library from "../../images/library.svg";
 import routine from "../../images/routine.svg";
@@ -22,7 +22,7 @@ function Dashboard() {
   const AdminList = [
     { listName: "dashboard", listIcon: dashboard },
     { listName: "recent", listIcon: recent },
-    { listName: "teachers", listIcon: teachers },
+    { listName: "teachers", listIcon: Assignment },
     { listName: "classes", listIcon: classes },
     { listName: "library", listIcon: library },
     { listName: "routine", listIcon: routine },
@@ -32,7 +32,7 @@ function Dashboard() {
   const TeacherList = [
     { listName: "dashboard", listIcon: dashboard },
     { listName: "recent", listIcon: recent },
-    { listName: "teachers", listIcon: teachers },
+    { listName: "teachers", listIcon: Assignment },
     { listName: "classes", listIcon: classes },
     { listName: "library", listIcon: library },
     { listName: "routine", listIcon: routine },
@@ -42,7 +42,7 @@ function Dashboard() {
   const StudentsList = [
     { listName: "dashboard", listIcon: dashboard },
     { listName: "courses", listIcon: recent },
-    { listName: "assignments", listIcon: teachers },
+    { listName: "assignments", listIcon: Assignment },
     { listName: "classes", listIcon: classes },
     { listName: "calendar", listIcon: library },
     { listName: "message", listIcon: routine },
