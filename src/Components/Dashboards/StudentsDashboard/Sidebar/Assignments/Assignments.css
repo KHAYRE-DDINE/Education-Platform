@@ -1,8 +1,12 @@
+/***********************Left Side*****************************/
+.left {
+    padding: 0 30px 0 6px;
+    width: 100%;
+}
+
 .table {
     width: 600px;
 }
-
-.table thead {}
 
 .table thead tr {}
 
@@ -10,12 +14,6 @@
     text-align: start;
     padding: 9px 0;
 }
-
-.table tbody {}
-
-.table tbody tr {}
-
-.table tbody tr td {}
 
 tr {
     border-bottom: 1px solid;
@@ -29,9 +27,84 @@ div#cell-6-1 div {
     cursor: pointer;
 }
 
-div#cell-3-1 div {
+div#cell-3-1 div,
+div#cell-3-2 div,
+div#cell-3-3 div {
     background-color: #80808045;
     padding: 0 10px;
     border-radius: 9px;
     width: 100px;
+    height: 30px;
+    line-height: 30px;
 }
+
+/***********************Right Side*****************************/
+.show-table {
+    background-color: #ebebeb;
+    height: calc(100vh - 92px);
+    position: fixed;
+    right: -100%;
+    padding: 20px;
+}
+
+.show-table .close img {
+    position: absolute;
+    right: 13px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.Assignments .show-table .sections {
+    margin-top: 65px;
+}
+
+.Assignments .show-table span {
+    color: #929292;
+    font-size: 14px;
+}
+
+.Assignments .show-table h2 {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.Assignments .show-table .move {
+    margin-top: 75px;
+}
+
+.Assignments .show-table .move::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    margin-top: 41px;
+}
+
+.Assignments .show-table .move a {
+    position: relative;
+}
+
+.Assignments .show-table .move a.active::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    margin-top: 32px;
+    left: 0;
+    z-index: 55;
+}
+
+/*******************Resources*****************************/
+.all-resources .resource .image-box {}
+
+.all-resources .resource .image-box img {}
+
+.all-resources .resource .info {
+    padding: 5px 10px;
+    border-radius: 0 0 7px 7px;
+}
+
+.all-resources .resource .info span {}
+
+.all-resources .resource .info .name h4 {}

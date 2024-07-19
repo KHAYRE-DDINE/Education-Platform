@@ -16,7 +16,7 @@ import { Button } from "@headlessui/react";
 const localizer = momentLocalizer(moment);
 
 function Calender() {
-  const [view, setView] = useState(Views.WEEK);
+  const [view, setView] = useState(Views.DAY);
   const [date, setDate] = useState(moment("2022-10-10"));
   const events = MOCK_EVENTS.map((e) => {
     return {

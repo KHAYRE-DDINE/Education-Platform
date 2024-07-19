@@ -13,6 +13,9 @@ import Calender from "./Sidebar/Calendar/Calendar";
 import Current from "./Sidebar/Courses/Current/Current";
 import Archived from "./Sidebar/Courses/Archived/Archived";
 import Completed from "./Sidebar/Courses/Completed/Completed";
+import About from "./Sidebar/Assignments/About/About";
+import Learning from "./Sidebar/Assignments/Learning/Learning";
+import Resources from "./Sidebar/Assignments/Resources/Resources";
 
 function StudentsDashboard() {
   const language = useContext(LanguageContext);
@@ -32,7 +35,11 @@ function StudentsDashboard() {
             <Route path="calendar" element={<Calender />} />
             <Route path="library" element={<Library />} />
             <Route path="message" element={<Message />} />
-            <Route path="assignments" element={<Assignments />} />
+            <Route path="assignments" element={<Assignments />}>
+              <Route path="about/:id" element={<About />} />
+              <Route path="learnings/:id" element={<Learning />} />
+              <Route path="resources/:id" element={<Resources />} />
+            </Route>
             <Route path="account" element={<Account />} />
           </Routes>
           <Outlet />

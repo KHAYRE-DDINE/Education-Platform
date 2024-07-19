@@ -1,0 +1,72 @@
+.learning {}
+
+.learning .comments {}
+
+.learning .comments .type {
+    margin: 42px 0 30px;
+}
+
+.learning .comments .type .icon {}
+
+.learning .comments .type .input {
+    width: 100%;
+}
+
+.learning .comments .type .input input {
+    outline: none;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 5px 17px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.learning .comments .latest-updates strong {
+    text-transform: capitalize;
+    margin-bottom: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+.learning .comments .latest-updates .comment {
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+}
+
+.learning .comments .latest-updates .comment>.avatar {}
+
+.learning .comments .latest-updates .comment .info {}
+
+.learning .comments .latest-updates .comment .info .title {}
+
+.learning .comments .latest-updates .comment .title h4 {
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.learning .comments .latest-updates .comment .info>span {
+    margin-bottom: 14px;
+    display: block;
+}
+
+.learning .comments .latest-updates .comment .info span a {}
+
+.learning .comments .latest-updates .comment .info .commenter {}
+
+.learning .comments .latest-updates .comment .info .commenter .avatar {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.learning .comments .latest-updates .comment .info .commenter .name {
+    text-transform: capitalize;
+    font-size: 14px;
+    margin-right: 11px;
+    color: #545454;
+
+}
+
+.learning .comments .latest-updates .comment .info .commenter span {}

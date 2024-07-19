@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Assignments.css";
-import DataTable, { createTheme } from "react-data-table-component";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import calendar from "../../../../../images/calendar.svg";
+import { LanguageContext } from "../../../../../App";
+import EnglishAssignment from "./EnglishAssignment";
+import ArabicAssignment from "./ArabicAssignment";
 
 function Assignments() {
   const [columns, setColumns] = useState([]);
@@ -17,8 +19,8 @@ function Assignments() {
       icon: <HiOutlineDotsHorizontal />,
     },
     {
-      id: 1,
-      assignment: "mathematic",
+      id: 2,
+      assignment: "Arabic",
       status: "pending",
       date: "20 aug",
       teacher: "ahmed taoufik",
@@ -26,26 +28,8 @@ function Assignments() {
       icon: <HiOutlineDotsHorizontal />,
     },
     {
-      id: 1,
-      assignment: "mathematic",
-      status: "pending",
-      date: "20 aug",
-      teacher: "ahmed taoufik",
-      updates: "23:10",
-      icon: <HiOutlineDotsHorizontal />,
-    },
-    {
-      id: 1,
-      assignment: "mathematic",
-      status: "pending",
-      date: "20 aug",
-      teacher: "ahmed taoufik",
-      updates: "23:10",
-      icon: <HiOutlineDotsHorizontal />,
-    },
-    {
-      id: 1,
-      assignment: "mathematic",
+      id: 3,
+      assignment: "programming",
       status: "pending",
       date: "20 aug",
       teacher: "ahmed taoufik",
@@ -53,8 +37,14 @@ function Assignments() {
       icon: <HiOutlineDotsHorizontal />,
     },
   ];
-
+  const [move, setMove] = useState(["about", "resources", "learnings"]);
   const [pending, setPending] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [sideWidth, setSideWidth] = useState(632);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const language = useContext(LanguageContext);
 
   const customStyles = {
     rows: {
@@ -80,7 +70,15 @@ function Assignments() {
     },
   };
 
-  const conditionalRowStyles = data.length > 5 ? true : false;
+  const goToTable = (e) => {
+    navigate(move[0] + "/" + e.id);
+    setOpen(true);
+  };
+  const backFromTable = () => {
+    console.log("success");
+    navigate("");
+    setOpen(false);
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -116,25 +114,37 @@ function Assignments() {
   }, []);
 
   return (
-    <div className="Assignments">
-      <div className="left">
-        <h1 className="capitalize text-3xl my-6">Assignments</h1>
-        <div className="assignment-table">
-          <DataTable
-            columns={columns}
-            data={data}
-            highlightOnHover
-            // pagination
-            // paginationPerPage={5}
-            // paginationRowsPerPageOptions={[5, 10, 15, 20]}
-            progressPending={pending}
-            customStyles={customStyles}
-            // conditionalRowStyles={conditionalRowStyles}
-          />
-        </div>
-      </div>
-      <div className="show-table"></div>
-    </div>
+    <React.Fragment>
+      {language === "english" ? (
+        <EnglishAssignment
+          data={data}
+          move={move}
+          columns={columns}
+          pending={pending}
+          open={open}
+          sideWidth={sideWidth}
+          location={location}
+          id={id}
+          customStyles={customStyles}
+          goToTable={goToTable}
+          backFromTable={backFromTable}
+        />
+      ) : (
+        <ArabicAssignment
+          data={data}
+          move={move}
+          columns={columns}
+          pending={pending}
+          open={open}
+          sideWidth={sideWidth}
+          location={location}
+          id={id}
+          customStyles={customStyles}
+          goToTable={goToTable}
+          backFromTable={backFromTable}
+        />
+      )}
+    </React.Fragment>
   );
 }
 
