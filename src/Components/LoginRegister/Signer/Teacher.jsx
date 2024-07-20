@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import "../LoginMethod/LoginMethod.css";
-import { Link } from "react-router-dom";
-import LoginMethod from "../LoginMethod/LoginMethod";
-import Steps from "../Steps/Steps";
-import Signer from "./Signer";
+
 import { LanguageContext } from "../../../App";
+import EnglishTeacher from "./EnglishTeacher";
+import ArabicTeacher from "./ArabicTeacher";
 
 function Teacher() {
   const language = useContext(LanguageContext);
@@ -12,33 +11,9 @@ function Teacher() {
   return (
     <React.Fragment>
       {language === "english" ? (
-        <div className="teacher">
-          {!withEmail ? (
-            <React.Fragment>
-              <Signer />
-              <LoginMethod />
-              <Link className="other" to="steps">
-                Sign up with email
-              </Link>
-            </React.Fragment>
-          ) : (
-            <Steps setWithEmail={setWithEmail} />
-          )}
-        </div>
+        <EnglishTeacher withEmail={withEmail} setWithEmail={setWithEmail} />
       ) : (
-        <div className="teacher">
-          {!withEmail ? (
-            <React.Fragment>
-              <Signer />
-              <LoginMethod />
-              <Link className="other" to="steps">
-                التسجيل بالبريد الإلكتروني
-              </Link>
-            </React.Fragment>
-          ) : (
-            <Steps setWithEmail={setWithEmail} />
-          )}
-        </div>
+        <ArabicTeacher withEmail={withEmail} setWithEmail={setWithEmail} />
       )}
     </React.Fragment>
   );

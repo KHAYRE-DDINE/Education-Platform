@@ -1,10 +1,8 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Signer from "./Signer";
-import Above from "./LearnerAge/Above13";
-import Under from "./LearnerAge/Under13";
+import React, { useContext, useState, useEffect } from "react";
+
 import { LanguageContext } from "../../../App";
-import Vector from "../../../images/Vector.svg";
+import EnglishLearner from "./EnglishLearner";
+import ArabicLearner from "./ArabicLearner";
 
 function Learner() {
   const language = useContext(LanguageContext);
@@ -89,138 +87,25 @@ function Learner() {
   return (
     <React.Fragment>
       {language === "english" ? (
-        <div className="learner">
-          <Signer />
-          <div className="birth ">
-            <span>What is your date of birth?</span>
-            <form action="" method="get">
-              <div className="select">
-                <select
-                  name="month"
-                  className={error.month ? "error" : ""}
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">month</option>
-
-                  {monthOptions.map((month, idMonth) => (
-                    <option name="month" key={idMonth} value={idMonth}>
-                      {month}
-                    </option>
-                  ))}
-                </select>{" "}
-                <img src={Vector} alt="Vector" />
-              </div>
-              <div className="select">
-                <select
-                  name="day"
-                  className={error.day ? "error" : ""}
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">day</option>
-                  {dayOptions.map((m, idDay) => (
-                    <option name="day" key={idDay} value={idDay + 1}>
-                      {idDay + 1}
-                    </option>
-                  ))}
-                </select>
-                <img src={Vector} alt="Vector" />
-              </div>
-              <div className="select">
-                <select
-                  name="year"
-                  className={error.year || age < 5 ? "error" : ""}
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">year</option>
-                  {yearOptions.map((year, idYear) => (
-                    <option name="year" key={idYear} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>{" "}
-                <img src={Vector} alt="Vector" />
-              </div>
-            </form>
-            {isValidate && age >= 13 ? (
-              <Above />
-            ) : isValidate && age < 13 && age > 5 ? (
-              <Under />
-            ) : (
-              ""
-            )}
-            <div className="links">
-              <Link to="class-code">Enter a class code</Link>
-              <Link to="/login">Already have an account?</Link>
-            </div>
-          </div>
-        </div>
+        <EnglishLearner
+          error={error}
+          checkBirthValidation={checkBirthValidation}
+          monthOptions={monthOptions}
+          dayOptions={dayOptions}
+          age={age}
+          yearOptions={yearOptions}
+          isValidate={isValidate}
+        />
       ) : (
-        <div className="learner">
-          <Signer />
-          <div className="birth ">
-            <span>ما هو تاريخ ميلادك؟</span>
-            <form action="" method="get" className="flex flex-row-reverse">
-              <div className="select">
-                <select
-                  name="day"
-                  className={error.day ? "error text-right" : "text-right"}
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">اليوم</option>
-                  {dayOptions.map((m, idDay) => (
-                    <option name="day" key={idDay} value={idDay + 1}>
-                      {idDay + 1}
-                    </option>
-                  ))}
-                </select>
-                <img src={Vector} className="left-3" alt="Vector" />
-              </div>
-              <div className="select">
-                <select
-                  name="month"
-                  className={error.month ? "error text-right" : "text-right"}
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">الشهر</option>
-                  {monthOptionsAr.map((month, idMonth) => (
-                    <option name="month" key={idMonth} value={idMonth + 1}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-                <img src={Vector} className="left-3" alt="Vector" />
-              </div>
-              <div className="select">
-                <select
-                  name="year"
-                  className={
-                    error.year || age < 5 ? "error text-right" : "text-right"
-                  }
-                  onChange={(e) => checkBirthValidation(e)}
-                >
-                  <option value="">السنة</option>
-                  {yearOptions.map((year, idYear) => (
-                    <option name="year" key={idYear} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-                <img src={Vector} className="left-3" alt="Vector" />
-              </div>
-            </form>
-            {isValidate && age >= 13 ? (
-              <Above />
-            ) : isValidate && age < 13 && age > 5 ? (
-              <Under />
-            ) : (
-              ""
-            )}
-            <div className="links">
-              <Link to="class-code">أدخل رمز الفصل</Link>
-              <Link to="/login">هل لديك حساب؟</Link>
-            </div>
-          </div>
-        </div>
+        <ArabicLearner
+          error={error}
+          checkBirthValidation={checkBirthValidation}
+          monthOptionsAr={monthOptionsAr}
+          dayOptions={dayOptions}
+          age={age}
+          yearOptions={yearOptions}
+          isValidate={isValidate}
+        />
       )}
     </React.Fragment>
   );

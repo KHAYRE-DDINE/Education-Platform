@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./BoxesCode.css";
 import { LanguageContext } from "../../../App";
+import EnglishBoxes from "./EnglishBoxes";
+import ArabicBoxes from "./ArabicBoxes";
 
 function BoxesCode({ dataError, isFound, setCodeClass, setIsFull }) {
   const language = useContext(LanguageContext);
@@ -35,40 +37,19 @@ function BoxesCode({ dataError, isFound, setCodeClass, setIsFull }) {
   return (
     <div className="boxesCode">
       {language === "english" ? (
-        <div
-          className={isFound ? "password" : "error password"}
-          data-error={dataError}
-        >
-          {otp.map((o, idx) => (
-            <input
-              className={/[\W_]/.test(o) ? "err" : ""}
-              key={idx}
-              type="text"
-              maxLength={1}
-              placeholder="_ "
-              onChange={(e) => handleOtp(e, idx)}
-              onKeyDown={(e) => handleOtp(e)}
-            />
-          ))}
-        </div>
+        <EnglishBoxes
+          handleOtp={handleOtp}
+          dataError={dataError}
+          isFound={isFound}
+          otp={otp}
+        />
       ) : (
-        <div
-          className={isFound ? "password" : "error password"}
-          data-error={dataError}
-          style={{ direction: "ltr" }}
-        >
-          {otp.map((o, idx) => (
-            <input
-              className={/\W/.test(o) ? "err" : ""}
-              key={idx}
-              type="text"
-              maxLength={1}
-              placeholder="_ "
-              onChange={(e) => handleOtp(e, idx)}
-              onKeyDown={(e) => handleOtp(e)}
-            />
-          ))}
-        </div>
+        <ArabicBoxes
+          handleOtp={handleOtp}
+          dataError={dataError}
+          isFound={isFound}
+          otp={otp}
+        />
       )}
     </div>
   );

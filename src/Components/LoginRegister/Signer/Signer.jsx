@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { idPersonContext, setIdPersonContext } from "../LoginRegister";
 import { LanguageContext } from "../../../App";
+import EnglishSigner from "./EnglishSigner";
+import ArabicSigner from "./ArabicSigner";
 function Signer() {
   const language = useContext(LanguageContext);
   const [person, setPerson] = useState(["learner", "teacher", "parent"]);
@@ -11,35 +13,17 @@ function Signer() {
   return (
     <div>
       {language === "english" ? (
-        <React.Fragment>
-          <p>Welcome to Al Rihla Academy, join us as a</p>
-          <div className="signer">
-            {person.map((e, idx) => (
-              <button
-                key={idx}
-                onClick={() => setIdContext(idx)}
-                className={idx === idContext ? "btn clicked" : "btn"}
-              >
-                {e}
-              </button>
-            ))}
-          </div>
-        </React.Fragment>
+        <EnglishSigner
+          person={person}
+          setIdContext={setIdContext}
+          idContext={idContext}
+        />
       ) : (
-        <React.Fragment>
-          <p> : مرحبا بكم في أكاديمية الرحلة، انضم إلينا</p>
-          <div className="signer flex flex-row-reverse">
-            {personAr.map((e, idx) => (
-              <button
-                key={idx}
-                onClick={() => setIdContext(idx)}
-                className={idx === idContext ? "btn clicked" : "btn"}
-              >
-                {e}
-              </button>
-            ))}
-          </div>
-        </React.Fragment>
+        <ArabicSigner
+          personAr={personAr}
+          setIdContext={setIdContext}
+          idContext={idContext}
+        />
       )}
     </div>
   );

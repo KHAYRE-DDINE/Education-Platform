@@ -15,6 +15,8 @@ import Dashboard from "./Components/Dashboards/Dashboards";
 import useAuthContext from './Components/authentication/AuthContext';
 import LandingPage from './Components/LandingPage/LandingPage';
 import ResetPassword from './Components/LoginRegister/ForgotPassword/ResetPassword/ResetPassword';
+import ProtectRouteDash from './Components/authentication/ProtectRouteDash';
+import ProtectRouteLog from './Components/authentication/ProtectRouteLog';
 
 export const LanguageContext = createContext(0)
 export const setLanguageContext = createContext(0)
@@ -32,39 +34,44 @@ function App() {
       <LanguageContext.Provider value={platformLanguage}>
         <setLanguageContext.Provider value={setPlatformLanguage}>
           <roleContext.Provider value={role}>
+
             <Routes>
-              {
-                role === "student" ? <React.Fragment>
-                  <Route element={<Dashboard />}>
-                    <Route index element={<StudentsDashboard />} />
-                    <Route path="/dashboard/*" element={<StudentsDashboard />} />
-                  </Route>
-                </React.Fragment> :
-                  role === "teacher" ?
+
+              <Route element={<ProtectRouteLog />}>
+                {
+                  role === "student" ?
                     <Route element={<Dashboard />}>
-                      <Route index element={<TeachersDashboard />} />
-                      <Route path="/dashboard/*" element={<TeachersDashboard />} />
-                    </Route> :
-                    role === "admin" ?
+                      <Route index element={<StudentsDashboard />} />
+                      <Route path="/dashboard/*" element={<StudentsDashboard />} />
+                    </Route>
+                    :
+                    role === "teacher" ?
                       <Route element={<Dashboard />}>
-                        <Route index element={<AdminDashboard />} />
-                        <Route path="/dashboard/*" element={<AdminDashboard />} />
+                        <Route index element={<TeachersDashboard />} />
+                        <Route path="/dashboard/*" element={<TeachersDashboard />} />
                       </Route> :
-                      role === null ?
-                        <React.Fragment>
-                          <Route exact path="/" element={<LandingPage />} />
-                          <Route element={< LoginRegister />}>
-                            <Route path="login" element={< Login />} />
-                            <Route path="forgot-password" element={< ForgotPassword />} >
-                              <Route path="password-reset" element={<ResetPassword />} />
-                            </Route>
-                            <Route path="register" element={< Register />} />
-                            <Route path="register/steps" element={< Steps />} />
-                            <Route path="register/register-by-username" element={< ByUsername />} />
-                            <Route path="register/class-code" element={< ClassCode />} />
-                          </Route>
-                        </React.Fragment> : ""
-              }
+                      role === "admin" ?
+                        <Route element={<Dashboard />}>
+                          <Route index element={<AdminDashboard />} />
+                          <Route path="/dashboard/*" element={<AdminDashboard />} />
+                        </Route> : ''
+                }
+              </Route>
+
+              <Route element={<ProtectRouteDash />}>
+                <Route exact path="/" element={<LandingPage />} />
+                <Route element={< LoginRegister />}>
+                  <Route exact path="login" element={< Login />} />
+                  <Route path="forgot-password" element={< ForgotPassword />} >
+                    <Route path="password-reset" element={<ResetPassword />} />
+                  </Route>
+                  <Route path="register" element={< Register />} />
+                  <Route path="register/steps" element={< Steps />} />
+                  <Route path="register/register-by-username" element={< ByUsername />} />
+                  <Route path="register/class-code" element={< ClassCode />} />
+                </Route>
+              </Route>
+
             </Routes>
           </roleContext.Provider>
         </setLanguageContext.Provider>

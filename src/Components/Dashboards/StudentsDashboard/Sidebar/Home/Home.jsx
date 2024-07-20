@@ -3,7 +3,6 @@ import icon from "../../../../../images/logo.svg";
 
 import React, { useContext, useState } from "react";
 
-import { NavLink, useNavigate, Outlet, useLocation } from "react-router-dom";
 import { LanguageContext } from "../../../../../App";
 
 import { clsx } from "clsx";
@@ -170,8 +169,6 @@ function Home() {
   };
 
   const [today, setToday] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
   const language = useContext(LanguageContext);
 
   return (
