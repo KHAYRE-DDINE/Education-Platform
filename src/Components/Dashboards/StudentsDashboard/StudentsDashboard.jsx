@@ -16,6 +16,8 @@ import Completed from "./Sidebar/Courses/Completed/Completed";
 import About from "./Sidebar/Assignments/About/About";
 import Learning from "./Sidebar/Assignments/Learning/Learning";
 import Resources from "./Sidebar/Assignments/Resources/Resources";
+import Help from "./Sidebar/Help/Help";
+import Settings from "./Sidebar/Settings/Settings";
 
 function StudentsDashboard() {
   const language = useContext(LanguageContext);
@@ -41,6 +43,8 @@ function StudentsDashboard() {
               <Route path="resources/:id" element={<Resources />} />
             </Route>
             <Route path="account" element={<Account />} />
+            <Route path="help" element={<Help />} />
+            <Route path="settings" element={<Settings />} />
           </Routes>
           <Outlet />
         </div>

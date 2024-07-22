@@ -1,0 +1,140 @@
+.background {
+    background-color: #0080006b;
+    box-shadow: -2px 20px 6px 0 #0080006b;
+    height: 150px;
+    left: 0;
+    top: 0;
+    border-radius: 0 0 90px 90px;
+    z-index: -1;
+}
+
+.account {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 160px;
+}
+
+/************************Header Side***********************************/
+.account .header-side {
+    align-items: end;
+}
+
+.account .header-side .person {}
+
+.account .header-side .person .image {
+    background: aquamarine;
+    width: 80px;
+    height: 80px;
+}
+
+.account .header-side .person .image img {}
+
+.account .header-side .person .name {
+    margin: 15px 0 0;
+}
+
+.account .header-side .person .name h1 {
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+.account .header-side .badges {
+    margin: 15px;
+}
+
+.account .header-side .badges span {
+    width: 30px;
+    height: 30px;
+    margin: 0 4px;
+}
+
+/************************Statistics***********************************/
+.account .statistics {
+    margin-top: 60px;
+}
+
+.account .statistics .top-title {}
+
+.account .statistics .top-title h3 {}
+
+.account .statistics .top-title span {}
+
+.account .statistics .details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.account .statistics .details .box {
+    width: 200px;
+}
+
+.account .statistics .details .box span {
+    color: gray;
+    font-size: 14px;
+}
+
+.account .statistics .details .box span b {
+    color: black;
+    font-size: 21px;
+    opacity: .9;
+}
+
+/****************************Recent Lessons************************************/
+.recent-lessons {
+    margin-top: 60px;
+}
+
+.recent-lessons {}
+
+.recent-lessons .lesson>span {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent-lessons .lesson .info {
+    margin-left: 20px;
+}
+
+/****************************Colleagues************************************/
+.colleagues {
+    margin-top: 60px;
+}
+
+.colleagues .all-.colleagues {}
+
+.colleagues .all-.colleagues .colleague {}
+
+.colleagues .all-.colleagues .colleague .image {}
+
+.colleagues .all-.colleagues .colleague .image img {}
+
+.colleagues .all-.colleagues .colleague .info {}
+
+.colleagues .all-.colleagues .colleague .info .colleague-name {}
+
+.colleagues .all-.colleagues .colleague .info .span {}
+
+
+
+/********************General Styles****************************************/
+.top-title {}
+
+.top-title h3 {
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 23px;
+}
+
+.top-title>span,
+.top-title div span {
+    opacity: .8;
+    display: block;
+    margin-top: -5px;
+}

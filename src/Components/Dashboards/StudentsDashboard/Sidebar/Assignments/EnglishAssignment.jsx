@@ -1,6 +1,6 @@
 import React from "react";
 import close from "../../../../../images/close.svg";
-import DataTable, { createTheme } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { Link, Outlet } from "react-router-dom";
 
 function EnglishAssignment({

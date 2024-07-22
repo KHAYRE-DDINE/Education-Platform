@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Assignments.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LanguageContext } from "../../../../../App";
 import EnglishAssignment from "./EnglishAssignment";
 import ArabicAssignment from "./ArabicAssignment";
@@ -74,6 +75,7 @@ function Assignments() {
     navigate(move[0] + "/" + e.id);
     setOpen(true);
   };
+
   const backFromTable = () => {
     console.log("success");
     navigate("");
@@ -86,6 +88,7 @@ function Assignments() {
         {
           name: "assignment",
           selector: (row) => row.assignment,
+          width: "300px",
         },
         {
           name: "status",
@@ -94,6 +97,7 @@ function Assignments() {
         {
           name: "date",
           selector: (row) => row.date,
+          Cell: (row) => row.date && <FontAwesomeIcon icon="star" />,
         },
         {
           name: "teacher",
@@ -106,6 +110,7 @@ function Assignments() {
         {
           name: "",
           selector: (row) => row.icon,
+          width: "80px",
         },
       ]);
       setPending(false);

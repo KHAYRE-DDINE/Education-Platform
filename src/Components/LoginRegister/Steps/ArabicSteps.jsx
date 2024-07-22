@@ -3,7 +3,7 @@ import ValidationForm from "../ValidationForm/ValidationForm";
 import TermsPrivacy from "../TermsPrivacy/TermsPrivacy";
 import { useNavigate } from "react-router-dom";
 
-function ArabicSteps({ error, handleValues, handleForm, setError, values }) {
+function ArabicSteps({ error, handleValues, handleForm, setError,values }) {
   const navigate = useNavigate();
   return (
     <div className="wrapper ">
