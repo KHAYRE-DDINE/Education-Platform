@@ -6,7 +6,7 @@ import calender from "../../../../../images/calender.svg";
 
 function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
   return (
-    <div className="home flex flex-col xl:flex-row gap-6 ">
+    <div className="home flex flex-col xl:flex-row pl-6 gap-6 ">
       <section className="welcome ">
         <h1 className="capitalize text-3xl my-6">welcome, khalid al walid</h1>
         <div className="tests mb-[40px]">

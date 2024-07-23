@@ -1,6 +1,7 @@
-import { LinkBox } from "@chakra-ui/react";
 import React from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import settings from "../../images/settings.svg";
+import help from "../../images/help.svg";
 
 function EnglishSide({ list }) {
   const location = useLocation();
@@ -62,7 +63,7 @@ function EnglishSide({ list }) {
                     : "flex items-center text-normalColor"
                 }
               >
-                <img src="" alt="" />
+                <img src={help} alt="help" />
                 help
               </NavLink>
             </li>
@@ -81,7 +82,7 @@ function EnglishSide({ list }) {
                     : "flex items-center text-normalColor "
                 }
               >
-                <img src="" alt="" />
+                <img src={settings} alt="settings" />
                 settings
               </NavLink>
             </li>

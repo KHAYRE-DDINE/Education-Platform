@@ -67,7 +67,7 @@ function Dashboard() {
             setSidebarWidth={setSidebarWidth}
           />
           <div
-            className={`under-layout absolute right-0 pl-4 xlg:px-10 `}
+            className={`under-layout absolute right-0  xlg:px-10 `}
             style={{ width: `calc(100% - ${sidebarWidth}px)` }}
           >
             <Outlet />
@@ -87,7 +87,7 @@ function Dashboard() {
             setSidebarWidth={setSidebarWidth}
           />
           <div
-            className={`under-layout absolute left-0 pr-4 xlg:px-10`}
+            className={`under-layout absolute left-0 xlg:px-10`}
             style={{ width: `calc(100% - ${sidebarWidth}px)` }}
           >
             <Outlet />

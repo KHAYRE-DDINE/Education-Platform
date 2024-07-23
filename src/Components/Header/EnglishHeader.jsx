@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CiSearch } from "react-icons/ci";
+import searchIcon from "../../images/search.svg";
 import DropDownProfile from "./DropDown/DropDownProfile";
 import DropDownNotification from "./DropDown/DropDownNotification";
 import DropDownSetting from "./DropDown/DropDownSetting";
@@ -18,7 +18,7 @@ function EnglishHeader() {
       </div>
       <nav className="relative flex items-center justify-end p-6 lg:px-8">
         <div className="hidden md:flex search-input relative">
-          <CiSearch />
+          <img src={searchIcon} className="w-3" alt="searchIcon" />
           <input
             type="search"
             name="search"

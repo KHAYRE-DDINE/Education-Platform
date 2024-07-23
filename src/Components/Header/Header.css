@@ -23,11 +23,12 @@ header .search-input input {
     height: 42px;
 }
 
-header .search-input svg {
+header .search-input img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     margin-left: 7px;
+    
 }
 
 header .logo {
