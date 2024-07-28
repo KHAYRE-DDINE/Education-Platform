@@ -4,7 +4,7 @@
 
 .sideBar-msg {
     width: 350px;
-    height: calc(100vh - 92px);
+    height: calc(100vh - 56px);
     background: #BDBDBD;
     padding: 20px;
 }
@@ -45,7 +45,15 @@
     margin-top: 15px;
 }
 
-.sideBar-msg .members .member {}
+.sideBar-msg .members .member {
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+.sideBar-msg .members .member:hover {
+    background-color: #8080802e;
+}
 
 .sideBar-msg .members .member .image {
     width: 50px;
@@ -77,11 +85,16 @@
 
 .sideBar-msg .members .member .info .last-msg .msg {}
 
-.sideBar-msg .members .member .info .last-msg .date {}
+.sideBar-msg .members .member .info .last-msg .date {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #404040;
+}
 
 /*****************************SideBar Message***********************************/
 .rightSide-msg {
     margin: 0 auto;
+    position: relative;
 }
 
 .rightSide-msg .messages {
@@ -97,4 +110,19 @@
 .rightSide-msg .messages .message span {
     padding: 10px;
     border-radius: 4px;
+}
+
+.rightSide-msg .input-msg {
+    position: absolute;
+    bottom: 22px;
+    width: 100%;
+}
+
+.rightSide-msg .input-msg input {
+    width: 100%;
+    border: 1px solid;
+    padding: 5px 20px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #8080801f;
 }

@@ -54,14 +54,12 @@ function Courses() {
   return (
     <div className="courses flex gap-6">
       <div className="left-side">
-        <h1 className="capitalize text-3xl mb-6">courses</h1>
+        <h1 className="capitalize text-gray-700 text-[28px] font-medium font-['Inter'] leading-loose ">
+          courses
+        </h1>
         <div className="top-section mb-7">
-          <div className="move after:bg-grayD flex items-center">
-            <Link
-              className={
-                "text-primary-100 active mr-3 capitalize after:bg-primary-100"
-              }
-            >
+          <div className="move  border-slate-200 flex items-center">
+            <Link className={"active capitalize after:bg-link text-link"}>
               recent courses
             </Link>
           </div>
@@ -70,7 +68,7 @@ function Courses() {
           {subject.map((l, id) => (
             <div
               key={id}
-              className="subject rounded-lg border-[1px] border-grayD border-solid p-2 "
+              className="subject rounded-lg border-[1px] border-gray-100 border-solid bg-white"
             >
               <div
                 className={cn(
@@ -81,22 +79,26 @@ function Courses() {
                 <img src={mainLogo} alt="logo" className="w-[50px] h-[50px]" />
               </div>
               <div className="info mt-3">
-                <div className="subject-student">
-                  <span className="capitalize">{l.subject}</span>
+                <div>
+                  <div className="subject-student">
+                    <span className="capitalize text-gray-700">
+                      {l.subject}
+                    </span>
+                  </div>
+                  <div className="description">
+                    <h4 className="capitalize text-gray-700">
+                      {l.description}
+                    </h4>
+                  </div>
                 </div>
-                <div className="student">
-                  <h4 className="capitalize text-sm opacity-75">
-                    {l.description}
-                  </h4>
+                <div className="buttons">
+                  <button className="continue text-primary-100 bg-primary-600">
+                    continue
+                  </button>
+                  <button className="assignment bg-colorGray-100 text-colorGray-600">
+                    assignments
+                  </button>
                 </div>
-              </div>
-              <div className="buttons">
-                <button className="continue text-primary-100 bg-primary-600">
-                  continue
-                </button>
-                <button className="assignment bg-colorGray-100 text-colorGray-600">
-                  assignments
-                </button>
               </div>
             </div>
           ))}

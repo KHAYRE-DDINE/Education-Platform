@@ -1,6 +1,12 @@
+.home {}
+
 /********************Welcome***********************/
 .home .welcome {
-    width: 80%;
+    width: 100%;
+    padding: 48px 0 0px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
 
 .home .search-input {}
@@ -21,11 +27,17 @@
     margin-left: 7px;
 
 }
-
+/* 
 .home .move-section a {
     margin: 10px 20px 15px 0;
     display: inline-flex;
-    position: relative;
+    color: #1865F2;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
 }
 
 .home .move-section a::after {
@@ -36,6 +48,8 @@
     bottom: -16px;
 }
 
+.home .welcome>h1 {} */
+
 @media (max-width: 1280px) {
     .home .welcome {
         width: 100%;
@@ -44,10 +58,80 @@
 }
 
 /********************Tests***********************/
+
+
+
 .tests .all-tests {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 12px;
+}
+
+.tests .all-tests .cover {
+
+    height: 97px;
+    padding: 16px;
+    gap: 12px;
+    border-radius: 6px 0px 0px 0px;
+}
+
+.tests .all-tests .cover .test {}
+
+.tests .all-tests .cover .test .image-box {
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tests .all-tests .cover .test .image-box img {
+    width: 20px;
+    height: 21.82px;
+
+}
+
+.tests .all-tests .cover .test .info {}
+
+.tests .all-tests .cover .test .info .subject-student {}
+
+.tests .all-tests .cover .test .info .subject-student span {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+}
+
+.tests .all-tests .cover .test .info .student h4 {
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+}
+
+.tests .all-tests .cover .date {
+    width: 149px;
+    height: 16px;
+}
+
+.tests .all-tests .cover .date .icon {}
+
+.tests .all-tests .cover .date img {
+    width: 16px;
+    height: 16px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.tests .all-tests .cover .date span {
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
 }
 
 @media (min-width: 640px) {}
@@ -63,10 +147,61 @@
 @media (min-width: 1536px) {}
 
 /********************Subjects***********************/
-.home .all-subjects .subjects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
-    gap: 12px;
+
+.home .subjects .all-subjects {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.home .subjects .all-subjects .subject {
+    display: flex;
+    width: 10.375rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.375rem;
+    margin: 0;
+}
+
+.home .subjects .all-subjects .subject .image-box {
+    display: flex;
+    width: 9.25rem;
+    height: 6.125rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .subjects .all-subjects .subject .image-box img {}
+
+.home .subjects .all-subjects .subject .info {
+    width: 100%;
+}
+
+.home .subjects .all-subjects .subject .info .subject-student {}
+
+.home .subjects .all-subjects .subject .info .subject-student span {
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
+}
+
+.home .subjects .all-subjects .subject .info .student {}
+
+.home .subjects .all-subjects .subject .info .student h4 {
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    /* 133.333% */
 }
 
 @media (max-width: 768px) {}
@@ -82,15 +217,58 @@
 @media (min-width: 1536px) {}
 
 /********************Lessons***********************/
-.home .lessons .course span {
-    width: 39px;
-    height: 38px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.home .lessons .head .search-input img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
+.home .lessons .head .search-input input {
+    border: 1px solid;
+    padding: 11px 19px 7px 36px;
+    outline: none;
+    width: 266.91px;
+    height: 32px;
+    border-radius: 5.82px;
+}
+
+.home .lessons .course .top-section p {
+    color: var(--colors-gray-700, #374151);
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 153.846% */
+}
+
+.home .lessons .course .lesson>span {
+    display: flex;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+}
+
+.home .lessons .course .lesson-name {
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 153.846% */
+}
+
+.home .lessons .course .student-name {
+    font-family: Inter;
+    font-size: 0.6875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.9375rem;
+    display: block;
+}
 
 @media (min-width: 640px) {}
 
@@ -103,59 +281,148 @@
 @media (min-width: 1536px) {}
 
 /********************Right Side***********************/
-.right-side {
+.home .right-side {
+    display: flex;
+    padding: 1.5rem 1rem 2rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
     border-left: 1px solid;
-    padding-left: 10px;
+    width: 21.75rem !important;
+}
+
+.right-side .profile-info {
+    display: flex;
+    width: 19.75rem;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #F3F4F6;
+    box-shadow: 0px 4px 6px -2px rgba(75, 85, 99, 0.10);
+}
+
+.right-side .details {
+    display: flex;
+    padding: 0rem 0.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .right-side .details .name-class .name {
-    font-size: 14px;
-    margin: 0;
-    font-weight: 600;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 .right-side .details .name-class .class {
-    font-size: 12px;
-    text-transform: capitalize;
-    color: gray;
-    font-weight: 700;
-    display: block;
-    margin: 0;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    /* 133.333% */
+}
+
+.right-side .teachers .top-section p {
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 .right-side .teachers .box {
-    padding: 6px 10px;
-    margin-bottom: 18px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #F3F4F6;
+    box-shadow: 0px 4px 6px -2px rgba(75, 85, 99, 0.10);
+}
+
+.right-side .teachers .box .info .subject {
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
+}
+
+.right-side .teachers .box .info .subject small {
+    font-family: Inter;
+    font-size: 0.6875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.9375rem;
+}
+
+.right-side .teachers .box .info .subject small p {
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 333.333% */
+
 }
 
 .right-side .teachers .notice {
-    font-size: 14px;
-    color: #929292;
-    margin: 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    /* 153.846% */
 }
 
 .right-side .teachers .unit {
-    font-weight: bold;
+    overflow: hidden;
+    color: var(--colors-gray-700, #374151);
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 .right-side .calender .date {
-    width: 55px;
-    height: 60px;
-    border-radius: 8px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 3.25rem;
+    height: 4rem;
+    padding: 0.5rem;
     flex-direction: column;
-    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid #D1D5DB;
 }
 
 .right-side .calender .date b {
-    text-transform: capitalize;
-    margin-top: -3px;
-    font-weight: 500;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
-.right-side .details .badges {}
+.right-side .details .badges {
+    display: flex;
+    width: 4.75rem;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
 
 .right-side .details .badges strong {
     line-height: 13px;
@@ -168,8 +435,52 @@
     margin-left: 9px;
 }
 
+.right-side .right-side-button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: black;
+    left: -63px;
+
+}
+
 @media (max-width: 768px) {
     .right-side {
         grid-column: span 2;
     }
+}
+
+@media (max-width: 1280px) {
+    .right-side {
+        position: fixed;
+        right: -375px;
+        transition: .3s;
+        width: 375px !important;
+    }
+
+    .right-side.open {
+        transition: .3s;
+        right: 0;
+    }
+}
+
+
+
+
+/********************************General Styles**********************************************/
+.head h3 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+}
+
+.head span {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
 }

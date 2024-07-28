@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import dashboard from "../../images/dashboard.svg";
 import recent from "../../images/recent.svg";
-import Assignment from "../../images/Assignment.svg";
+import Assignment from "../../images/assignment.svg";
 import classes from "../../images/classes.svg";
 import library from "../../images/library.svg";
 import routine from "../../images/routine.svg";
@@ -14,7 +14,7 @@ import account from "../../images/account.svg";
 import { LanguageContext, roleContext } from "../../App";
 
 function Dashboard() {
-  const [sidebarWidth, setSidebarWidth] = useState(270);
+  const [sidebarWidth, setSidebarWidth] = useState(240);
   const location = useLocation();
   const language = useContext(LanguageContext);
   const role = useContext(roleContext);
@@ -51,10 +51,10 @@ function Dashboard() {
   ];
 
   return (
-    <div className=" dashboard min-h-screen">
+    <div className=" dashboard min-h-screen overflow-x-hidden">
       <Header />
       {language === "english" ? (
-        <main className={`layout flex relative top-[91px]`}>
+        <main className={`layout flex relative top-[56px]`}>
           <Sidebar
             list={
               role === "student"
@@ -74,7 +74,7 @@ function Dashboard() {
           </div>
         </main>
       ) : (
-        <main className={`layout flex flex-row-reverse relative top-[91px]`}>
+        <main className={`layout flex flex-row-reverse relative top-[56px]`}>
           <Sidebar
             list={
               role === "student"

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { CiSearch } from "react-icons/ci";
 import DropDownProfile from "./DropDown/DropDownProfile";
 import DropDownNotification from "./DropDown/DropDownNotification";

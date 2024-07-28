@@ -1,6 +1,6 @@
 /***********************Left Side*****************************/
-.left {
-    padding: 0 30px 0 6px;
+.Assignments .left {
+    padding: 0 30px;
     width: 100%;
 }
 
@@ -41,7 +41,7 @@ div#cell-3-3 div {
 /***********************Right Side*****************************/
 .show-table {
     background-color: #ebebeb;
-    height: calc(100vh - 92px);
+    height: calc(100vh - 56px);
     position: fixed;
     right: -100%;
     padding: 20px;

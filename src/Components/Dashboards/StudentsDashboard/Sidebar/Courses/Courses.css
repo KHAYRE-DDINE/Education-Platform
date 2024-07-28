@@ -3,13 +3,55 @@
 /******************** Left Side **********************/
 .left-side {
     position: relative;
-    padding: 20px 0;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 1.5rem 2.5rem 0rem 2.5rem;
 }
 
 /******************** Recent Section **********************/
+.courses .recent-courses .subject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 6px -2px rgba(75, 85, 99, 0.10);
+}
+
 .courses .recent-courses .subject .image-box {
     height: 100px;
+}
+
+.courses .recent-courses .subject .info {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+}
+
+.courses .recent-courses .subject .info .subject-student span {
+    color: var(--colors-gray-700, #374151);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 125% */
+}
+
+.courses .recent-courses .subject .info .description h4 {
+    overflow: hidden;
+    color: var(--colors-gray-700, #374151);
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 /******************** Current Section **********************/
@@ -17,22 +59,34 @@
     margin-top: 75px;
 }
 
-.courses .move::after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    margin-top: 41px;
+.courses .top-section {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 3px solid #E2E8F0;
+}
+
+.courses .move {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .courses .move a {
     position: relative;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: 0.75rem;
 }
 
 .courses .move a.active::after {
     content: '';
     width: 100%;
-    height: 1px;
+    height: 2px;
     position: absolute;
     margin-top: 32px;
     left: 0;
@@ -108,10 +162,18 @@
 
 .subject .continue,
 .subject .assignment {
-    padding: 5px 10px;
-    border-radius: 11px;
-    margin-right: 12px;
-    text-transform: capitalize;
+    display: flex;
+    height: 2.25rem;
+    padding: 0.5rem 0.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border-radius: 0.375rem;
 }
 
 .subject .assignment {}

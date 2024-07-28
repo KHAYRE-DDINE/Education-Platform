@@ -99,6 +99,13 @@ p.terms a {
     min-height: 100vh;
 }
 
+/************** Icon Search *****************/
+.search-input img {
+
+    padding: 0.45456rem 0.72725rem 0.45456rem 0.45456rem;
+
+}
+
 /***************************** Media Queries *****************************/
 
 @media (max-width : 768px) {

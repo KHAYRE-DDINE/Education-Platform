@@ -7,10 +7,10 @@ function EnglishSide({ list }) {
   const location = useLocation();
   return (
     <div
-      className={`sidebar py-7 invisible md:visible w-0 md:w-[270px] fixed h-screen border-r-[1px] border-solid border-grayD`}
+      className={`sidebar py-8 px-3 invisible md:visible w-0 md:w-[240px] fixed h-screen border-r-[1px] border-solid border-grayD`}
     >
       <div className="list flex flex-column">
-        <ul className="dash-links px-4">
+        <ul className="dash-links ">
           {list.map((l, id) => (
             <li
               className={

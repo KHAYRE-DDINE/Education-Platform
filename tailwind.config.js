@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          "100": "#1865F2",
-          "600": "#1865f22e"
+          "100": "#2563EB",
+          "600": "#DBEAFE"
         },
         colorBlue: {
           "600": "#2563EB",
@@ -20,13 +20,13 @@ module.exports = {
           "500": "#6B7280",
           "600": "#4B5563",
           "700": "#374151",
-          "800": "#1F2937", 
+          "800": "#1F2937",
         },
         secondary: { '100': '#3B4A78', '200': '#2D2C53' },
         link: "#1865F2",
         required: "#F54747",
         backgroundErr: "#f5474742",
-        grayD: "#ccc",
+        grayD: "#E5E7EB",
         normalColor: "#374151"
       },
       height: {

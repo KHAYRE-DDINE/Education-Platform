@@ -1,6 +1,8 @@
 .calender {}
 
-.calender-box {}
+.calender-box {
+    padding: 0 30px;
+}
 
 .calender-box .title {
     margin: 20px 0;
