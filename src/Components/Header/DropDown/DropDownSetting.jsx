@@ -6,9 +6,7 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { IoSettings } from "react-icons/io5";
-
+import settings from "../../../images/settings.svg";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -18,7 +16,7 @@ export default function Example() {
     <Menu as="div" className="relative inline-block text-left ">
       <div>
         <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900   ring-gray-300 hover:bg-gray-50">
-          <IoSettings />
+          <img src={settings} alt="settings" />
         </MenuButton>
       </div>
 

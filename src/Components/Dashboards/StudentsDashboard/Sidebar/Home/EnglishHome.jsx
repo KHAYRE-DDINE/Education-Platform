@@ -197,7 +197,7 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
               </span>
             </div>
           </div>
-          <div className="calender flex-wrap gap-1 flex justify-between items-center pt-4">
+          <div className="calender flex-wrap gap-1 flex justify-between items-center">
             <span
               className={`date ${
                 today ? "text-white bg-primary-100" : "text-gray-700 bg-white"
@@ -245,7 +245,7 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
                 <img src={mainLogo} alt="avatar" className="absolute w-8 h-8" />
               </div>
               <div className="info ml-3">
-                <span className="subject capitalize text-gray-700 flex items-center gap-2">
+                <span className="subject-teacher capitalize text-gray-700 !flex !items-center gap-2">
                   Math{" "}
                   <small className="text-gray-600 flex items-center gap-2">
                     <p>●</p> 2 hours ago
@@ -266,7 +266,7 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
                 <img src={mainLogo} alt="avatar" className="absolute w-8 h-8" />
               </div>
               <div className="info ml-3">
-                <span className="subject capitalize text-gray-700 flex items-center gap-2">
+                <span className="subject-teacher capitalize text-gray-700 flex items-center gap-2">
                   Math{" "}
                   <small className="text-gray-600 flex items-center gap-2">
                     <p>●</p> 2 hours ago
@@ -285,7 +285,7 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
                 <img src={mainLogo} alt="avatar" className="absolute w-8 h-8" />
               </div>
               <div className="info ml-3">
-                <span className="subject capitalize text-gray-700 flex items-center gap-2">
+                <span className="subject-teacher capitalize text-gray-700 flex items-center gap-2">
                   Math{" "}
                   <small className="text-gray-600 flex items-center gap-2">
                     <p>●</p> 2 hours ago

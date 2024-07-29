@@ -53,24 +53,36 @@ function Current() {
           {subject.map((l, id) => (
             <div
               key={id}
-              className="subject rounded-md border-[1px] border-grayD border-solid p-2 w-[200px] h-[200px]"
+              className="subject rounded-lg border-[1px] border-gray-100 border-solid bg-white"
             >
               <div
                 className={cn(
-                  `image-box h-[127px] bg-primary-1001 flex justify-center items-center`,
+                  `image-box h-[127px] flex justify-center items-center`,
                   subjectFill[l.subject]
                 )}
               >
                 <img src={mainLogo} alt="logo" className="w-[50px] h-[50px]" />
               </div>
-              <div className="info mt-3">
-                <div className="subject-student">
-                  <span className="capitalize">{l.subject}</span>
+              <div className="info ">
+                <div>
+                  <div className="subject-student">
+                    <span className="capitalize text-gray-700">
+                      {l.subject}
+                    </span>
+                  </div>
+                  <div className="description">
+                    <h4 className="capitalize text-gray-700">
+                      {l.description}
+                    </h4>
+                  </div>
                 </div>
-                <div className="student">
-                  <h4 className="capitalize text-sm opacity-75">
-                    {l.description}
-                  </h4>
+                <div className="buttons">
+                  <button className="continue text-primary-100 bg-primary-600">
+                    continue
+                  </button>
+                  <button className="assignment bg-colorGray-100 text-colorGray-600">
+                    assignments
+                  </button>
                 </div>
               </div>
             </div>

@@ -26,8 +26,8 @@ export const setRoleContext = createContext(0)
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
   const { user } = useAuthContext()
-  const [role, setRole] = useState("student")
-  // const [role, setRole] = useState(null)
+  // const [role, setRole] = useState("student")
+  const [role, setRole] = useState(null)
 
   return (
     <div className="App">

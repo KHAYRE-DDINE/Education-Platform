@@ -6,8 +6,7 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { GiSnowman } from "react-icons/gi";
+import avatar from "../../../images/avatar.svg";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,7 +17,7 @@ export default function Example() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900 border-none hover:bg-gray-50">
-          <GiSnowman />
+          <img src={avatar} alt="avatar" />
         </MenuButton>
       </div>
 

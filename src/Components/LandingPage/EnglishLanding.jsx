@@ -20,13 +20,18 @@ import functionF from "../../images/function.png";
 import earth from "../../images/freepik--Earth--inject-2.svg";
 import teach from "../../images/Frame 55.svg";
 import teach1 from "../../images/Frame.svg";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EnglishLanding({ active, setActive }) {
   const navigate = useNavigate();
 
   return (
     <div className="landing-page overflow-hidden">
+      <div className="popup absolute">
+        <div className="text">
+          <p>click on the join beta if you want to go to Login/Logout part</p>
+        </div>
+      </div>
       <div className="header">
         <div className="logo">
           <img src={logo} alt="logo" />

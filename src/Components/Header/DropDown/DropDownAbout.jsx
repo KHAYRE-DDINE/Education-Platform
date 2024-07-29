@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import {
   Menu,
   MenuButton,
@@ -7,7 +6,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import { IoLogoMarkdown } from "react-icons/io5";
-
+import about from "../../../images/more.svg";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -17,7 +16,7 @@ export default function Example() {
     <Menu as="div" className="relative inline-block text-left ">
       <div>
         <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900   ring-gray-300 hover:bg-gray-50">
-          <IoLogoMarkdown />
+          <img src={about} alt="about" />
         </MenuButton>
       </div>
 
