@@ -26,10 +26,6 @@ function EnglishLanding({ active, setActive }) {
   const navigate = useNavigate();
   const [popup, setPopup] = useState(true);
 
-  useEffect(() => {
-    setPopup(true);
-  }, [popup]);
-
   return (
     <div className="landing-page overflow-hidden">
       <div
