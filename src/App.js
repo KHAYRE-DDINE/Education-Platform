@@ -36,7 +36,6 @@ function App() {
           <roleContext.Provider value={role}>
 
             <Routes>
-
               <Route element={<ProtectRouteLog />}>
                 {
                   role === "student" ?
@@ -54,23 +53,23 @@ function App() {
                         <Route element={<Dashboard />}>
                           <Route index element={<AdminDashboard />} />
                           <Route path="/dashboard/*" element={<AdminDashboard />} />
-                        </Route> : ''
+                        </Route> : <Route exact path="/" element={<LandingPage />} />
                 }
               </Route>
 
-              <Route element={<ProtectRouteDash />}>
-                <Route exact path="/" element={<LandingPage />} />
-                <Route element={< LoginRegister />}>
-                  <Route exact path="login" element={< Login />} />
-                  <Route path="forgot-password" element={< ForgotPassword />} >
-                    <Route path="password-reset" element={<ResetPassword />} />
-                  </Route>
-                  <Route path="register" element={< Register />} />
-                  <Route path="register/steps" element={< Steps />} />
-                  <Route path="register/register-by-username" element={< ByUsername />} />
-                  <Route path="register/class-code" element={< ClassCode />} />
+              {/* <Route element={<ProtectRouteDash />}> */}
+              <Route exact path="/" element={<LandingPage />} />
+              <Route element={< LoginRegister />}>
+                <Route exact path="login" element={< Login />} />
+                <Route path="forgot-password" element={< ForgotPassword />} >
+                  <Route path="password-reset" element={<ResetPassword />} />
                 </Route>
+                <Route path="register" element={< Register />} />
+                <Route path="register/steps" element={< Steps />} />
+                <Route path="register/register-by-username" element={< ByUsername />} />
+                <Route path="register/class-code" element={< ClassCode />} />
               </Route>
+              {/* </Route> */}
 
             </Routes>
           </roleContext.Provider>

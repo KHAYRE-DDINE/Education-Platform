@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/logo2.svg";
 import Definition from "./Definition/Definition";
 import frepeek from "../../images/freepik--Character--inject-119.svg";
@@ -24,12 +24,20 @@ import { useNavigate } from "react-router-dom";
 
 function EnglishLanding({ active, setActive }) {
   const navigate = useNavigate();
+  const [popup, setPopup] = useState(true);
+
+  useEffect(() => {
+    setPopup(true);
+  }, [popup]);
 
   return (
     <div className="landing-page overflow-hidden">
-      <div className="popup absolute">
+      <div
+        className={`popup absolute ${popup === false ? "hidden" : ""}`}
+        onClick={() => setPopup(false)}
+      >
         <div className="text">
-          <p>click on the join beta if you want to go to Login/Logout part</p>
+          <p>click here if you want to go to Login/Logout part</p>
         </div>
       </div>
       <div className="header">
