@@ -7,7 +7,7 @@ function EnglishSide({ list }) {
   const location = useLocation();
   return (
     <div
-      className={`sidebar py-8 px-3 invisible md:visible w-0 md:w-[240px] fixed h-screen border-r-[1px] border-solid border-grayD`}
+      className={`sidebar py-8 px-3 invisible  w-0 md:w-[240px] fixed h-screen border-r-[1px] border-solid border-grayD`}
     >
       <div className="list flex flex-column">
         <ul className="dash-links ">

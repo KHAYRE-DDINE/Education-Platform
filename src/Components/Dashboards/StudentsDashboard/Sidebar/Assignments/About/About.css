@@ -1,0 +1,41 @@
+.about {}
+
+.about .description {}
+
+.about .description h3 {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+}
+
+.about .brief {}
+
+.about .brief p {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+
+.about .comments .type {
+    margin: 42px 0 30px;
+}
+
+.about .comments .type .icon {}
+
+.about .comments .type .input {
+    width: 100%;
+}
+
+.about .comments .type .input input {
+    outline: none;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 5px 17px;
+    border-radius: 0.25rem;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.00);
+}

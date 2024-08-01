@@ -26,8 +26,8 @@ export const setRoleContext = createContext(0)
 function App() {
   const [platformLanguage, setPlatformLanguage] = useState("english")
   const { user } = useAuthContext()
-  // const [role, setRole] = useState("student")
-  const [role, setRole] = useState(null)
+  const [role, setRole] = useState("student")
+  // const [role, setRole] = useState(null)
 
   return (
     <div className="App">
@@ -57,19 +57,19 @@ function App() {
                 }
               </Route>
 
-              {/* <Route element={<ProtectRouteDash />}> */}
-              <Route exact path="/" element={<LandingPage />} />
-              <Route element={< LoginRegister />}>
-                <Route exact path="login" element={< Login />} />
-                <Route path="forgot-password" element={< ForgotPassword />} >
-                  <Route path="password-reset" element={<ResetPassword />} />
+              <Route element={<ProtectRouteDash />}>
+                <Route exact path="/" element={<LandingPage />} />
+                <Route element={< LoginRegister />}>
+                  <Route exact path="login" element={< Login />} />
+                  <Route path="forgot-password" element={< ForgotPassword />} >
+                    <Route path="password-reset" element={<ResetPassword />} />
+                  </Route>
+                  <Route path="register" element={< Register />} />
+                  <Route path="register/steps" element={< Steps />} />
+                  <Route path="register/register-by-username" element={< ByUsername />} />
+                  <Route path="register/class-code" element={< ClassCode />} />
                 </Route>
-                <Route path="register" element={< Register />} />
-                <Route path="register/steps" element={< Steps />} />
-                <Route path="register/register-by-username" element={< ByUsername />} />
-                <Route path="register/class-code" element={< ClassCode />} />
               </Route>
-              {/* </Route> */}
 
             </Routes>
           </roleContext.Provider>
@@ -80,20 +80,3 @@ function App() {
 }
 
 export default App;
-
-{/* if(role === null){
-
-                }else if(role === 'student'){
-                  <Dashboard>
-                    <StudentsDashboard />
-                  </Dashboard>
-                }
-                else if(role === 'teacher'){
-                  <Dashboard>
-                    <TeachersDashboard />
-                  </Dashboard>
-                }else if(role == 'admin'){
-                  <Dashboard>
-                    <AdminDashboard />
-                  </Dashboard>
-                } */}

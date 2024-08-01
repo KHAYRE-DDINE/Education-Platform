@@ -1,14 +1,12 @@
 /***********************Left Side*****************************/
 .Assignments .left {
     padding: 0 30px;
-    width: 100%;
+    width: 70%;
 }
 
 .table {
     width: 600px;
 }
-
-.table thead tr {}
 
 .table thead tr th {
     text-align: start;
@@ -27,24 +25,28 @@ div#cell-6-1 div {
     cursor: pointer;
 }
 
-div#cell-3-1 div,
-div#cell-3-2 div,
-div#cell-3-3 div {
-    background-color: #80808045;
-    padding: 0 10px;
-    border-radius: 9px;
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
+@media(max-width: 1280px) {
+    .Assignments .left {
+        width: 100%;
+    }
+
+    .dODGfY {
+        justify-content: space-between;
+    }
 }
 
 /***********************Right Side*****************************/
 .show-table {
-    background-color: #ebebeb;
-    height: calc(100vh - 56px);
+    width: 630px;
+    height: 944px;
+    padding: 24px 16px 32px 16px;
+    gap: 24px;
     position: fixed;
     right: -100%;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
 }
 
 .show-table .close img {
@@ -56,55 +58,74 @@ div#cell-3-3 div {
 }
 
 .Assignments .show-table .sections {
-    margin-top: 65px;
+    /* margin-top: 65px; */
 }
 
-.Assignments .show-table span {
-    color: #929292;
-    font-size: 14px;
+.Assignments .show-table .unit {}
+
+.Assignments .show-table .unit span {
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
-.Assignments .show-table h2 {
-    font-size: 23px;
-    font-weight: 600;
+.Assignments .show-table .unit h2 {
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    /* 120% */
 }
 
 .Assignments .show-table .move {
-    margin-top: 75px;
+    /* margin-top: 75px; */
 }
 
 .Assignments .show-table .move::after {
     content: '';
-    width: 100%;
-    height: 1px;
+    width: 93%;
+    height: 2px;
     position: absolute;
-    margin-top: 41px;
+    margin-top: 42px;
 }
 
 .Assignments .show-table .move a {
     position: relative;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    /* 142.857% */
 }
 
 .Assignments .show-table .move a.active::after {
     content: '';
     width: 100%;
-    height: 1px;
+    height: 2px;
     position: absolute;
-    margin-top: 32px;
+    margin-top: 30px;
     left: 0;
     z-index: 55;
 }
 
-/*******************Resources*****************************/
-.all-resources .resource .image-box {}
+@media(max-width: 768px) {
+    .Assignments .show-table {
+        width: 90%;
+    }
 
-.all-resources .resource .image-box img {}
-
-.all-resources .resource .info {
-    padding: 5px 10px;
-    border-radius: 0 0 7px 7px;
 }
 
-.all-resources .resource .info span {}
+@media(max-width: 640px) {
 
-.all-resources .resource .info .name h4 {}
+    .all-resources .resource {
+        width: 100% !important;
+    }
+}
+
+/***************************Resources***************************/

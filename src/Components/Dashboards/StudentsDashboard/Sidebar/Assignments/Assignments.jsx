@@ -50,23 +50,34 @@ function Assignments() {
   const customStyles = {
     rows: {
       style: {
-        minHeight: "72px", // override the row height
-        fontSize: "17px",
+        display: "flex",
+        padding: " 0.875rem var(--spacing-0rem, 0rem)",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: "0.5rem",
       },
     },
     headCells: {
       style: {
-        paddingLeft: "8px", // override the cell padding for head cells
-        paddingRight: "8px",
         textTransform: "capitalize",
-        fontSize: "20px",
-        fontWeight: "bold",
+        color: "#4B5563",
+        textAlign: "center",
+        fontFamily: "Inter",
+        fontSize: "0.875rem",
+        fontStyle: "normal",
+        fontWeight: "500",
+        lineHeight: "1.25rem" /* 142.857% */,
+        display: "flex",
+        padding: "0.375rem  0.25rem 0.375rem 0.25rem",
+        alignItems: "flex-start",
+        marginRight: "0.5rem",
       },
     },
     cells: {
       style: {
         paddingLeft: "8px", // override the cell padding for data cells
         paddingRight: "8px",
+        justifyContent: "space-between",
       },
     },
   };
@@ -88,29 +99,63 @@ function Assignments() {
         {
           name: "assignment",
           selector: (row) => row.assignment,
-          width: "300px",
+          width: "250px",
         },
         {
           name: "status",
           selector: (row) => row.status,
+          width: "7.75rem",
+          style: {
+            width: "max-content",
+            display: "flex",
+            padding: " 0.25rem 0.375rem",
+            alignItems: "center",
+            gap: "0.375rem",
+            color: "#4B5563",
+            fontFamily: "Inter",
+            fontSize: "0.6875rem",
+            fontStyle: "normal",
+            fontWeight: "500",
+            lineHeight: "1rem",
+            borderRadius: "0.25rem",
+            background: "#F3F4F6",
+          },
         },
         {
           name: "date",
           selector: (row) => row.date,
           Cell: (row) => row.date && <FontAwesomeIcon icon="star" />,
+          width: "7.75rem",
+          style: {
+            width: "max-content",
+            display: "flex",
+            padding: " 0.25rem 0.375rem",
+            alignItems: "center",
+            gap: "0.375rem",
+            color: "#4B5563",
+            fontFamily: "Inter",
+            fontSize: "0.6875rem",
+            fontStyle: "normal",
+            fontWeight: "500",
+            lineHeight: "1rem",
+            borderRadius: "0.25rem",
+            background: "#F3F4F6",
+          },
         },
         {
           name: "teacher",
           selector: (row) => row.teacher,
+          width: "4rem",
         },
         {
           name: "updates",
           selector: (row) => row.updates,
+          width: "6.25rem",
         },
         {
           name: "",
           selector: (row) => row.icon,
-          width: "80px",
+          width: "2rem",
         },
       ]);
       setPending(false);
