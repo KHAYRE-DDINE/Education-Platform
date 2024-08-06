@@ -1,11 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiBadgeDollar } from "react-icons/ci";
 import mainLogo from "../../../../../images/logo2.svg";
 import calender from "../../../../../images/calender.svg";
 import search from "../../../../../images/search.svg";
 
-function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
+function EnglishHome({ tests, courses, subject, subjectFill, cn }) {
   const [closeOpenRightSide, setCloseOpenRightSide] = useState(false);
+  const [days, setDays] = useState([]);
+  const [today, setToday] = useState("");
+
+  useEffect(() => {
+    const getFourDays = () => {
+      const today = new Date();
+      const daysArray = [];
+
+      for (let i = 0; i < 5; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const day = date.getDate();
+        const month = date.toLocaleString("en-US", { month: "short" });
+        daysArray.push(`${day} ${month}`);
+      }
+
+      setDays(daysArray);
+    };
+
+    const getTodayDate = () => {
+      const day = new Date().getDate();
+      const month = new Date().getMonth();
+      const shortMonths = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      setToday(day + " " + shortMonths[month]);
+    };
+    getTodayDate();
+    getFourDays();
+  }, []);
+
   return (
     <div className="home flex flex-col xl:flex-row pl-2 lg:pl-6 gap-6 ">
       <section className="welcome xl:p-[72px]">
@@ -82,7 +124,7 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
                     className="w-[50px] h-[50px]"
                   />
                 </div>
-                <div className="info mt-3">
+                <div className="info ">
                   <div className="subject-student">
                     <span className="capitalize text-gray-700">
                       {l.subject}
@@ -198,41 +240,18 @@ function EnglishHome({ tests, courses, subject, subjectFill, today, cn }) {
             </div>
           </div>
           <div className="calender flex-wrap gap-1 flex justify-between items-center">
-            <span
-              className={`date ${
-                today ? "text-white bg-primary-100" : "text-gray-700 bg-white"
-              }`}
-            >
-              04 <br /> <b>may</b>
-            </span>
-            <span
-              className={`date rounded-mds border-2 border-solid border-gray-300${
-                today ? "text-white bg-primary-100" : "text-black bg-white"
-              }`}
-            >
-              04 <br /> <b>may</b>
-            </span>
-            <span
-              className={`date rounded-mds border-2 border-solid border-gray-300${
-                today ? "text-white bg-primary-100" : "text-black bg-white"
-              }`}
-            >
-              04 <br /> <b>may</b>
-            </span>
-            <span
-              className={`date rounded-mds border-2 border-solid border-gray-300${
-                today ? "text-white bg-primary-100" : "text-black bg-white"
-              }`}
-            >
-              04 <br /> <b>may</b>
-            </span>
-            <span
-              className={`date rounded-mds border-2 border-solid border-gray-300${
-                today ? "text-white bg-primary" : "text-black bg-white"
-              }`}
-            >
-              04 <br /> <b>may</b>
-            </span>
+            {days.map((day, index) => (
+              <span
+                key={index}
+                className={`date ${
+                  today === day
+                    ? "text-white bg-primary-100"
+                    : "text-gray-700 bg-white"
+                }`}
+              >
+                {day.split(" ")[0]} <br /> <b>{day.split(" ")[1]}</b>
+              </span>
+            ))}
           </div>
         </div>
         <div className="teachers">

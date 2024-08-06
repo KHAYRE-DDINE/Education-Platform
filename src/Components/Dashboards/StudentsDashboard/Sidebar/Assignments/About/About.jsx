@@ -8,7 +8,7 @@ function Archived() {
   const language = useContext(LanguageContext);
 
   return (
-    <div>{language === "English" ? <EnglishAbout /> : <ArabicAbout />}</div>
+    <div>{language === "english" ? <EnglishAbout /> : <ArabicAbout />}</div>
   );
 }
 

@@ -3,34 +3,48 @@
 /*****************************SideBar Message***********************************/
 
 .sideBar-msg {
-    width: 350px;
+    width: 320px;
     height: calc(100vh - 56px);
-    background: #BDBDBD;
-    padding: 20px;
+    padding: 24px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.sideBar-msg .title {
-    margin: 0 0 20px 0;
-}
+.sideBar-msg .title {}
 
 .sideBar-msg .title h1 {
-    font-weight: bold;
-    font-size: 25px;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: left;
 }
 
 .sideBar-msg .box-search {
     width: 100%;
-    height: 40px;
+    height: 32px;
     position: relative;
 }
 
 .sideBar-msg .box-search input {
-    width: 100%;
-    padding: 5px 15px 5px 32px;
-    border-radius: 5px;
+    width: 272px;
+    height: 32px;
+    padding: 10px 16px 10px 30px;
+    gap: 8px;
+    border-radius: 5.82px;
     background: transparent;
-    border: 1px solid #00000038;
+    border: 1px solid;
     outline: none;
+}
+
+.sideBar-msg .box-search input::placeholder {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #9CA3AF;
 }
 
 .sideBar-msg .box-search img {
@@ -41,14 +55,13 @@
     width: 17px;
 }
 
-.sideBar-msg .members {
-    margin-top: 15px;
-}
+.sideBar-msg .members {}
 
 .sideBar-msg .members .member {
     cursor: pointer;
     padding: 10px 5px;
     border-radius: 5px;
+    gap: 8px;
 }
 
 .sideBar-msg .members .member:hover {
@@ -56,39 +69,44 @@
 }
 
 .sideBar-msg .members .member .image {
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
+
 }
 
 .sideBar-msg .members .member .image img {
-    background-color: greenyellow;
     border-radius: 50%;
     width: 100%;
     height: 100%;
 }
 
 .sideBar-msg .members .member .info {
-    margin-left: 10px;
+    width: 226px;
 }
 
 .sideBar-msg .members .member .info .name {}
 
 .sideBar-msg .members .member .info .name h4 {
-    text-transform: capitalize;
-    font-weight: 600;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
 }
 
 .sideBar-msg .members .member .info .last-msg {
-    font-size: 15px;
-    opacity: .8;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
 }
 
 .sideBar-msg .members .member .info .last-msg .msg {}
 
 .sideBar-msg .members .member .info .last-msg .date {
     font-size: 12px;
-    margin-left: 5px;
-    color: #404040;
+    margin-left: 8px;
 }
 
 /*****************************SideBar Message***********************************/
@@ -99,17 +117,23 @@
 
 .rightSide-msg .messages {
     width: 600px;
+    margin-top: 20px;
+    height: calc(100vh - 156px);
+    overflow-x: auto;
 }
 
-.rightSide-msg .messages .message {
-    margin: 14px 0px;
-}
+.rightSide-msg .messages .message {}
 
-.rightSide-msg .messages .message img {}
+.rightSide-msg .messages .message img {
+    width: 24px;
+    height: 24px;
+
+}
 
 .rightSide-msg .messages .message span {
-    padding: 10px;
-    border-radius: 4px;
+    width: max-content;
+    padding: 8px 12px 8px 12px;
+    border-radius: 6px;
 }
 
 .rightSide-msg .input-msg {

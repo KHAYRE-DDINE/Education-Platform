@@ -1,4 +1,5 @@
 import React from "react";
+import avatar from "../../../../../images/avatar.svg";
 
 function EnglishAccount({ courses, colleagues, subjectFill, cn }) {
   return (
@@ -7,10 +8,10 @@ function EnglishAccount({ courses, colleagues, subjectFill, cn }) {
       <div className="header-side flex justify-between">
         <div className="person">
           <div className="image rounded-full">
-            <img src="" alt="" />
+            <img src={avatar} alt="avatar" />
           </div>
           <div className="name">
-            <h1>khalid Al walid</h1>
+            <h1 className="text-gray-700">khalid Al walid</h1>
           </div>
         </div>
         <div className="badges flex justify-center items-center">
@@ -23,44 +24,46 @@ function EnglishAccount({ courses, colleagues, subjectFill, cn }) {
       </div>
       <div className="statistics">
         <div className="top-title">
-          <h3>statistic</h3>
-          <span>other will only see what they can access </span>
+          <h3 className="text-gray-700">statistic</h3>
+          <span className="text-gray-500">
+            other will only see what they can access{" "}
+          </span>
         </div>
         <div className="details">
           <div className="box joined">
-            <span>
-              Date joined <br /> <b>3 months ago</b>
+            <span className="text-gray-600">
+              Date joined <br /> <b className="text-gray-700">3 months ago</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
+            <span className="text-gray-600">
               classes
-              <br /> <b>3</b>
+              <br /> <b className="text-gray-700">3</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
-              completed lessons <br /> <b>3</b>
+            <span className="text-gray-600">
+              completed lessons <br /> <b className="text-gray-700">3</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
-              completed assignments <br /> <b>3</b>
+            <span className="text-gray-600">
+              completed assignments <br /> <b className="text-gray-700">3</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
-              videos watched <br /> <b>3</b>
+            <span className="text-gray-600">
+              videos watched <br /> <b className="text-gray-700">3</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
-              study hours <br /> <b>3</b>
+            <span className="text-gray-600">
+              study hours <br /> <b className="text-gray-600">3</b>
             </span>
           </div>
           <div className="box joined">
-            <span>
-              average score <br /> <b>B+</b>
+            <span className="text-gray-600">
+              average score <br /> <b className="text-gray-600">B+</b>
             </span>
           </div>
         </div>
@@ -68,34 +71,30 @@ function EnglishAccount({ courses, colleagues, subjectFill, cn }) {
       <div className="recent-lessons">
         <div className="top-title flex justify-between items-center">
           <div>
-            <h3>statistic</h3>
-            <span>other will only see what they can access </span>
+            <h3 className="text-gray-700">Recent lessons</h3>
+            <span className="text-gray-500">
+              other will only see what they can access{" "}
+            </span>
           </div>
-          <span className="text-primary-100 ">View all</span>
+          <span className="text-link cursor-pointer">View all</span>
         </div>
         <div className="lessons">
-          <div className="grid grid-cols-1">
+          <div className="grid grid-cols-1 gap-3">
             {courses.map((c, idx) => (
               <div key={idx} className="course">
-                <div className="lesson ">
-                  <div
-                    key={idx}
-                    className="lesson flex justify-start relative mt-6"
+                <div key={idx} className="lesson flex justify-start relative">
+                  <span
+                    className={cn(`circle   rounded-md`, subjectFill[c.title])}
                   >
-                    <span
-                      className={cn(
-                        `circle  after:bg-grayD`,
-                        subjectFill[c.title]
-                      )}
-                    >
-                      {c.icon}
+                    {c.icon}
+                  </span>
+                  <div className="info">
+                    <p className="lesson-name my-auto text-gray-700">
+                      {c.unit}
+                    </p>
+                    <span className="student-name text-gray-600">
+                      {c.student}
                     </span>
-                    <div className="info">
-                      <p className="lesson-name my-auto text-normalColor">
-                        {c.unit}
-                      </p>
-                      <span>{c.student}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -105,23 +104,20 @@ function EnglishAccount({ courses, colleagues, subjectFill, cn }) {
       </div>
       <div className="colleagues">
         <div className="top-title flex justify-between items-center">
-          <h3>colleagues</h3>
+          <h3 className="text-gray-700">colleagues</h3>
         </div>
         <div className="all-colleagues">
-          <div className="grid grid-cols-1">
+          <div className="grid grid-cols-1 gap-3">
             {colleagues.map((c, idx) => (
-              <div
-                key={idx}
-                className="colleague flex justify-start relative mt-6"
-              >
-                <div className="image w-10 h-10">
+              <div key={idx} className="colleague flex justify-start relative">
+                <div className="image">
                   <img src={c.image} alt="" />
                 </div>
                 <div className="info">
-                  <p className="colleague-name my-auto text-normalColor">
+                  <p className="colleague-name my-auto text-gray-700">
                     {c.student}
                   </p>
-                  <span>
+                  <span className="text-gray-600">
                     {c.gender === "male" ? "Mr" : "Mrs"}.
                     {c.student.split(" ")[0]} - {c.subject}
                   </span>

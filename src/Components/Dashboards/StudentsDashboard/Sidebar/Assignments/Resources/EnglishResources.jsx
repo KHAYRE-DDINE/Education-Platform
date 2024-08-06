@@ -24,10 +24,10 @@ function EnglishResources({ subject }) {
             </div>
             <div className="info mt-3 bg-white">
               <div className="description">
-                <span className="capitalize">{l.subject}</span>
+                <span className="capitalize text-gray-700">{l.subject}</span>
               </div>
               <div className="name">
-                <h4 className="capitalize ">{l.description}</h4>
+                <h4 className="capitalize text-gray-500">{l.description}</h4>
               </div>
             </div>
           </div>

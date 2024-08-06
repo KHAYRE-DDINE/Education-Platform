@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./Account.css";
 import EnglishAccount from "./EnglishAccount";
 import ArabicAccount from "./ArabicAccount";
-
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { LanguageContext } from "../../../../../App";
@@ -35,13 +34,29 @@ function Account() {
     {
       student: "Khalid Al Walid",
       subject: "mathematics",
-      image: "",
+      image:
+        "http://localhost:3000/static/media/avatar.d705bf7c01407cc24f7dc874c15976f2.svg",
       gender: "male",
     },
     {
       student: "Khalid Al Walid",
       subject: "mathematics",
-      image: "",
+      image:
+        "http://localhost:3000/static/media/avatar.d705bf7c01407cc24f7dc874c15976f2.svg",
+      gender: "male",
+    },
+    {
+      student: "Khalid Al Walid",
+      subject: "mathematics",
+      image:
+        "http://localhost:3000/static/media/avatar.d705bf7c01407cc24f7dc874c15976f2.svg",
+      gender: "male",
+    },
+    {
+      student: "Khalid Al Walid",
+      subject: "mathematics",
+      image:
+        "http://localhost:3000/static/media/avatar.d705bf7c01407cc24f7dc874c15976f2.svg",
       gender: "female",
     },
   ]);

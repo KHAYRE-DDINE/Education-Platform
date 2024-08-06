@@ -14,7 +14,6 @@
 
 .filter {
     width: max-content;
-    position: absolute;
 }
 
 .filter .search-input {
@@ -28,6 +27,7 @@
     outline: none;
     border-radius: 7px;
     height: 42px;
+    font-size: 13px;
 }
 
 .filter .search-input svg {
@@ -48,7 +48,7 @@
 }
 
 .rbc-calendar {
-    margin-top: 85px;
+    margin-top: 25px;
 }
 
 .rbc-toolbar {
@@ -67,12 +67,29 @@
     align-items: center;
 }
 
-select {}
+span[role='columnheader'] {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    color: #374151;
+}
+
+span.rbc-label {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    color: #6B7280;
+}
 
 select {
     outline: none;
-    background-color: #8080806e;
     margin: 0 5px;
+    background-color: #F3F4F6;
+    color: #4B5563;
     border-radius: 8px;
     padding: 5px 10px;
     min-width: 95px;
@@ -96,6 +113,8 @@ select {
     top: 51%;
     font-size: x-large;
     transform: translateY(-50%);
+    color: #4B5563;
+    z-index: 999;
 }
 
 .css-1utx3w7 {
@@ -109,6 +128,71 @@ button.chakra-button.css-p7mkev {
     font-size: x-large;
     border-radius: 7px;
     color: #1a1a1aad;
-    background-color: #ccc;
+    background-color: #F3F4F6;
     margin: 0 5px;
+}
+
+.rbc-day-slot .rbc-event,
+.rbc-day-slot .rbc-background-event {
+    padding: 0;
+}
+
+.rbc-day-slot .rbc-events-container {
+    margin-right: 0px;
+}
+
+.rbc-day-slot .rbc-event-label {
+    /* width: 206px; */
+    height: 24px;
+    width: 100% !important;
+    padding: 4px 8px 4px 8px;
+    border-bottom: 1px dashed;
+    text-align: start;
+    padding: 4px 8px 4px 8px;
+}
+
+.rbc-day-slot .rbc-event-content {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    padding: 8px;
+}
+
+@media (max-width: 1571px) {
+    .toolbar {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    select {
+        font-size: 13px;
+        padding: 0 6px;
+        min-width: 77px;
+    }
+
+    .d-w-m svg,
+    .select svg {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .filter .search-input input {
+        width: 277px;
+        height: 34px;
+    }
+
+    .d-w-m,
+    .select {
+        height: 34px;
+    }
+
+    button.chakra-button.bg-grayD.css-p7mkev,
+    button.chakra-button.css-p7mkev {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
 }

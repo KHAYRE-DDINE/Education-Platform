@@ -2,7 +2,6 @@ import "./Home.css";
 import icon from "../../../../../images/logo.svg";
 
 import React, { useContext, useState } from "react";
-
 import { LanguageContext } from "../../../../../App";
 
 import { clsx } from "clsx";
@@ -168,7 +167,6 @@ function Home() {
     arabic: "bg-yellow-100 text-yellow-600",
   };
 
-  const [today, setToday] = useState(false);
   const language = useContext(LanguageContext);
 
   return (
@@ -179,7 +177,6 @@ function Home() {
           tests={tests}
           courses={courses}
           subjectFill={subjectFill}
-          today={today}
           cn={cn}
         />
       ) : (
@@ -188,7 +185,6 @@ function Home() {
           tests={tests}
           courses={courses}
           subjectFill={subjectFill}
-          today={today}
           cn={cn}
         />
       )}

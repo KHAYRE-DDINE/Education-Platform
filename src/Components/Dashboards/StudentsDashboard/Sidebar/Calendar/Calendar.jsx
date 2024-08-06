@@ -4,7 +4,6 @@ import { Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { MOCK_EVENTS } from "./event";
-
 import EnglishCalendar from "./EnglishCalendar";
 import ArabicCalendar from "./ArabicCalendar";
 import { LanguageContext } from "../../../../../App";
@@ -17,7 +16,8 @@ function Calender() {
       title: e.title,
       start: new Date(e.start),
       end: new Date(e.end),
-      color: e.color,
+      colorTitle: e.colorTitle,
+      colorDescription: e.colorDescription,
     };
   });
 

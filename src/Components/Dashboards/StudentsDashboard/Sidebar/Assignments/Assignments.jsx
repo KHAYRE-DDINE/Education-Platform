@@ -78,6 +78,12 @@ function Assignments() {
         paddingLeft: "8px", // override the cell padding for data cells
         paddingRight: "8px",
         justifyContent: "space-between",
+        fontFamily: "Inter",
+        fontSize: "14px",
+        fontWeight: "500",
+        lineHeight: "20px",
+        textTransform: "capitalize",
+        color: "#4B5563",
       },
     },
   };
