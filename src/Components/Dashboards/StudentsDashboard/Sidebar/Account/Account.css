@@ -48,9 +48,7 @@
     text-transform: capitalize;
 }
 
-.account .header-side .badges {
-    margin: 15px;
-}
+.account .header-side .badges {}
 
 .account .header-side .badges span {
     width: 30px;

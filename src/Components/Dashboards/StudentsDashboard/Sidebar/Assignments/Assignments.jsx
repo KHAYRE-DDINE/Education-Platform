@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Assignments.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LanguageContext } from "../../../../../App";
 import EnglishAssignment from "./EnglishAssignment";
 import ArabicAssignment from "./ArabicAssignment";
+import avatar from "../../../../../images/avatar.svg";
 
 function Assignments() {
   const [columns, setColumns] = useState([]);
@@ -15,7 +15,7 @@ function Assignments() {
       assignment: "mathematic",
       status: "pending",
       date: "20 aug",
-      teacher: "ahmed taoufik",
+      teacher: avatar,
       updates: "23:10",
       icon: <HiOutlineDotsHorizontal />,
     },
@@ -24,7 +24,7 @@ function Assignments() {
       assignment: "Arabic",
       status: "pending",
       date: "20 aug",
-      teacher: "ahmed taoufik",
+      teacher: avatar,
       updates: "23:10",
       icon: <HiOutlineDotsHorizontal />,
     },
@@ -33,7 +33,7 @@ function Assignments() {
       assignment: "programming",
       status: "pending",
       date: "20 aug",
-      teacher: "ahmed taoufik",
+      teacher: avatar,
       updates: "23:10",
       icon: <HiOutlineDotsHorizontal />,
     },
@@ -88,8 +88,8 @@ function Assignments() {
     },
   };
 
-  const goToTable = (e) => {
-    navigate(move[0] + "/" + e.id);
+  const goToTable = (id) => {
+    navigate(move[0] + "/" + id);
     setOpen(true);
   };
 
@@ -130,7 +130,7 @@ function Assignments() {
         {
           name: "date",
           selector: (row) => row.date,
-          Cell: (row) => row.date && <FontAwesomeIcon icon="star" />,
+
           width: "7.75rem",
           style: {
             width: "max-content",
@@ -175,13 +175,10 @@ function Assignments() {
         <EnglishAssignment
           data={data}
           move={move}
-          columns={columns}
-          pending={pending}
           open={open}
           sideWidth={sideWidth}
           location={location}
           id={id}
-          customStyles={customStyles}
           goToTable={goToTable}
           backFromTable={backFromTable}
         />
@@ -189,13 +186,10 @@ function Assignments() {
         <ArabicAssignment
           data={data}
           move={move}
-          columns={columns}
-          pending={pending}
           open={open}
           sideWidth={sideWidth}
           location={location}
           id={id}
-          customStyles={customStyles}
           goToTable={goToTable}
           backFromTable={backFromTable}
         />

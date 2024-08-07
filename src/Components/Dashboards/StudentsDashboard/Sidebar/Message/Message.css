@@ -102,7 +102,13 @@
     text-align: left;
 }
 
-.sideBar-msg .members .member .info .last-msg .msg {}
+.sideBar-msg .members .member .info .last-msg .msg {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    width: fit-content;
+    overflow: hidden;
+}
 
 .sideBar-msg .members .member .info .last-msg .date {
     font-size: 12px;
@@ -113,13 +119,14 @@
 .rightSide-msg {
     margin: 0 auto;
     position: relative;
+    width: 600px;
 }
 
 .rightSide-msg .messages {
-    width: 600px;
-    margin-top: 20px;
+    width: 100%;
     height: calc(100vh - 156px);
     overflow-x: auto;
+    margin: 20px auto 0;
 }
 
 .rightSide-msg .messages .message {}
@@ -149,4 +156,22 @@
     border-radius: 5px;
     outline: none;
     background-color: #8080801f;
+}
+
+@media(max-width: 1200px) {
+    .sideBar-msg {
+        width: 270px;
+    }
+
+    .sideBar-msg .box-search input {
+        width: 100%;
+    }
+
+    .sideBar-msg .members .member .info .last-msg .msg {
+        max-width: 127px
+    }
+
+    .rightSide-msg {
+        width: 525px;
+    }
 }

@@ -1,20 +1,12 @@
 /***********************Left Side*****************************/
 .Assignments .left {
-    padding: 0 30px;
+    padding: 1.5rem 1.5rem 0rem 1.5rem;
     width: 70%;
 }
 
-.table {
-    width: 600px;
-}
-
-.table thead tr th {
-    text-align: start;
-    padding: 9px 0;
-}
-
 tr {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #F3F4F6;
+    justify-content: start;
 }
 
 .fzvXhU.rdt_Table.sc-aYaIB {

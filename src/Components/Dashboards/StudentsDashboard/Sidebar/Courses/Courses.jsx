@@ -5,6 +5,7 @@ import enrolling from "../../../../../images/enrolling.svg";
 import config from "../../../../../images/config.svg";
 import mainLogo from "../../../../../images/logo2.svg";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import mark from "../../../../../images/inter.svg";
 
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -135,7 +136,13 @@ function Courses() {
         <span
           className="right-side-button cursor-pointer xl:hidden"
           onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
-        ></span>
+        >
+          <img
+            onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
+            src={mark}
+            alt="mark"
+          />
+        </span>
         <div className="subject right-box rounded-lg border-[1px] border-grayD border-solid bg-white my-[15px] min-h-[230px]">
           <div
             className={`image-box h-[127px] mb-4 flex justify-center items-center bg-purple-200`}

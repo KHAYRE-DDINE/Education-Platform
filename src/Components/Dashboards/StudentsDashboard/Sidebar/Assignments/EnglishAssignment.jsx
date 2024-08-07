@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import close from "../../../../../images/close.svg";
-import DataTable from "react-data-table-component";
+import DataTable from "./DataTable/DataTable";
 import enrolling from "../../../../../images/enrolling.svg";
 import config from "../../../../../images/config.svg";
 import { Link, Outlet } from "react-router-dom";
 import mainLogo from "../../../../../images/logo2.svg";
+import mark from "../../../../../images/inter.svg";
 
 function EnglishAssignment({
   data,
-  customStyles,
   goToTable,
   backFromTable,
-  columns,
-  pending,
   open,
   sideWidth,
   location,
@@ -27,15 +25,14 @@ function EnglishAssignment({
         className="left"
         style={{ width: open && `calc(100% - ${sideWidth}px )` }}
       >
-        <h1 className="capitalize text-3xl my-6">Assignments</h1>
+        <h1 className="capitalize text-gray-700 text-[28px] font-medium font-['Inter'] leading-loose ">
+          Assignments
+        </h1>
         <div className="assignment-table">
           <DataTable
-            columns={columns}
+            goToTable={goToTable}
             data={data}
-            highlightOnHover
-            progressPending={pending}
-            customStyles={customStyles}
-            onRowClicked={(e) => goToTable(e)}
+            closeOpenRightSide={closeOpenRightSide}
           />
         </div>
       </div>
@@ -47,7 +44,9 @@ function EnglishAssignment({
         <span
           className="right-side-button cursor-pointer xl:hidden"
           onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
-        ></span>
+        >
+          <img src={mark} alt="mark" />
+        </span>
         <div className="subject right-box rounded-lg border-[1px] border-grayD border-solid bg-white my-[15px] min-h-[230px]">
           <div
             className={`image-box h-[127px] mb-4 flex justify-center items-center bg-purple-200`}

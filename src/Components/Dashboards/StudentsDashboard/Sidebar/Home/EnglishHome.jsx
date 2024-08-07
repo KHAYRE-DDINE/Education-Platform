@@ -3,6 +3,7 @@ import { CiBadgeDollar } from "react-icons/ci";
 import mainLogo from "../../../../../images/logo2.svg";
 import calender from "../../../../../images/calender.svg";
 import search from "../../../../../images/search.svg";
+import mark from "../../../../../images/inter.svg";
 
 function EnglishHome({ tests, courses, subject, subjectFill, cn }) {
   const [closeOpenRightSide, setCloseOpenRightSide] = useState(false);
@@ -209,7 +210,13 @@ function EnglishHome({ tests, courses, subject, subjectFill, cn }) {
         <span
           className="right-side-button cursor-pointer xl:hidden"
           onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
-        ></span>
+        >
+          <img
+            onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
+            src={mark}
+            alt="mark"
+          />
+        </span>
         <div className="profile-info bg-white">
           <div className="details flex-wrap flex justify-between items-center">
             <div className="left !w-max flex items-center">
