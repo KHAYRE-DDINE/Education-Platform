@@ -59,3 +59,24 @@
     line-height: 1rem;
     /* 133.333% */
 }
+
+@media (max-width : 768px) {
+    .classes .left {
+        width: 100%;
+    }
+
+    .classes .subjects .all-subjects .subject {
+        width: calc(100% / 3 - 12px);
+    }
+
+    .classes .subjects .all-subjects .subject .image-box {
+
+        width: 100%;
+    }
+}
+
+@media (max-width : 576px) {
+    .classes .subjects .all-subjects .subject {
+        width: calc(100% / 2 - 12px);
+    }
+}
