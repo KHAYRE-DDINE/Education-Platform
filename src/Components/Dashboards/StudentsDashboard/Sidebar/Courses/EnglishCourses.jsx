@@ -1,43 +1,96 @@
-import React, { useState } from "react";
+import React from "react";
 import enrolling from "../../../../../images/enrolling.svg";
 import config from "../../../../../images/config.svg";
 import mainLogo from "../../../../../images/logo2.svg";
-import { Link } from "react-router-dom";
+import mark from "../../../../../images/inter.svg";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
-function ArabicClasses({ subject, subjectFill, cn }) {
-  const [closeOpenRightSide, setCloseOpenRightSide] = useState(false);
-
+function EnglishCourses({
+  closeOpenRightSide,
+  move,
+  subject,
+  subjectFill,
+  setCloseOpenRightSide,
+  cn,
+}) {
+  const location = useLocation();
   return (
-    <div className="classes">
-      <div className="subjects mb-[40px]">
-        <div className="head mb-5 flex justify-between">
-          <h3 className="text-gray-700">Your classes</h3>
-          <button className="text-primary-100 border-none">see all</button>
-        </div>
-        <div className="all-subjects flex gap-[0.6rem] flex-wrap">
-          {subject.map((l, id) => (
-            <div
-              key={id}
-              className="subject cursor-pointer rounded-md border-[1px] border-grayD border-solid"
-            >
-              <div
-                className={cn(
-                  `image-box h-[127px] bg-primary-1001 flex justify-center items-center`,
-                  subjectFill[l.subject]
-                )}
-              >
-                <img src={mainLogo} alt="logo" className="w-[50px] h-[50px]" />
-              </div>
-              <div className="info ">
-                <div className="subject-student">
-                  <span className="capitalize text-gray-700">{l.subject}</span>
-                </div>
-                <div className="student">
-                  <h4 className="capitalize text-gray-600">{l.student}</h4>
-                </div>
-              </div>
+    <div className="courses flex gap-6">
+      <div className="left-side">
+        <h1 className="capitalize text-gray-700 text-[28px] font-medium font-['Inter'] leading-loose ">
+          courses
+        </h1>
+        <div>
+          <div className="top-section ">
+            <div className="move  border-slate-200 flex items-center">
+              <Link className={"active capitalize after:bg-link text-link"}>
+                recent courses
+              </Link>
             </div>
-          ))}
+          </div>
+          <div className="recent-courses flex justify-start items-center flex-wrap gap-4 mt-8">
+            {subject.map((l, id) => (
+              <div
+                key={id}
+                className="subject rounded-lg border-[1px] border-gray-100 border-solid bg-white"
+              >
+                <div
+                  className={cn(
+                    `image-box h-[127px] flex justify-center items-center`,
+                    subjectFill[l.subject]
+                  )}
+                >
+                  <img
+                    src={mainLogo}
+                    alt="logo"
+                    className="w-[50px] h-[50px]"
+                  />
+                </div>
+                <div className="info ">
+                  <div>
+                    <div className="subject-student">
+                      <span className="capitalize text-gray-700">
+                        {l.subject}
+                      </span>
+                    </div>
+                    <div className="description">
+                      <h4 className="capitalize text-gray-700">
+                        {l.description}
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="buttons">
+                    <button className="continue text-primary-100 bg-primary-600">
+                      continue
+                    </button>
+                    <button className="assignment bg-colorGray-100 text-colorGray-600">
+                      assignments
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="sections">
+          <div className="top-section mb-7">
+            <div className="move after:bg-grayD flex items-center">
+              {move.map((e, idx) => (
+                <Link
+                  key={idx}
+                  to={e}
+                  className={
+                    location.pathname.includes(e.substring(0, 6))
+                      ? "text-primary-100 active mr-3 capitalize after:bg-primary-100"
+                      : "text-normalColor mr-3 capitalize "
+                  }
+                >
+                  {e}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <Outlet subject={subject} subjectFill={subjectFill} cn={cn} />
         </div>
       </div>
       <div
@@ -48,7 +101,13 @@ function ArabicClasses({ subject, subjectFill, cn }) {
         <span
           className="right-side-button cursor-pointer xl:hidden"
           onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
-        ></span>
+        >
+          <img
+            onClick={() => setCloseOpenRightSide(!closeOpenRightSide)}
+            src={mark}
+            alt="mark"
+          />
+        </span>
         <div className="subject right-box rounded-lg border-[1px] border-grayD border-solid bg-white my-[15px] min-h-[230px]">
           <div
             className={`image-box h-[127px] mb-4 flex justify-center items-center bg-purple-200`}
@@ -65,7 +124,7 @@ function ArabicClasses({ subject, subjectFill, cn }) {
                 without losing any details on the way.
               </div>
             </div>
-            <div class="w-[230px] justify-start items-center gap-2 inline-flex mt-3">
+            <div class="w-[230px] justify-start items-center gap-2 inline-flex">
               <div class="px-3 py-2 w-[100%] bg-gray-100 rounded-md justify-center items-center gap-1.5 flex">
                 <div class="text-gray-600 text-[0.83rem] font-medium font-['Inter'] leading-tight cursor-pointer">
                   Try is now
@@ -160,4 +219,4 @@ function ArabicClasses({ subject, subjectFill, cn }) {
   );
 }
 
-export default ArabicClasses;
+export default EnglishCourses;
