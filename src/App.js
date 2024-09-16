@@ -34,9 +34,8 @@ function App() {
       <LanguageContext.Provider value={platformLanguage}>
         <setLanguageContext.Provider value={setPlatformLanguage}>
           <roleContext.Provider value={role}>
-
             <Routes>
-              <Route element={<ProtectRouteLog />}>
+              {/* <Route element={<ProtectRouteLog />}> */}
                 {
                   role === "student" ?
                     <Route element={<Dashboard />}>
@@ -55,10 +54,10 @@ function App() {
                           <Route path="/dashboard/*" element={<AdminDashboard />} />
                         </Route> : <Route exact path="/" element={<LandingPage />} />
                 }
-              </Route>
+              {/* </Route> */}
 
-              <Route element={<ProtectRouteDash />}>
-                <Route exact path="/" element={<LandingPage />} />
+              {/* <Route element={<ProtectRouteDash />}> */}
+                <Route exact path="/landing-page" element={<LandingPage />} />
                 <Route element={< LoginRegister />}>
                   <Route exact path="login" element={< Login />} />
                   <Route path="forgot-password" element={< ForgotPassword />} >
@@ -69,7 +68,7 @@ function App() {
                   <Route path="register/register-by-username" element={< ByUsername />} />
                   <Route path="register/class-code" element={< ClassCode />} />
                 </Route>
-              </Route>
+              {/* </Route> */}
 
             </Routes>
           </roleContext.Provider>
