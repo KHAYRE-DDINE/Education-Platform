@@ -42,27 +42,24 @@ function EnglishLanding({ active, setActive }) {
 
   return (
     <motion.div
-      className={`landing-page overflow-hidden duration-[.3s] ${isDark ? "bg-black" : ""}`}
-      // initial={{ scale: 0 }}
-      // animate={{ scale: 1 }}
-      // transition={{ duration: 1.5, delay: 0.25 }}
+      className={`landing-page overflow-hidden duration-[.3s] ${
+        isDark ? "bg-black" : ""
+      }`}
     >
       <motion.div
         className="top-line z-50 fixed left-0 top-0 right-0 origin-[0%] bg-primary-100 h-3"
         style={{ scaleX: yProgress }}
       ></motion.div>
-      {/* <div
-        className={`popup absolute ${popup === false ? "hidden" : ""}`}
-        onClick={() => setPopup(false)}
-      >
-        <div className="text">
-          <p>click here if you want to go to Login/Logout part</p>
-        </div>
-      </div> */}
       <div className="header">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <span className="text-colorGray-700 capitalize">al rihla</span>
+          <span
+            className={`uppercase ${
+              isDark ? "text-white" : "text-colorGray-700"
+            }`}
+          >
+            al rihla
+          </span>
         </div>
         <div
           onClick={() => navigate("login")}
@@ -89,8 +86,10 @@ function EnglishLanding({ active, setActive }) {
         <div className="circle absolute mt-[495px] sm:w-[59.9375rem] md:w-[59.9375rem] lg:w-[59.9375rem] xl:w-[59.9375rem] h-[59.9375rem] !border-colorBlue-300"></div>
         <div className="circle absolute mt-[585px] sm:w-[48rem] md:w-[48rem] lg:w-[48rem] xl:w-[48rem] h-[48rem] !border-colorBlue-300"></div>
         <button
-          className={`users z-10 relative bg-colorGray-100 text-colorGray-700 ${
-            isDark ? "bg-[#5e5e5e] text-white" : ""
+          className={`users z-10 relative  ${
+            isDark
+              ? "bg-[#5e5e5e] text-white"
+              : "bg-colorGray-100 text-colorGray-700"
           }`}
         >
           Open for beta users
@@ -102,17 +101,31 @@ function EnglishLanding({ active, setActive }) {
           size="1.125rem"
           width="36.875rem"
         />
-        <div className="btns z-10 relative">
-          <form className="form !border-colorGray-200">
+        <div
+          className={`btns z-10 relative ${isDark ? "!bg-[transparent]" : ""}`}
+        >
+          <form
+            className={`form !border-colorGray-200 ${
+              isDark ? "!bg-[transparent]" : ""
+            }`}
+          >
             <input
-              className="text-colorGray-500"
+              className={`text-colorGray-500  ${
+                isDark ? "bg-[transparent] text-white" : ""
+              }`}
               type="email"
               name="email"
               placeholder="Enter your email"
             />
             <button className="join bg-colorBlue-600">Join beta</button>
           </form>
-          <button className="sales bg-colorGray-200 text-colorGray-700">
+          <button
+            className={`sales ${
+              isDark
+                ? "bg-[transparent] border-[1px] border-solid text-white"
+                : "bg-colorGray-200 text-colorGray-700"
+            }`}
+          >
             Contact sales
           </button>
         </div>
@@ -182,8 +195,10 @@ function EnglishLanding({ active, setActive }) {
                 <button
                   onClick={(e) => setActive(e.target.textContent)}
                   className={`${
-                    isDark ? "text-[#bfbfbf]" : "text-colorGray-500"
-                  } ${active === "student" ? "active" : ""}`}
+                    isDark ? "text-[#bfbfbf] " : "text-colorGray-500"
+                  } ${active === "student" ? "active" : ""} ${
+                    isDark && active ? "bg-[#2c2c2c]" : ""
+                  }`}
                 >
                   student
                 </button>
@@ -193,7 +208,9 @@ function EnglishLanding({ active, setActive }) {
                   onClick={(e) => setActive(e.target.textContent)}
                   className={`${
                     isDark ? "text-[#bfbfbf]" : "text-colorGray-500"
-                  } ${active === "parent" ? "active" : ""}`}
+                  } ${active === "parent" ? "active" : ""} ${
+                    isDark && active ? "!bg-[#2c2c2c]" : ""
+                  }`}
                 >
                   parent
                 </button>
@@ -203,7 +220,9 @@ function EnglishLanding({ active, setActive }) {
                   onClick={(e) => setActive(e.target.textContent)}
                   className={`${
                     isDark ? "text-[#bfbfbf]" : "text-colorGray-500"
-                  }${active === "teacher" ? "active" : ""}`}
+                  } ${active === "teacher" ? "active" : ""} ${
+                    isDark && active ? "!bg-[#2c2c2c]" : ""
+                  }`}
                 >
                   teacher
                 </button>
@@ -213,7 +232,7 @@ function EnglishLanding({ active, setActive }) {
                   onClick={(e) => setActive(e.target.textContent)}
                   className={` ${active === "schools" ? "active" : ""} ${
                     isDark ? "text-[#bfbfbf]" : "text-colorGray-500"
-                  }`}
+                  } ${isDark && active ? "!bg-[#2c2c2c]" : ""}`}
                 >
                   schools
                 </button>
@@ -361,14 +380,14 @@ function EnglishLanding({ active, setActive }) {
           </div>
         </div>
       </motion.div>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.5, delay: 0.25 }}
+      <div
+        // variants={{
+        //   hidden: { opacity: 0, y: 75 },
+        //   visible: { opacity: 1, y: 0 },
+        // }}
+        // initial="hidden"
+        // whileInView="visible"
+        // transition={{ duration: 0.5, delay: 0.25 }}
         className="features"
       >
         <Definition
@@ -380,12 +399,19 @@ function EnglishLanding({ active, setActive }) {
         />
         <div className="boxes">
           <div className="squares ">
-            <div
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 200, x: -400 },
+                visible: { opacity: 1, y: 0, x: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.7, delay: 0.2 }}
               className={`box  ${isDark ? "bg-[#282828]" : "bg-colorGray-100"}`}
             >
               <div className="image">
                 <div className="inside-image">
-                  <img src={teach} alt="image" />
+                  <img src={teach} alt="image" className="!h-[400px]" />
                 </div>
               </div>
               <div className="info">
@@ -403,8 +429,15 @@ function EnglishLanding({ active, setActive }) {
                   easy.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 400, x: 400 },
+                visible: { opacity: 1, y: 0, x: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.7, delay: 0.2 }}
               className={`box  ${isDark ? "bg-[#282828]" : "bg-colorGray-100"}`}
             >
               <div className="image">
@@ -428,8 +461,15 @@ function EnglishLanding({ active, setActive }) {
                   Security at every stage.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 400, x: -400 },
+                visible: { opacity: 1, y: 0, x: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.7, delay: 0.2 }}
               className={`box  ${isDark ? "bg-[#282828]" : "bg-colorGray-100"}`}
             >
               <div className="image">
@@ -453,8 +493,15 @@ function EnglishLanding({ active, setActive }) {
                   features.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: -400, x: 400 },
+                visible: { opacity: 1, y: 0, x: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.7, delay: 0.2 }}
               className={`box  ${isDark ? "bg-[#282828]" : "bg-colorGray-100"}`}
             >
               <div className="image">
@@ -474,11 +521,18 @@ function EnglishLanding({ active, setActive }) {
                     isDark ? "text-[#bfbfbf]" : "text-colorGray-700"
                   }`}
                 >
-                  Uncompromising speed.Optimal performance, all the time.
+                  Uncompromising speed. Optimal performance, all the time.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: -400, x: -400 },
+                visible: { opacity: 1, y: 0, x: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.7, delay: 0.2 }}
               className={`box  ${isDark ? "bg-[#282828]" : "bg-colorGray-100"}`}
             >
               <div className="image">
@@ -497,14 +551,14 @@ function EnglishLanding({ active, setActive }) {
                     isDark ? "text-[#bfbfbf]" : "text-colorGray-700"
                   }`}
                 >
-                  Family takes fun seriously.Delightful interactions with every
+                  Family takes fun seriously. Delightful interactions with every
                   tap.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -513,7 +567,7 @@ function EnglishLanding({ active, setActive }) {
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 0.5, delay: 0.25 }}
-        className={`contact ${isDark ? "bg-[#282828]" : ""}`}
+        className={`contact ${isDark ? "!bg-[#282828]" : ""}`}
       >
         <button
           className={`users  ${
@@ -530,9 +584,16 @@ function EnglishLanding({ active, setActive }) {
           paragraph="Sign up for early access, and get a heads-up when we launch our platform and get to be one of our first customers."
         />
         <div className="btns">
-          <form
+          <motion.form
+            variants={{
+              hidden: { y: 75 },
+              visible: { y: 0 },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5 }}
             className={`form !border-colorGray-200 ${
-              isDark ? "bg-[transparent]" : ""
+              isDark ? "!bg-[transparent]" : ""
             }`}
           >
             <input
@@ -544,8 +605,15 @@ function EnglishLanding({ active, setActive }) {
               placeholder="Enter your email"
             />
             <button className="join bg-colorBlue-600">Join beta</button>
-          </form>
-          <button
+          </motion.form>
+          <motion.button
+            variants={{
+              hidden: { y: 75 },
+              visible: { y: 0 },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5 }}
             className={`sales ${
               isDark
                 ? "bg-[#5e5e5e] text-white"
@@ -553,7 +621,7 @@ function EnglishLanding({ active, setActive }) {
             }`}
           >
             Contact sales
-          </button>
+          </motion.button>
         </div>
       </motion.div>
       <motion.footer
@@ -564,21 +632,35 @@ function EnglishLanding({ active, setActive }) {
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 0.5, delay: 0.25 }}
-        className="footer flex bg-colorGray-100"
+        className={`footer flex ${
+          isDark ? "bg-[#282828]" : "bg-colorGray-100"
+        } `}
       >
         <div className="logo">
           <img src={logo} alt="logo" />
-          <span className="capitalize">al rihla</span>
+          <span
+            className={`uppercase ${
+              isDark ? "text-white" : "text-colorGray-700"
+            }`}
+          >
+            al rihla
+          </span>
         </div>
         <ul className="list flex !flex-row">
           <li>
-            <span className="text-gray-600">FAQ</span>
+            <span className={`${isDark ? "text-white" : "text-gray-600"}`}>
+              FAQ
+            </span>
           </li>
           <li>
-            <span className="text-gray-600">Privacy</span>
+            <span className={`${isDark ? "text-white" : "text-gray-600"}`}>
+              Privacy
+            </span>
           </li>
           <li>
-            <span className="text-gray-600">Terms</span>
+            <span className={`${isDark ? "text-white" : "text-gray-600"}`}>
+              Terms
+            </span>
           </li>
         </ul>
         <div className="btn bg-colorBlue-600">

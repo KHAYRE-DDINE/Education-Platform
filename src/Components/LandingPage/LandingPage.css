@@ -1,8 +1,9 @@
 .landing-page {
     /* width: 119.875rem; */
-    /* height: 122.4375rem; */
+    height: max-content;
     width: 100%;
-    margin: 0 auto 40px;
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
 /****************************popup*****************************/
@@ -73,7 +74,6 @@
 
 .landing-page .header .logo span,
 .landing-page .footer .logo span {
-    font-family: Poppins;
     font-size: 1.47656rem;
     font-style: normal;
     font-weight: 600;
@@ -174,7 +174,7 @@
 .landing-page .introduction .btns,
 .landing-page .contact .btns {
     display: flex;
-    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.02) 100%);
+    /* background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.02) 100%); */
     margin: 38px 0;
     justify-content: center;
     align-items: center;
@@ -186,7 +186,7 @@
     align-items: center;
     justify-content: space-between;
     width: 27.5rem;
-    padding: 0.25rem;
+    padding: 0.25rem 0.29rem;
     border-radius: 624.9375rem;
     border: 1px solid;
     background: rgba(255, 255, 255, 0.60);
@@ -504,7 +504,7 @@
 
 .superpower .second .square {
     display: flex;
-    width: 36.8125rem;
+    width: 29.8125rem;
     padding: 2rem;
     flex-direction: column;
     justify-content: center;
@@ -592,7 +592,7 @@
 
 @media (min-width: 1275px) and (max-width:1285px) {
     .superpower .first {
-        width: 100% !important;
+        width: 80% !important;
     }
 }
 
@@ -649,8 +649,8 @@
 
 .features .boxes .squares {
     display: grid;
-    grid-template-columns: 23.875rem 23.875rem 23.875rem;
-    grid-template-rows: 23.875rem 23.875rem;
+    grid-template-columns: 20.875rem 20.875rem 20.875rem;
+    grid-template-rows: 17.875rem 17.875rem;
     gap: 2rem;
     margin-top: 3.38rem;
 }
@@ -661,13 +661,13 @@
 
 .features .boxes .squares .box {
     display: flex;
-    width: 23.875rem;
+    width: 20.875rem;
     /* height: 23.875rem; */
-    padding: 2rem;
+    padding: 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 0rem;
     border-radius: 1.875rem;
 }
 
@@ -683,6 +683,7 @@
 
 .features .boxes .squares .box .image .inside-image img {
     max-width: max-content;
+    height: 110px;
 }
 
 .features .boxes .squares .box h3 {
@@ -700,12 +701,10 @@
 .features .boxes .squares .box p {
     text-align: center;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: .9rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.25rem;
-    /* 125% */
-    align-self: stretch;
+    line-height: 1.6;
 }
 
 @media(max-width:1424px) {}

@@ -8,7 +8,7 @@ function Definition({ title, paragraph, width, size, isDark }) {
       <motion.div
         className="title relative"
         variants={{
-          hidden: { left: "-1000px" },
+          hidden: { left: "-500px" },
           visible: { left: "0" },
         }}
         initial="hidden"
@@ -22,7 +22,7 @@ function Definition({ title, paragraph, width, size, isDark }) {
       <motion.div
         className="para relative"
         variants={{
-          hidden: { left: "1000px" },
+          hidden: { left: "500px" },
           visible: { left: "0px" },
         }}
         initial="hidden"
@@ -30,7 +30,7 @@ function Definition({ title, paragraph, width, size, isDark }) {
         transition={{ duration: 1 }}
       >
         <p
-          className={`${isDark ? "text-white" : "text-colorGray-800"}`}
+          className={`${isDark ? "text-[#bfbfbf]" : "text-colorGray-800"}`}
           style={{ width: width, fontSize: size }}
         >
           {paragraph}
