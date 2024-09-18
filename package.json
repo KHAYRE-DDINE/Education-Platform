@@ -1,5 +1,6 @@
 {
-  "name": "education-platform",
+  "name": "Education-Platform",
+  "homepage": "https://KHAYRE-DDINE.github.io/Education-Platform",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,7 @@
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.3.2",
+    "gh-pages": "^6.1.1",
     "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-big-calendar": "^1.13.0",
@@ -33,7 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && mv build/index.html build/200.html && surge build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build "
   },
   "eslintConfig": {
     "extends": [
