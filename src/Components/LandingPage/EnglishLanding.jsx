@@ -3,11 +3,12 @@ import logo from "../../images/logo2.svg";
 import Definition from "./Definition/Definition";
 import frepeek from "../../images/freepik--Character--inject-119.svg";
 import frepeek2 from "../../images/freepik--Character--inject-2.svg";
+import brain from "../../images/brain.png";
 import math from "../../images/math.png";
-import math2 from "../../images/math (2).png";
-import math3 from "../../images/math (3).png";
-import math4 from "../../images/math (4).png";
-import math5 from "../../images/math (5).png";
+import math2 from "../../images/math2.png";
+import math3 from "../../images/math3.png";
+import math4 from "../../images/math4.png";
+import math5 from "../../images/math5.png";
 import setting from "../../images/setting.png";
 import square from "../../images/square.png";
 import xy from "../../images/xy.png";
@@ -33,12 +34,14 @@ import {
 function EnglishLanding({ active, setActive }) {
   const navigate = useNavigate();
   const [isDark, setIsDark] = useState(true);
-  const [yProgress, setProgress] = useState();
-  const { scrollY } = useScroll();
+  const [yProgress, setProgress] = useState(0);
+  const { scrollYProgress } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setProgress(latest);
   });
+
+  console.log(yProgress);
 
   return (
     <motion.div
@@ -47,7 +50,7 @@ function EnglishLanding({ active, setActive }) {
       }`}
     >
       <motion.div
-        className="top-line z-50 fixed left-0 top-0 right-0 origin-[0%] bg-primary-100 h-3"
+        className="top-line z-50 fixed left-0 top-0 right-0 bg-primary-100 h-3 rounded-lg shadow-secondary-100 shadow-md"
         style={{ scaleX: yProgress }}
       ></motion.div>
       <div className="header">
@@ -61,10 +64,7 @@ function EnglishLanding({ active, setActive }) {
             al rihla
           </span>
         </div>
-        <div
-          onClick={() => navigate("login")}
-          className="btn cursor-pointer bg-colorBlue-600"
-        >
+        <div className="btn cursor-pointer bg-colorBlue-600">
           <button>Join beta</button>
         </div>
       </div>
@@ -254,27 +254,37 @@ function EnglishLanding({ active, setActive }) {
             <div className="images">
               <div className="icons">
                 <img
-                  className="absolute left-[9%] w-[26%]"
+                  className="absolute left-[9%]  w-[80px]"
                   src={math}
                   alt="board"
                 />
                 <img
-                  className="absolute w-[35%] left-[9%] bottom-[13%] "
+                  className="absolute  right-[2.75rem] top-[0] w-[80px]"
+                  src={brain}
+                  alt="brain"
+                />
+                <img
+                  className="absolute  left-[9%] bottom-[13%] w-[80px]"
                   src={math2}
                   alt="atom"
                 />
                 <img
-                  className="absolute w-[35%] left-7 top-[7.75rem]"
+                  className="absolute  left-7 top-[7.75rem] w-[80px]"
                   src={math3}
                   alt="einstein"
                 />
                 <img
-                  className=" absolute w-[31%] top-[35%] right-5 b-[40px]"
+                  className=" absolute  top-[35%] right-5 b-[40px] w-[80px]"
                   src={math4}
                   alt="school"
+                />{" "}
+                <img
+                  className=" absolute  bottom-[60%] left-[45%] b-[40px] w-[80px]"
+                  src={chimie}
+                  alt="chimie"
                 />
                 <img
-                  className=" absolute top-0 w-[85%]  object-cover "
+                  className=" absolute top-0  object-cover w-[80px]"
                   src={math5}
                   alt="school"
                 />
@@ -307,57 +317,57 @@ function EnglishLanding({ active, setActive }) {
             <div className="images">
               <div className="icons">
                 <img
-                  className="absolute left-[9%] w-[21%] bottom-[24px]"
+                  className="absolute left-[9%]  bottom-[24px] w-[80px]"
                   src={atomP}
                   alt="atom"
                 />
-                <img
-                  className="absolute w-[39%] left-[24%] top-[50px] "
+                {/* <img
+                  className="absolute  left-[24%] top-[50px] w-[80px]"
                   src={physic}
                   alt="physic"
-                />
+                /> */}
                 <img
-                  className="absolute w-[21%] right-[5.75rem] top-[7.75rem]"
+                  className="absolute  right-[2.75rem] top-[0] w-[80px]"
                   src={plan}
                   alt="plan"
                 />
                 <img
-                  className=" absolute w-[17%] bottom-[25%] right-[1.25rem] b-[40px]"
+                  className=" absolute  bottom-[25%] right-[1.25rem] b-[40px] w-[80px]"
                   src={setting}
                   alt="setting"
                 />
                 <img
-                  className=" absolute w-[11%] bottom-[43%] left-[47%] b-[40px]"
+                  className=" absolute  bottom-[60%] left-[45%] b-[40px] w-[80px]"
                   src={chimie}
                   alt="chimie"
                 />
                 <img
-                  className=" absolute w-[14%] bottom-[37%] left-[3.25rem] b-[40px]"
+                  className=" absolute  bottom-[30%] left-[3.25rem] b-[40px] w-[80px]"
                   src={functionF}
                   alt="functionF"
                 />
                 <img
-                  className="mr-[130px] mb-[40px] z-50"
+                  className="mr-[130px] mb-[40px] z-50 w-[80px]"
                   src={earth}
                   alt="earth"
                 />
                 <img
-                  className="absolute bottom-0 z-50"
+                  className="absolute bottom-0 z-50 "
                   src={frepeek2}
                   alt="frepeek2"
                 />
-                <img
-                  className="absolute bottom-[130px] w-10 mr-[30px] z-50"
+                {/* <img
+                  className="absolute bottom-[130px] mr-[30px] z-50 w-[80px]"
                   src={square}
                   alt="square"
-                />
+                /> */}
                 <img
-                  className="absolute bottom-[100px] left-[30%] z-50"
+                  className="absolute bottom-[250px] left-[13%] z-50 w-[80px]"
                   src={x2}
                   alt="x2"
                 />
                 <img
-                  className="absolute bottom-[50px] right-[60px] z-50"
+                  className="absolute top-[146px] right-[60px] z-50 w-[80px]"
                   src={xy}
                   alt="xy"
                 />
@@ -380,16 +390,7 @@ function EnglishLanding({ active, setActive }) {
           </div>
         </div>
       </motion.div>
-      <div
-        // variants={{
-        //   hidden: { opacity: 0, y: 75 },
-        //   visible: { opacity: 1, y: 0 },
-        // }}
-        // initial="hidden"
-        // whileInView="visible"
-        // transition={{ duration: 0.5, delay: 0.25 }}
-        className="features"
-      >
+      <div className="features">
         <Definition
           isDark={isDark}
           title="Key Features"

@@ -532,6 +532,8 @@
     align-items: center;
 }
 
+.superpower .second .square .images .icons img {}
+
 .superpower .second .square .images .icons img:not(:nth-of-type(8)) {
     z-index: 50;
 }
