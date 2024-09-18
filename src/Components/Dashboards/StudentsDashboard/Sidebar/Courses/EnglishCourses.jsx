@@ -15,12 +15,12 @@ function EnglishCourses({
 }) {
   const location = useLocation();
   return (
-    <div className="courses flex gap-6">
+    <div className="courses flex ">
       <div className="left-side">
         <h1 className="capitalize text-gray-700 text-[28px] font-medium font-['Inter'] leading-loose ">
           courses
         </h1>
-        <div>
+        <div className="w-full">
           <div className="top-section ">
             <div className="move  border-slate-200 flex items-center">
               <Link className={"active capitalize after:bg-link text-link"}>
@@ -124,7 +124,7 @@ function EnglishCourses({
                 without losing any details on the way.
               </div>
             </div>
-            <div class="w-[230px] justify-start items-center gap-2 inline-flex">
+            <div class="w-[230px] my-[10px] justify-start items-center gap-2 inline-flex">
               <div class="px-3 py-2 w-[100%] bg-gray-100 rounded-md justify-center items-center gap-1.5 flex">
                 <div class="text-gray-600 text-[0.83rem] font-medium font-['Inter'] leading-tight cursor-pointer">
                   Try is now

@@ -14,7 +14,7 @@ function EnglishClasses({ subject, subjectFill, cn }) {
           classes
         </h1>
         <div className="subjects mb-[40px]">
-          <div className="all-subjects flex gap-[0.9rem] flex-wrap">
+          <div className="all-subjects flex gap-[0.6rem] flex-wrap">
             {subject.map((l, id) => (
               <div
                 key={id}
@@ -78,7 +78,7 @@ function EnglishClasses({ subject, subjectFill, cn }) {
                 without losing any details on the way.
               </div>
             </div>
-            <div class="w-[230px] justify-start items-center gap-2 inline-flex">
+            <div class="w-[230px] my-[10px] justify-start items-center gap-2 inline-flex">
               <div class="px-3 py-2 w-[100%] bg-gray-100 rounded-md justify-center items-center gap-1.5 flex">
                 <div class="text-gray-600 text-[0.83rem] font-medium font-['Inter'] leading-tight cursor-pointer">
                   Try is now
