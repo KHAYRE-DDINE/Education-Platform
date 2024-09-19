@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Education-Platform/static/css/main.9b65bad4.css",
-    "main.js": "/Education-Platform/static/js/main.f311b933.js",
+    "main.js": "/Education-Platform/static/js/main.1556157a.js",
     "static/media/logo.svg": "/Education-Platform/static/media/logo.6f23a18f034d6e3207bbd1924c39ebef.svg",
     "static/media/math3.png": "/Education-Platform/static/media/math3.1f538baeec5e0ce1ca7e.png",
     "static/media/xy.png": "/Education-Platform/static/media/xy.1f538baeec5e0ce1ca7e.png",
@@ -46,10 +46,10 @@
     "static/media/down.svg": "/Education-Platform/static/media/down.da27c4e758904ba7062e939b3f0b3ff1.svg",
     "static/media/routine.svg": "/Education-Platform/static/media/routine.6357c6c0b105209bc66320ad9edc0587.svg",
     "main.9b65bad4.css.map": "/Education-Platform/static/css/main.9b65bad4.css.map",
-    "main.f311b933.js.map": "/Education-Platform/static/js/main.f311b933.js.map"
+    "main.1556157a.js.map": "/Education-Platform/static/js/main.1556157a.js.map"
   },
   "entrypoints": [
     "static/css/main.9b65bad4.css",
-    "static/js/main.f311b933.js"
+    "static/js/main.1556157a.js"
   ]
 }
