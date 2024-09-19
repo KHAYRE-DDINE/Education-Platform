@@ -41,8 +41,6 @@ function EnglishLanding({ active, setActive }) {
     setProgress(latest);
   });
 
-  console.log(yProgress);
-
   return (
     <motion.div
       className={`landing-page overflow-hidden duration-[.3s] ${
