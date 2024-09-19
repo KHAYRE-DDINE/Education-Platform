@@ -26,9 +26,6 @@ import {
   useScroll,
   motion,
   useMotionValueEvent,
-  useSpring,
-  useInView,
-  useAnimation,
 } from "framer-motion";
 
 function EnglishLanding({ active, setActive }) {
