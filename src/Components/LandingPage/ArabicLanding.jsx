@@ -3,24 +3,23 @@ import logo from "../../images/logo2.svg";
 import Definition from "./Definition/Definition";
 import frepeek from "../../images/freepik--Character--inject-119.svg";
 import frepeek2 from "../../images/freepik--Character--inject-2.svg";
-import math from "../../images/math.png";
-import math2 from "../../images/math (2).png";
-import math3 from "../../images/math (3).png";
-import math4 from "../../images/math (4).png";
-import math5 from "../../images/math (5).png";
-import setting from "../../images/setting.png";
-import square from "../../images/square.png";
-import xy from "../../images/xy.png";
-import x2 from "../../images/x2.png";
-import atomP from "../../images/atomP.png";
-import physic from "../../images/physic.png";
-import plan from "../../images/plan.png";
-import chimie from "../../images/chimie.png";
-import functionF from "../../images/function.png";
+import brain from "../../images/brain.png";
+import math from "../../images/math.svg";
+import math2 from "../../images/math2.svg";
+import math3 from "../../images/math3.svg";
+import math4 from "../../images/math4.svg";
+import math5 from "../../images/math5.svg";
+import setting from "../../images/setting.svg";
+import xy from "../../images/xy.svg";
+import x2 from "../../images/x2.svg";
+import atomP from "../../images/atom.svg";
+import plan from "../../images/plan.svg";
+import chimie from "../../images/chimie.svg";
+import functionF from "../../images/function.svg";
 import earth from "../../images/freepik--Earth--inject-2.svg";
 import teach from "../../images/Frame 55.svg";
 import teach1 from "../../images/Frame.svg";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ArabicLanding({ active, setActive }) {
   const navigate = useNavigate();
@@ -161,27 +160,37 @@ function ArabicLanding({ active, setActive }) {
             <div className="images">
               <div className="icons">
                 <img
-                  className="absolute left-[9%] w-[26%]"
+                  className="absolute left-[9%]  w-[80px]"
                   src={math}
                   alt="board"
                 />
                 <img
-                  className="absolute w-[35%] left-[9%] bottom-[13%] "
+                  className="absolute  right-[2.75rem] top-[0] w-[80px]"
+                  src={brain}
+                  alt="brain"
+                />
+                <img
+                  className="absolute  left-[9%] bottom-[13%] w-[80px]"
                   src={math2}
                   alt="atom"
                 />
                 <img
-                  className="absolute w-[35%] left-7 top-[7.75rem]"
+                  className="absolute  left-7 top-[7.75rem] w-[80px]"
                   src={math3}
                   alt="einstein"
                 />
                 <img
-                  className=" absolute w-[31%] top-[35%] right-5 b-[40px]"
+                  className=" absolute  top-[35%] right-5 b-[40px] w-[80px]"
                   src={math4}
                   alt="school"
+                />{" "}
+                <img
+                  className=" absolute  bottom-[60%] left-[45%] b-[40px] w-[80px]"
+                  src={chimie}
+                  alt="chimie"
                 />
                 <img
-                  className=" absolute top-0 w-[85%]  object-cover "
+                  className=" absolute top-0  object-cover w-[80px]"
                   src={math5}
                   alt="school"
                 />
@@ -204,44 +213,54 @@ function ArabicLanding({ active, setActive }) {
             <div className="images">
               <div className="icons">
                 <img
-                  className="absolute left-[9%] w-[21%] bottom-[24px]"
+                  className="absolute left-[9%]  bottom-[24px] w-[80px]"
                   src={atomP}
                   alt="atom"
                 />
                 <img
-                  className="absolute w-[39%] left-[24%] top-[6%] "
-                  src={physic}
-                  alt="physic"
-                />
-                <img
-                  className="absolute w-[21%] right-[5.75rem] top-[7.75rem]"
+                  className="absolute  right-[2.75rem] top-[0] w-[80px]"
                   src={plan}
                   alt="plan"
                 />
                 <img
-                  className=" absolute w-[17%] bottom-[25%] right-[1.25rem] b-[40px]"
+                  className=" absolute  bottom-[25%] right-[1.25rem] b-[40px] w-[80px]"
                   src={setting}
                   alt="setting"
                 />
                 <img
-                  className=" absolute w-[11%] bottom-[43%] left-[16.25rem] b-[40px]"
+                  className=" absolute  bottom-[60%] left-[45%] b-[40px] w-[80px]"
                   src={chimie}
                   alt="chimie"
                 />
                 <img
-                  className=" absolute w-[17%] bottom-[37%] left-[1.25rem] b-[40px]"
+                  className=" absolute  bottom-[30%] left-[3.25rem] b-[40px] w-[80px]"
                   src={functionF}
                   alt="functionF"
                 />
                 <img
-                  className="mr-[107px] mb-[27px] z-50"
+                  className="mr-[130px] mb-[40px] z-50 w-[80px]"
                   src={earth}
                   alt="earth"
                 />
                 <img
-                  className="absolute bottom-0 z-50"
+                  className="absolute bottom-0 z-50 "
                   src={frepeek2}
-                  alt="image"
+                  alt="frepeek2"
+                />
+                {/* <img
+                  className="absolute bottom-[130px] mr-[30px] z-50 w-[80px]"
+                  src={square}
+                  alt="square"
+                /> */}
+                <img
+                  className="absolute bottom-[250px] left-[13%] z-50 w-[80px]"
+                  src={x2}
+                  alt="x2"
+                />
+                <img
+                  className="absolute top-[146px] right-[60px] z-50 w-[80px]"
+                  src={xy}
+                  alt="xy"
                 />
               </div>
             </div>

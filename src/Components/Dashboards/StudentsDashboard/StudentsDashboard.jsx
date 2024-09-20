@@ -5,7 +5,7 @@ import Classes from "./Sidebar/Classes/Classes";
 import Library from "./Sidebar/Library/Library";
 import Assignments from "./Sidebar/Assignments/Assignments";
 import Message from "./Sidebar/Message/Message";
-import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect } from "react";
 import { LanguageContext } from "../../../App";
 import Account from "./Sidebar/Account/Account";
@@ -22,9 +22,12 @@ import Settings from "./Sidebar/Settings/Settings";
 function StudentsDashboard() {
   const language = useContext(LanguageContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    navigate("landing-page");
+    if (location.pathname === "Education-Platform") {
+      navigate("landing-page");
+    }
   });
 
   return (

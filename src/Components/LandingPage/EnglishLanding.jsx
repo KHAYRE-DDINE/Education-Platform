@@ -4,29 +4,25 @@ import Definition from "./Definition/Definition";
 import frepeek from "../../images/freepik--Character--inject-119.svg";
 import frepeek2 from "../../images/freepik--Character--inject-2.svg";
 import brain from "../../images/brain.png";
-import math from "../../images/math.png";
-import math2 from "../../images/math2.png";
-import math3 from "../../images/math3.png";
-import math4 from "../../images/math4.png";
-import math5 from "../../images/math5.png";
-import setting from "../../images/setting.png";
-import square from "../../images/square.png";
-import xy from "../../images/xy.png";
-import x2 from "../../images/x2.png";
-import atomP from "../../images/atomP.png";
-import physic from "../../images/physic.png";
-import plan from "../../images/plan.png";
-import chimie from "../../images/chimie.png";
-import functionF from "../../images/function.png";
+import math from "../../images/math.svg";
+import math2 from "../../images/math2.svg";
+import math3 from "../../images/math3.svg";
+import math4 from "../../images/math4.svg";
+import math5 from "../../images/math5.svg";
+import setting from "../../images/setting.svg";
+import xy from "../../images/xy.svg";
+import x2 from "../../images/x2.svg";
+import atomP from "../../images/atom.svg";
+import plan from "../../images/plan.svg";
+import chimie from "../../images/chimie.svg";
+import functionF from "../../images/function.svg";
 import earth from "../../images/freepik--Earth--inject-2.svg";
 import teach from "../../images/Frame 55.svg";
 import teach1 from "../../images/Frame.svg";
 import { useNavigate } from "react-router-dom";
-import {
-  useScroll,
-  motion,
-  useMotionValueEvent,
-} from "framer-motion";
+import { useScroll, motion, useMotionValueEvent } from "framer-motion";
+import { GoMoon } from "react-icons/go";
+import { TfiShine } from "react-icons/tfi";
 
 function EnglishLanding({ active, setActive }) {
   const navigate = useNavigate();
@@ -48,7 +44,7 @@ function EnglishLanding({ active, setActive }) {
         className="top-line z-50 fixed left-0 top-0 right-0 bg-primary-100 h-3 rounded-lg shadow-secondary-100 shadow-md"
         style={{ scaleX: yProgress }}
       ></motion.div>
-      <div className="header">
+      <div className="header relative">
         <div className="logo">
           <img src={logo} alt="logo" />
           <span
@@ -58,6 +54,24 @@ function EnglishLanding({ active, setActive }) {
           >
             al rihla
           </span>
+        </div>
+        <div
+          className={`change-mode absolute left-[50%] top-[15px] translate-x-[-50%] ${
+            isDark ? "bg-[#9e9e9e47]" : "bg-[#000000c2]"
+          }`}
+        >
+          <button
+            className={`${isDark ? "bg-primary-100" : ""}`}
+            onClick={() => setIsDark(true)}
+          >
+            <GoMoon />
+          </button>
+          <button
+            className={`${isDark ? "" : "bg-primary-100"}`}
+            onClick={() => setIsDark(false)}
+          >
+            <TfiShine />
+          </button>
         </div>
         <div className="btn cursor-pointer bg-colorBlue-600">
           <button>Join beta</button>
@@ -316,11 +330,6 @@ function EnglishLanding({ active, setActive }) {
                   src={atomP}
                   alt="atom"
                 />
-                {/* <img
-                  className="absolute  left-[24%] top-[50px] w-[80px]"
-                  src={physic}
-                  alt="physic"
-                /> */}
                 <img
                   className="absolute  right-[2.75rem] top-[0] w-[80px]"
                   src={plan}
