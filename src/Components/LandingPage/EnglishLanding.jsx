@@ -104,6 +104,7 @@ function EnglishLanding({ active, setActive }) {
           Open for beta users
         </button>
         <Definition
+          yProgress={yProgress}
           isDark={isDark}
           title="Choosing to study is the best decision you can ever make.We help you succeed"
           paragraph="Empower your learning journey. Gain knowledge, access support, and unlock your full potential."
@@ -172,6 +173,7 @@ function EnglishLanding({ active, setActive }) {
         className="superpower"
       >
         <Definition
+          yProgress={yProgress}
           isDark={isDark}
           title="Education with superpower"
           paragraph="Empower your learning journey. Gain knowledge, access support, and unlock your full potential."
@@ -396,6 +398,7 @@ function EnglishLanding({ active, setActive }) {
       </motion.div>
       <div className="features">
         <Definition
+          yProgress={yProgress}
           isDark={isDark}
           title="Key Features"
           paragraph="Powerful platform with superpowers made for you to thrive in your studies an secure your future"
@@ -584,6 +587,7 @@ function EnglishLanding({ active, setActive }) {
           Open for beta users
         </button>
         <Definition
+          yProgress={yProgress}
           isDark={isDark}
           title="Are you ready to embark your journey"
           paragraph="Sign up for early access, and get a heads-up when we launch our platform and get to be one of our first customers."
