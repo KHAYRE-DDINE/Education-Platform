@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useState } from "react";
 import logo from "../../images/logo2.svg";
 import Definition from "./Definition/Definition";
 import frepeek from "../../images/freepik--Character--inject-119.svg";
@@ -19,13 +19,11 @@ import functionF from "../../images/function.svg";
 import earth from "../../images/freepik--Earth--inject-2.svg";
 import teach from "../../images/Frame 55.svg";
 import teach1 from "../../images/Frame.svg";
-import { useNavigate } from "react-router-dom";
 import { useScroll, motion, useMotionValueEvent } from "framer-motion";
 import { GoMoon } from "react-icons/go";
 import { TfiShine } from "react-icons/tfi";
 
 function EnglishLanding({ active, setActive }) {
-  const navigate = useNavigate();
   const [isDark, setIsDark] = useState(true);
   const [yProgress, setProgress] = useState(0);
   const { scrollYProgress } = useScroll();
@@ -419,7 +417,7 @@ function EnglishLanding({ active, setActive }) {
             >
               <div className="image">
                 <div className="inside-image">
-                  <img src={teach} alt="image" className="!h-[400px]" />
+                  <img src={teach} alt="teach" className="!h-[400px]" />
                 </div>
               </div>
               <div className="info">
@@ -451,7 +449,7 @@ function EnglishLanding({ active, setActive }) {
               <div className="image">
                 <div className="inside-image">
                   {" "}
-                  <img src={teach1} alt="image" />
+                  <img src={teach1} alt="teach1" />
                 </div>
               </div>
               <div className="info">
@@ -483,7 +481,7 @@ function EnglishLanding({ active, setActive }) {
               <div className="image">
                 <div className="inside-image">
                   {" "}
-                  <img src={teach1} alt="image" />
+                  <img src={teach1} alt="teach1" />
                 </div>
               </div>
               <div className="info">
@@ -515,7 +513,7 @@ function EnglishLanding({ active, setActive }) {
               <div className="image">
                 <div className="inside-image">
                   {" "}
-                  <img src={teach1} alt="image" />
+                  <img src={teach1} alt="teach1" />
                 </div>
               </div>
               <div className="info">
@@ -545,7 +543,7 @@ function EnglishLanding({ active, setActive }) {
             >
               <div className="image">
                 <div className="inside-image">
-                  <img src={teach1} alt="image" />
+                  <img src={teach1} alt="teach1" />
                 </div>
               </div>
               <div className="info">
