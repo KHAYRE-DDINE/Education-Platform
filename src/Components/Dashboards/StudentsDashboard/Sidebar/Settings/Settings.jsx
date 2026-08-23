@@ -94,7 +94,8 @@ function Settings() {
     systemUpdates: true,
   });
 
-  const [appearance, setAppearance] = useState("light");
+  const { theme, changeTheme } = useAuthContext();
+  const [appearance, setAppearance] = useState(theme || "light");
   const [passwords, setPasswords] = useState({
     current: "",
     next: "",
@@ -458,16 +459,20 @@ function Settings() {
           ].map(({ key, label, icon }) => (
             <button
               key={key}
-              onClick={() => setAppearance(key)}
+              onClick={() => {
+                setAppearance(key);
+                changeTheme(key);
+                toast.success(`Theme set to ${label}`);
+              }}
               className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all ${
-                appearance === key
-                  ? "border-blue-500 bg-blue-50 text-blue-600"
-                  : "border-gray-200 text-gray-500 hover:border-gray-300"
+                (appearance || theme) === key
+                  ? "border-blue-500 bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                  : "border-gray-200 text-gray-500 hover:border-gray-300 dark:border-gray-700 dark:text-gray-400"
               }`}
             >
               {icon}
               <span className="text-xs font-medium">{label}</span>
-              {appearance === key && (
+              {(appearance || theme) === key && (
                 <span className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                   <TbCheck size={10} className="text-white" />
                 </span>

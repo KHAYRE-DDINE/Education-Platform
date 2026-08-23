@@ -11,12 +11,50 @@ export const AuthProvider = ({ children }) => {
   const [isFound, setIsFound] = useState(true);
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
   const [isSuccessed, setIsSuccessed] = useState(undefined);
   const [status, setStatus] = useState();
   const [token, setToken] = useState();
 
   // const csrf = () => axios.get("/sanctum/csrf-cookie");
   const navigate = useNavigate();
+
+  const applyTheme = (mode) => {
+    const isDark =
+      mode === "dark" ||
+      (mode === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  useEffect(() => {
+    applyTheme(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const changeTheme = async (nextTheme) => {
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    applyTheme(nextTheme);
+
+    if (currentUser?.id) {
+      try {
+        const currentPrefs = currentUser.preferences || {};
+        await updateCurrentUser({
+          preferences: {
+            ...currentPrefs,
+            appearance: nextTheme,
+          },
+        });
+      } catch (err) {
+        // Fallback silently
+      }
+    }
+  };
 
   const defaultPreferences = {
     notifications: {
@@ -50,6 +88,9 @@ export const AuthProvider = ({ children }) => {
         const { data } = await axios.get(`/users/${userId}`);
         if (isMounted) {
           setCurrentUser(data);
+          if (data?.preferences?.appearance) {
+            setTheme(data.preferences.appearance);
+          }
         }
       } catch (error) {
         localStorage.removeItem("user");
@@ -203,6 +244,8 @@ export const AuthProvider = ({ children }) => {
         isPasswordCorrect,
         isFound,
         isLoading,
+        theme,
+        changeTheme,
       }}
     >
       {children}

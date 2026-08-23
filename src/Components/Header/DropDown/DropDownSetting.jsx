@@ -21,6 +21,7 @@ import {
 import settings from "../../../images/settings.svg";
 import axios from "../../api/axios";
 import { toast } from "react-toastify";
+import useAuthContext from "../../authentication/AuthContext";
 
 const quickLinks = [
   {
@@ -66,57 +67,14 @@ const quickLinks = [
 ];
 
 export default function DropDownSetting() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, changeTheme } = useAuthContext();
   const navigate = useNavigate();
-  const userId = useMemo(() => localStorage.getItem("user"), []);
+  const isDarkMode = theme === "dark";
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadAppearance = async () => {
-      if (!userId) return;
-
-      try {
-        const { data } = await axios.get(`/users/${userId}`);
-        const appearance = data?.preferences?.appearance;
-
-        if (isMounted) {
-          setDarkMode(appearance === "dark");
-        }
-      } catch (error) {
-        // Keep default mode if settings cannot be loaded.
-      }
-    };
-
-    loadAppearance();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [userId]);
-
-  const handleToggleDarkMode = async () => {
-    const nextDarkMode = !darkMode;
-    setDarkMode(nextDarkMode);
-
-    if (!userId) {
-      return;
-    }
-
-    try {
-      const { data: user } = await axios.get(`/users/${userId}`);
-      const preferences = user?.preferences || {};
-
-      await axios.patch(`/users/${userId}`, {
-        preferences: {
-          ...preferences,
-          appearance: nextDarkMode ? "dark" : "light",
-        },
-      });
-    } catch (error) {
-      setDarkMode(!nextDarkMode);
-      toast.error("Could not update appearance setting.");
-    }
+  const handleToggleDarkMode = () => {
+    const nextTheme = isDarkMode ? "light" : "dark";
+    changeTheme(nextTheme);
+    toast.success(`Switched to ${nextTheme} mode`);
   };
 
   return (
@@ -149,24 +107,24 @@ export default function DropDownSetting() {
           {/* Dark Mode Toggle */}
           <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              {darkMode ? (
+              {isDarkMode ? (
                 <TbMoon size={16} className="text-indigo-500" />
               ) : (
                 <TbSun size={16} className="text-amber-500" />
               )}
               <span className="text-sm text-gray-700 font-medium">
-                {darkMode ? "Dark Mode" : "Light Mode"}
+                {isDarkMode ? "Dark Mode" : "Light Mode"}
               </span>
             </div>
             <button
               onClick={handleToggleDarkMode}
               className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${
-                darkMode ? "bg-indigo-500" : "bg-gray-200"
+                isDarkMode ? "bg-indigo-500" : "bg-gray-200"
               }`}
             >
               <span
                 className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300 ${
-                  darkMode ? "translate-x-5" : "translate-x-0"
+                  isDarkMode ? "translate-x-5" : "translate-x-0"
                 }`}
               />
             </button>

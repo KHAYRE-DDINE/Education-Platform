@@ -155,3 +155,60 @@ p.terms a {
 @media (min-width: 1280px) {}
 
 @media (min-width: 1536px) {}
+
+/* ================= DARK MODE STYLES ================= */
+html.dark {
+  color-scheme: dark;
+  background-color: #0b0f19;
+  color: #f1f5f9;
+}
+
+html.dark body {
+  background-color: #0b0f19;
+  color: #f1f5f9;
+}
+
+html.dark .bg-white {
+  background-color: #151c2c !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-[#F8FAFF],
+html.dark .bg-[#F9FAFB] {
+  background-color: #0b0f19 !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-50 {
+  border-color: #1e293b !important;
+}
+
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-2xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
+}
