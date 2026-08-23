@@ -167,7 +167,9 @@ html.dark .sidebar,
 html.dark .right-side,
 html.dark .content-area,
 html.dark .page,
-html.dark .wrapper {
+html.dark .wrapper,
+html.dark .help-page,
+html.dark .settings-page {
   color-scheme: dark;
   background-color: #0b0f19 !important;
   color: #f1f5f9 !important;
@@ -185,35 +187,36 @@ html.dark .sidebar-nav {
   border-right-color: #1e293b !important;
 }
 
-/* Containers, Cards & Modals */
+/* Default Dark Backgrounds for All Cards, Panels & Boxes */
 html.dark .bg-white,
 html.dark .bg-white\/80,
 html.dark .bg-white\/90,
 html.dark .bg-white\/20,
-html.dark .group\/bubble.bg-white {
-  background-color: #151c2c !important;
-  color: #f1f5f9 !important;
-}
-
 html.dark .bg-gray-50,
 html.dark .bg-gray-100,
 html.dark .bg-gray-200\/50,
 html.dark .bg-[#F8FAFF],
 html.dark .bg-[#F9FAFB],
-html.dark .bg-gray-50\/40 {
-  background-color: #0b0f19 !important;
+html.dark .bg-gray-50\/40,
+html.dark .settings-card,
+html.dark .guide-card,
+html.dark .faq-item,
+html.dark .right-box {
+  background-color: #151c2c !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
 }
 
-/* Hover State Overrides in Dark Mode */
+/* Controlled Hover State in Dark Mode: Subtle Dark Highlight, Never Light */
 html.dark button:hover,
 html.dark a:hover,
-html.dark div:hover,
 html.dark .hover\:bg-gray-50:hover,
 html.dark .hover\:bg-gray-100:hover,
 html.dark .hover\:bg-gray-200:hover,
-html.dark .hover\:bg-white:hover {
+html.dark .hover\:bg-white:hover,
+html.dark .hover\:border-gray-300:hover {
   background-color: #1e293b !important;
-  color: #f8fafc !important;
+  color: #ffffff !important;
 }
 
 /* Text Overrides */
