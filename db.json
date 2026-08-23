@@ -33,7 +33,7 @@
           "promotions": false,
           "systemUpdates": true
         },
-        "appearance": "light",
+        "appearance": "dark",
         "privacy": {
           "profileVisible": true,
           "showProgress": false,

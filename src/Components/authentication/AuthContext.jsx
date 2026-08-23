@@ -41,15 +41,24 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("theme", nextTheme);
     applyTheme(nextTheme);
 
-    if (currentUser?.id) {
+    const userId = currentUser?.id || localStorage.getItem("user");
+    if (userId) {
       try {
-        const currentPrefs = currentUser.preferences || {};
-        await updateCurrentUser({
+        const { data: user } = await axios.get(`/users/${userId}`);
+        const currentPrefs = user?.preferences || {};
+        const updatedUser = {
+          ...user,
           preferences: {
             ...currentPrefs,
             appearance: nextTheme,
           },
+        };
+        await axios.patch(`/users/${userId}`, {
+          preferences: updatedUser.preferences,
         });
+        if (currentUser) {
+          setCurrentUser(updatedUser);
+        }
       } catch (err) {
         // Fallback silently
       }

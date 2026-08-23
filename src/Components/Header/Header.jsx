@@ -7,27 +7,15 @@ import searchIcon from "../../images/search.svg";
 import logo from "../../images/logo2.svg";
 import dottes from "../../images/dottesSquare.svg";
 import { motion } from "framer-motion";
+import { TbSun, TbMoon } from "react-icons/tb";
+import useAuthContext from "../authentication/AuthContext";
 
 function Header({ sidebarWidth, setSidebarWidth }) {
-  // const changeLanguage = (e) => {
-  //   setLanguage(e.target.value);
-  // };
-  //  <div className="box-lang flex items-center justify-around relative text-sm font-semibold leading-6 text-gray-900 capitalize">
-  //    <div className="language-icon absolute left-0">
-  //      <TbWorld />
-  //    </div>
-  //    <select
-  //      name="language"
-  //      onChange={(e) => changeLanguage(e)}
-  //      className="capitalize outline-none text-normalColor"
-  //    >
-  //      <option value="english">english</option>
-  //      <option value="arabic">arabic</option>
-  //    </select>
-  //    <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400 absolute right-0" />
-  //  </div>;
+  const { theme, changeTheme } = useAuthContext();
+  const isDark = theme === "dark";
+
   return (
-    <header className="bg-white z-[9999] fixed w-[100%] flex items-center justify-between  border-b-[1px] border-solid border-grayD">
+    <header className="bg-white z-[9999] fixed w-[100%] flex items-center justify-between border-b-[1px] border-solid border-grayD dark:bg-[#151c2c] dark:border-[#1e293b]">
       <div className="logo p-4 flex items-center">
         <motion.button
           initial={{ scale: 0.8 }}
@@ -38,7 +26,7 @@ function Header({ sidebarWidth, setSidebarWidth }) {
         >
           <img src={dottes} alt="dottes" />
         </motion.button>
-        <h2 className="w-[180px] uppercase text-gray-700 font-bold text-2xl flex">
+        <h2 className="w-[180px] uppercase text-gray-700 dark:text-gray-100 font-bold text-2xl flex">
           <img className="mr-2" src={logo} alt="logo" />
           al rihla
         </h2>
@@ -49,11 +37,22 @@ function Header({ sidebarWidth, setSidebarWidth }) {
           <input
             type="search"
             name="search"
-            className="!border-gray-300 text-xs"
+            className="!border-gray-300 dark:!border-[#1e293b] text-xs dark:bg-[#0b0f19] dark:text-white"
             placeholder="Search something..."
           />
         </div>
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2 ml-4">
+          <button
+            onClick={() => changeTheme(isDark ? "light" : "dark")}
+            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white dark:bg-[#0b0f19] hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b] transition-all"
+          >
+            {isDark ? (
+              <TbSun size={18} className="text-amber-400" />
+            ) : (
+              <TbMoon size={18} className="text-indigo-600" />
+            )}
+          </button>
           <DropDownNotification />
           <DropDownSetting />
           <DropDownProfile />

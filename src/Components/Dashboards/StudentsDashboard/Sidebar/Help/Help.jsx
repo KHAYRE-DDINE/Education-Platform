@@ -91,13 +91,13 @@ function FAQItem({ faq }) {
   return (
     <motion.div
       layout
-      className="faq-item border border-gray-100 rounded-xl overflow-hidden"
+      className="faq-item border border-gray-100 dark:border-[#1e293b] rounded-xl overflow-hidden"
     >
       <button
-        className="w-full flex items-center justify-between px-5 py-4 text-left bg-white hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between px-5 py-4 text-left bg-white dark:bg-[#151c2c] hover:bg-gray-50 dark:hover:bg-[#1e293b] transition-colors"
         onClick={() => setOpen(!open)}
       >
-        <span className="font-semibold text-gray-800 text-sm pr-4">
+        <span className="font-semibold text-gray-800 dark:text-gray-100 text-sm pr-4">
           {faq.question}
         </span>
         <motion.span
@@ -117,7 +117,7 @@ function FAQItem({ faq }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <p className="px-5 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+            <p className="px-5 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#1e293b] pt-3">
               {faq.answer}
             </p>
           </motion.div>
@@ -136,7 +136,7 @@ function Help() {
   );
 
   return (
-    <div className="help-page min-h-screen bg-gray-50 p-6">
+    <div className="help-page min-h-screen bg-gray-50 dark:bg-[#0b0f19] p-6">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -178,7 +178,7 @@ function Help() {
               value={search}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for help..."
-              className="w-full pl-11 pr-4 py-3 rounded-xl text-gray-800 text-sm outline-none border-none shadow-lg"
+              className="w-full pl-11 pr-4 py-3 rounded-xl text-gray-800 dark:text-gray-100 dark:bg-[#0b0f19] text-sm outline-none border-none shadow-lg"
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ function Help() {
 
       {/* Quick Guides */}
       <div className="mb-8">
-        <h2 className="text-lg font-bold text-gray-800 mb-4">Quick Guides</h2>
+        <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">Quick Guides</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {guides.map((g, i) => (
             <motion.div
@@ -195,20 +195,20 @@ function Help() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -4, boxShadow: "0 12px 24px rgba(0,0,0,0.1)" }}
-              className="guide-card bg-white rounded-xl p-5 cursor-pointer border border-gray-100 transition-all"
+              className="guide-card bg-white dark:bg-[#151c2c] rounded-xl p-5 cursor-pointer border border-gray-100 dark:border-[#1e293b] transition-all"
             >
               <div
                 className={`w-10 h-10 rounded-lg bg-gradient-to-br ${g.color} flex items-center justify-center text-white mb-4`}
               >
                 {g.icon}
               </div>
-              <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-400 px-2 py-0.5 rounded-full">
                 {g.badge}
               </span>
-              <h3 className="font-semibold text-gray-800 mt-2 mb-1 text-sm">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100 mt-2 mb-1 text-sm">
                 {g.title}
               </h3>
-              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-3">
                 {g.desc}
               </p>
               <div className="flex items-center gap-1 text-blue-500 text-xs font-medium">
@@ -222,10 +222,10 @@ function Help() {
       {/* FAQ */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-gray-800">
+          <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100">
             Frequently Asked Questions
           </h2>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-500 dark:text-gray-400">
             {filtered.length} results
           </span>
         </div>
@@ -250,7 +250,7 @@ function Help() {
             desc: "support@alrihla.com",
             sub: "Response within 24h",
             color: "text-blue-500",
-            bg: "bg-blue-50",
+            bg: "bg-blue-50 dark:bg-blue-900/30",
           },
           {
             icon: <TbPhone size={22} />,
@@ -258,7 +258,7 @@ function Help() {
             desc: "+1 (800) 555-0123",
             sub: "Mon–Fri, 9am–6pm",
             color: "text-emerald-500",
-            bg: "bg-emerald-50",
+            bg: "bg-emerald-50 dark:bg-emerald-900/30",
           },
           {
             icon: <TbStar size={22} />,
@@ -266,7 +266,7 @@ function Help() {
             desc: "Premium members",
             sub: "24/7 dedicated line",
             color: "text-orange-500",
-            bg: "bg-orange-50",
+            bg: "bg-orange-50 dark:bg-orange-900/30",
           },
         ].map((item, i) => (
           <motion.div
@@ -274,7 +274,7 @@ function Help() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
-            className="bg-white rounded-xl p-5 border border-gray-100 flex items-start gap-4"
+            className="bg-white dark:bg-[#151c2c] rounded-xl p-5 border border-gray-100 dark:border-[#1e293b] flex items-start gap-4"
           >
             <div
               className={`w-10 h-10 ${item.bg} ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}
@@ -282,10 +282,10 @@ function Help() {
               {item.icon}
             </div>
             <div>
-              <p className="font-semibold text-gray-800 text-sm">
+              <p className="font-semibold text-gray-800 dark:text-gray-100 text-sm">
                 {item.title}
               </p>
-              <p className="text-sm text-gray-700 mt-0.5">{item.desc}</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">{item.desc}</p>
               <p className="text-xs text-gray-400 mt-0.5">{item.sub}</p>
             </div>
           </motion.div>
