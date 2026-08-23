@@ -134,7 +134,7 @@ function Account() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
+        className="bg-white dark:bg-[#151c2c] rounded-3xl border border-gray-100 dark:border-[#1e293b] shadow-sm overflow-hidden"
       >
         {/* Cover Photo */}
         <div 
@@ -162,15 +162,15 @@ function Account() {
                 <img 
                   src={userAvatar} 
                   alt="Avatar" 
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg bg-white object-cover"
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-slate-800 shadow-lg bg-white dark:bg-slate-800 object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                   <FiUpload size={24} />
                 </div>
               </div>
               <div className="text-center md:text-left mb-2">
-                <h1 className="text-3xl font-bold text-gray-900">{fullName}</h1>
-                <p className="text-gray-500 font-medium mt-1">{userTitle}</p>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{fullName}</h1>
+                <p className="text-gray-500 dark:text-gray-400 font-medium mt-1">{userTitle}</p>
               </div>
             </div>
 
@@ -182,14 +182,14 @@ function Account() {
           </div>
 
           {/* Bio & Details */}
-          <div className="flex flex-col md:flex-row gap-8 pt-6 border-t border-gray-100">
+          <div className="flex flex-col md:flex-row gap-8 pt-6 border-t border-gray-100 dark:border-[#1e293b]">
             <div className="flex-1">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">About Me</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-3">About Me</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                 {userBio}
               </p>
             </div>
-            <div className="flex flex-col gap-3 text-sm text-gray-600">
+            <div className="flex flex-col gap-3 text-sm text-gray-600 dark:text-gray-300">
               <div className="flex items-center gap-3">
                 <FiMapPin className="text-gray-400" size={18} /> {userLocation}
               </div>
@@ -209,14 +209,14 @@ function Account() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm"
+        className="bg-white dark:bg-[#151c2c] p-6 rounded-3xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Achievements</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Achievements</h2>
         </div>
         <div className="flex flex-wrap gap-4">
           {badges.map((badge, idx) => (
-            <div key={idx} className={cn("flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm shadow-sm", badge.color)}>
+            <div key={idx} className={cn("flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm shadow-sm", badge.color, "dark:bg-indigo-900/40 dark:text-indigo-300")}>
               <span className="text-lg">{badge.icon}</span> {badge.title}
             </div>
           ))}
@@ -231,18 +231,18 @@ function Account() {
         className="grid grid-cols-2 md:grid-cols-4 gap-4"
       >
         <div className="col-span-full mb-2">
-          <h2 className="text-xl font-bold text-gray-900">Your Statistics</h2>
-          <p className="text-sm text-gray-500">Only you can see this data</p>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Your Statistics</h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400">Only you can see this data</p>
         </div>
         
         {stats.map((stat, idx) => (
-          <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-center gap-4">
-            <div className={cn("p-3 rounded-xl", stat.bg, stat.color)}>
+          <div key={idx} className="bg-white dark:bg-[#151c2c] p-5 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm hover:shadow-md transition-shadow flex items-center gap-4">
+            <div className={cn("p-3 rounded-xl", stat.bg, stat.color, "dark:bg-indigo-900/30 dark:text-indigo-300")}>
               <stat.icon size={20} />
             </div>
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">{stat.label}</p>
-              <h3 className="text-lg font-bold text-gray-900 mt-0.5">{stat.value}</h3>
+              <p className="text-xs font-bold text-gray-400 dark:text-gray-400 uppercase tracking-wider">{stat.label}</p>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mt-0.5">{stat.value}</h3>
             </div>
           </div>
         ))}
@@ -256,25 +256,25 @@ function Account() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-3xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-gray-900">Active Courses</h2>
-            <span onClick={() => navigate('/dashboard/courses')} className="text-indigo-600 text-sm font-semibold cursor-pointer hover:underline">View All</span>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Active Courses</h2>
+            <span onClick={() => navigate('/dashboard/courses')} className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold cursor-pointer hover:underline">View All</span>
           </div>
           <div className="flex flex-col gap-4">
             {courses.map((c, idx) => (
-              <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-indigo-50/50 transition-colors cursor-pointer group border border-transparent hover:border-indigo-100">
+              <div key={idx} className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-[#0b0f19] hover:bg-indigo-50/50 dark:hover:bg-[#1e293b] transition-colors cursor-pointer group border border-transparent hover:border-indigo-100 dark:hover:border-[#1e293b]">
                 <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl shadow-sm", c.color || "bg-indigo-500")}>
                   {c.icon || <FiBook />}
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-sm font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{c.title || c.subject}</h4>
-                  <p className="text-xs text-gray-500 mt-1">{c.subject}</p>
+                  <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{c.title || c.subject}</h4>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{c.subject}</p>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs font-bold text-indigo-600">{c.progress}%</span>
-                  <div className="w-16 h-1.5 bg-gray-200 rounded-full mt-1.5">
+                  <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{c.progress}%</span>
+                  <div className="w-16 h-1.5 bg-gray-200 dark:bg-slate-800 rounded-full mt-1.5">
                     <div className={cn("h-full rounded-full", c.color || "bg-indigo-500")} style={{ width: `${c.progress}%` }}></div>
                   </div>
                 </div>
@@ -288,27 +288,27 @@ function Account() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-3xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-gray-900">Your Network</h2>
-            <span onClick={() => navigate('/dashboard/message')} className="text-indigo-600 text-sm font-semibold cursor-pointer hover:underline">Messages</span>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Your Network</h2>
+            <span onClick={() => navigate('/dashboard/message')} className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold cursor-pointer hover:underline">Messages</span>
           </div>
           <div className="flex flex-col gap-4">
             {colleagues.map((c, idx) => (
-              <div key={idx} className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 transition-colors cursor-pointer">
+              <div key={idx} className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 dark:hover:bg-[#1e293b] transition-colors cursor-pointer">
                 <div className="flex items-center gap-4">
-                  <img src={c.image} alt={c.student} className="w-12 h-12 rounded-full object-cover shadow-sm border border-gray-100" />
+                  <img src={c.image} alt={c.student} className="w-12 h-12 rounded-full object-cover shadow-sm border border-gray-100 dark:border-gray-700" />
                   <div>
-                    <h4 className="text-sm font-bold text-gray-900">{c.student}</h4>
-                    <p className="text-xs text-gray-500 mt-0.5">{c.subject}</p>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-white">{c.student}</h4>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{c.subject}</p>
                   </div>
                 </div>
                 <span className={cn(
                   "px-3 py-1 rounded-full text-xs font-bold",
-                  c.role === "Teacher" ? "bg-amber-100 text-amber-700" :
-                  c.role === "Mentor" ? "bg-purple-100 text-purple-700" :
-                  "bg-blue-100 text-blue-700"
+                  c.role === "Teacher" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300" :
+                  c.role === "Mentor" ? "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300" :
+                  "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
                 )}>
                   {c.role}
                 </span>

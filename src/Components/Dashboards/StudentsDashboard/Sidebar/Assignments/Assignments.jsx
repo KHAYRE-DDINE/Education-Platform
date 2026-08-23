@@ -233,30 +233,32 @@ function Assignments() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       {getStatusBadge(item.status)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex flex-col">
-                        <span className="text-sm font-semibold text-gray-900 flex items-center gap-1.5"><FiCalendar className="text-gray-400"/> {item.date}</span>
-                        <span className="text-xs text-gray-500 flex items-center gap-1.5"><FiClock className="text-gray-400"/> {item.time}</span>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <div className="flex items-center gap-1.5">
+                        <FiCalendar className="text-gray-400" size={14} />
+                        <span>{item.date}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <img src={item.teacher} alt="teacher" className="w-8 h-8 rounded-full border-2 border-white shadow-sm" />
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-2">
+                        <img src={item.teacher} alt="teacher" className="w-8 h-8 rounded-full object-cover border border-gray-100 dark:border-gray-700" />
+                      </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right">
-                      <div className="flex items-center justify-end gap-2">
+                    <td className="px-6 py-4 text-right">
+                      <div className="flex items-center justify-end gap-2" onClick={(e) => e.stopPropagation()}>
                         <button 
                           onClick={(e) => handleToggleComplete(item.id, item.status, e)}
                           title="Toggle Complete"
-                          className="p-2 text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                          className="p-2 rounded-lg text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors"
                         >
-                          <FiCheckCircle size={18} />
+                          <FiCheckCircle size={16} />
                         </button>
                         <button 
                           onClick={(e) => handleDeleteAssignment(item.id, e)}
-                          title="Delete Assignment"
-                          className="p-2 text-gray-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                          title="Delete Assignment" 
+                          className="p-2 rounded-lg text-gray-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30 transition-colors"
                         >
-                          <FiTrash2 size={18} />
+                          <FiTrash2 size={16} />
                         </button>
                       </div>
                     </td>
@@ -264,9 +266,8 @@ function Assignments() {
                 ))}
               </tbody>
             </table>
-            
             {filteredAssignments.length === 0 && (
-              <div className="p-8 text-center text-gray-500 font-medium">
+              <div className="py-12 text-center text-gray-400 font-medium">
                 No assignments found.
               </div>
             )}
@@ -297,17 +298,17 @@ function Assignments() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-gray-900">Notifications</h3>
-            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 text-sm font-medium cursor-pointer hover:underline">Settings</span>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Notifications</h3>
+            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 text-sm font-medium cursor-pointer hover:underline">Settings</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <img src={config} alt="config" className="w-24 h-auto mb-4" />
-            <h4 className="text-gray-900 font-bold mb-2">Configure your alerts</h4>
-            <p className="text-gray-500 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
-            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 font-semibold text-sm hover:underline">Setup Alerts →</button>
+            <h4 className="text-gray-900 dark:text-white font-bold mb-2">Configure your alerts</h4>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
+            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm hover:underline">Setup Alerts →</button>
           </div>
         </motion.div>
       </div>

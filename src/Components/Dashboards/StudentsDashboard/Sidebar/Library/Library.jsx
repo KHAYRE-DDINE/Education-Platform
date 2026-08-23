@@ -205,11 +205,11 @@ function Library() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl font-bold text-gray-900"
+            className="text-3xl font-bold text-gray-900 dark:text-white"
           >
             Digital Library
           </motion.h1>
-          <p className="text-gray-500 mt-1 font-medium font-sans">Access your textbooks and supplemental reading materials.</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1 font-medium font-sans">Access your textbooks and supplemental reading materials.</p>
         </div>
 
         <div className="flex items-center gap-3">
@@ -220,7 +220,7 @@ function Library() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search books..." 
-              className="pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm w-full sm:w-64"
+              className="pl-10 pr-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm w-full sm:w-64"
             />
           </div>
           <button 
@@ -240,7 +240,7 @@ function Library() {
             onClick={() => setActiveTab(tab)}
             className={cn(
               "px-5 py-2.5 rounded-xl text-sm font-semibold capitalize transition-colors shadow-sm whitespace-nowrap",
-              activeTab === tab ? "bg-indigo-600 text-white" : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+              activeTab === tab ? "bg-indigo-600 text-white" : "bg-white dark:bg-[#151c2c] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b]"
             )}
           >
             {tab}
@@ -257,10 +257,10 @@ function Library() {
             transition={{ duration: 0.4, delay: idx * 0.05 }}
             key={item.id}
             onClick={() => setSelectedBook(item)}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group cursor-pointer flex flex-col"
+            className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm hover:shadow-md transition-shadow overflow-hidden group cursor-pointer flex flex-col"
           >
             {/* Book Cover Image */}
-            <div className="relative h-56 w-full overflow-hidden bg-gray-100">
+            <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-slate-900">
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors z-10"></div>
               <img 
                 src={item.image || fallbackBookCover} 
@@ -271,7 +271,7 @@ function Library() {
               <div className="absolute top-3 right-3 z-20">
                 <button 
                   onClick={(e) => { e.stopPropagation(); toast.success("Saved to reading list!"); }}
-                  className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-400 hover:text-rose-500 shadow-sm transition-colors"
+                  className="w-8 h-8 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm flex items-center justify-center text-gray-400 hover:text-rose-500 transition-colors"
                 >
                   <FiBookmark size={14} />
                 </button>
@@ -280,31 +280,31 @@ function Library() {
 
             {/* Book Info */}
             <div className="p-5 flex flex-col flex-1">
-              <div className={cn("inline-block px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit mb-3", item.color || "bg-indigo-50 text-indigo-700")}>
+              <div className={cn("inline-block px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit mb-3", item.color || "bg-indigo-50 text-indigo-700", "dark:bg-indigo-950/60 dark:text-indigo-300")}>
                 {item.category}
               </div>
-              <h3 className="text-lg font-bold text-gray-900 leading-snug mb-1 group-hover:text-indigo-600 transition-colors line-clamp-2">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-500 mb-4 flex-1">{item.author}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-1">{item.author}</p>
               
-              <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-50 dark:border-[#1e293b]">
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-gray-900">{item.format}</span>
-                  <span className="text-[11px] font-medium text-gray-400">{item.size}</span>
+                  <span className="text-xs font-bold text-gray-900 dark:text-gray-200">{item.format}</span>
+                  <span className="text-[11px] font-medium text-gray-400 dark:text-gray-500">{item.size}</span>
                 </div>
                 <div className="flex gap-2">
                   <button 
                     onClick={(e) => { e.stopPropagation(); setSelectedBook(item); }}
                     title="Read Book Details"
-                    className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"
+                    className="w-9 h-9 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-300 hover:bg-indigo-600 hover:text-white transition-colors"
                   >
                     <FiBookOpen size={16} />
                   </button>
                   <button 
                     onClick={(e) => { e.stopPropagation(); handleDownload(item); }}
                     title="Download Book"
-                    className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-indigo-600 hover:text-white transition-colors"
+                    className="w-9 h-9 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors"
                   >
                     <FiDownload size={16} />
                   </button>

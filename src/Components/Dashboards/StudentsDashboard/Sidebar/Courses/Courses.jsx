@@ -190,7 +190,7 @@ function Courses() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl font-bold text-gray-900"
+            className="text-3xl font-bold text-gray-900 dark:text-white"
           >
             My Courses
           </motion.h1>
@@ -201,7 +201,7 @@ function Courses() {
             >
               <FiPlus size={16} /> Add Course
             </button>
-            <button onClick={() => navigate('/dashboard/library')} className="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl hover:bg-gray-50 transition-colors shadow-sm">
+            <button onClick={() => navigate('/dashboard/library')} className="px-4 py-2 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] text-gray-700 dark:text-gray-200 text-sm font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-[#1e293b] transition-colors shadow-sm">
               Browse Catalog
             </button>
           </div>
@@ -209,7 +209,7 @@ function Courses() {
 
         {/* Course Cards Grid */}
         <div>
-          <h2 className="text-lg font-bold text-gray-900 mb-4">Recent Courses</h2>
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Courses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {subject.map((course, id) => (
               <motion.div
@@ -218,25 +218,25 @@ function Courses() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: id * 0.1 }}
                 onClick={() => navigate(`/dashboard/courses/details/${course.id}`)}
-                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group flex flex-col cursor-pointer"
+                className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm hover:shadow-md transition-shadow overflow-hidden group flex flex-col cursor-pointer"
               >
                 {/* Card Header (Color Block) */}
-                <div className={cn("h-24 w-full relative p-4 flex justify-between items-start", course.bgSoft)}>
-                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-sm bg-white")}>
+                <div className={cn("h-24 w-full relative p-4 flex justify-between items-start", course.bgSoft, "dark:bg-indigo-950/40")}>
+                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-sm bg-white dark:bg-[#151c2c]")}>
                     {course.icon}
                   </div>
                   <div className="flex items-center gap-2">
                     <button 
                       onClick={(e) => handleEditCourseOpen(e, course)}
                       title="Edit Course" 
-                      className="p-2 rounded-lg bg-white/80 hover:bg-white text-gray-700 hover:text-indigo-600 transition-colors shadow-sm"
+                      className="p-2 rounded-lg bg-white/80 dark:bg-[#151c2c]/90 hover:bg-white text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition-colors shadow-sm"
                     >
                       <FiEdit2 size={14} />
                     </button>
                     <button 
                       onClick={(e) => handleDeleteCourse(e, course.id, course.subject)}
                       title="Delete Course" 
-                      className="p-2 rounded-lg bg-white/80 hover:bg-white text-gray-700 hover:text-rose-600 transition-colors shadow-sm"
+                      className="p-2 rounded-lg bg-white/80 dark:bg-[#151c2c]/90 hover:bg-white text-gray-700 dark:text-gray-200 hover:text-rose-600 transition-colors shadow-sm"
                     >
                       <FiTrash2 size={14} />
                     </button>
@@ -245,15 +245,15 @@ function Courses() {
 
                 {/* Card Body */}
                 <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                     {course.subject}
                   </h3>
-                  <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-1">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1">
                     {course.description}
                   </p>
 
                   {/* Meta Stats */}
-                  <div className="flex items-center gap-4 text-xs font-medium text-gray-500 mb-5">
+                  <div className="flex items-center gap-4 text-xs font-medium text-gray-500 dark:text-gray-400 mb-5">
                     <span className="flex items-center gap-1.5"><FiClock size={14} className={course.textSoft} /> {course.totalHours}h Total</span>
                     <span className="flex items-center gap-1.5"><PiStudentFill size={14} className={course.textSoft} /> {course.students}</span>
                   </div>
@@ -261,16 +261,16 @@ function Courses() {
                   {/* Progress Bar */}
                   <div className="mb-5">
                     <div className="flex justify-between items-end mb-2">
-                      <span className="text-xs font-bold text-gray-900">Course Progress</span>
+                      <span className="text-xs font-bold text-gray-900 dark:text-gray-200">Course Progress</span>
                       <span className={cn("text-xs font-bold", course.textSoft)}>{course.progress}%</span>
                     </div>
-                    <div className="w-full bg-gray-100 rounded-full h-2">
+                    <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-2">
                       <div className={cn("h-2 rounded-full transition-all duration-1000", course.color)} style={{ width: `${course.progress}%` }}></div>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-50">
+                  <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-50 dark:border-[#1e293b]">
                     <button 
                       onClick={(e) => { e.stopPropagation(); navigate(`/dashboard/courses/details/${course.id}`); }} 
                       className={cn("flex-1 py-2.5 rounded-xl font-semibold text-sm flex justify-center items-center gap-2 transition-colors", course.color, "text-white hover:opacity-90")}
@@ -286,7 +286,7 @@ function Courses() {
 
         {/* Tabs and Outlet Section */}
         <div className="mt-4">
-          <div className="flex items-center gap-6 border-b border-gray-200 mb-6">
+          <div className="flex items-center gap-6 border-b border-gray-200 dark:border-[#1e293b] mb-6">
             {move.map((tab, idx) => {
               const isActive = location.pathname.includes(tab.replace(" ", "%20")) || location.pathname.includes(tab);
               return (
@@ -295,7 +295,7 @@ function Courses() {
                   to={tab}
                   className={cn(
                     "capitalize pb-3 text-sm font-semibold transition-colors relative",
-                    isActive ? "text-indigo-600" : "text-gray-500 hover:text-gray-800"
+                    isActive ? "text-indigo-600 dark:text-indigo-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
                   )}
                 >
                   {tab}
@@ -338,17 +338,17 @@ function Courses() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-gray-900">Upcoming Classes</h3>
-            <span onClick={() => navigate('/dashboard/calendar')} className="text-indigo-600 text-sm font-medium cursor-pointer hover:underline">View all</span>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Upcoming Classes</h3>
+            <span onClick={() => navigate('/dashboard/calendar')} className="text-indigo-600 dark:text-indigo-400 text-sm font-medium cursor-pointer hover:underline">View all</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <img src={enrolling} alt="enrolling" className="w-24 h-auto mb-4" />
-            <h4 className="text-gray-900 font-bold mb-2">Ready to learn?</h4>
-            <p className="text-gray-500 text-sm mb-4">Make sure you never miss a class by enrolling in your upcoming semesters early.</p>
-            <button onClick={() => navigate('/dashboard/calendar')} className="text-indigo-600 font-semibold text-sm hover:underline">Start Enrolling →</button>
+            <h4 className="text-gray-900 dark:text-white font-bold mb-2">Ready to learn?</h4>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Make sure you never miss a class by enrolling in your upcoming semesters early.</p>
+            <button onClick={() => navigate('/dashboard/calendar')} className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm hover:underline">Start Enrolling →</button>
           </div>
         </motion.div>
 
@@ -357,17 +357,17 @@ function Courses() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-gray-900">Notifications</h3>
-            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 text-sm font-medium cursor-pointer hover:underline">Settings</span>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Notifications</h3>
+            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 text-sm font-medium cursor-pointer hover:underline">Settings</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <img src={config} alt="config" className="w-24 h-auto mb-4" />
-            <h4 className="text-gray-900 font-bold mb-2">Configure your alerts</h4>
-            <p className="text-gray-500 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
-            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 font-semibold text-sm hover:underline">Setup Alerts →</button>
+            <h4 className="text-gray-900 dark:text-white font-bold mb-2">Configure your alerts</h4>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
+            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm hover:underline">Setup Alerts →</button>
           </div>
         </motion.div>
 

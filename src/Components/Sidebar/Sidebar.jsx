@@ -25,7 +25,7 @@ function Sidebar({ list, sidebarWidth }) {
   return (
     <div
       className={cn(
-        "sidebar bg-white fixed h-[calc(100vh-56px)] top-[56px] border-r border-gray-100 shadow-sm transition-all duration-300 z-40 flex flex-col pt-4 pb-4 overflow-hidden",
+        "sidebar bg-white dark:bg-[#151c2c] fixed h-[calc(100vh-56px)] top-[56px] border-r border-gray-100 dark:border-[#1e293b] shadow-sm transition-all duration-300 z-40 flex flex-col pt-4 pb-4 overflow-hidden",
         isCollapsed ? "w-[60px] items-center" : "w-[240px] px-3"
       )}
     >
@@ -48,8 +48,8 @@ function Sidebar({ list, sidebarWidth }) {
                   "flex items-center rounded-xl transition-all duration-200 group relative",
                   isCollapsed ? "justify-center p-3" : "px-4 py-3 gap-3",
                   isActive
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-200"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-indigo-600"
+                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-none"
+                    : "text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b] hover:text-indigo-600 dark:hover:text-white"
                 )}
               >
                 <div className={cn("text-xl transition-transform duration-200 w-4", !isActive && "group-hover:scale-110")}>
@@ -57,7 +57,7 @@ function Sidebar({ list, sidebarWidth }) {
                 </div>
                 
                 {!isCollapsed && (
-                  <span className={cn("font-semibold text-sm capitalize", isActive ? "text-white" : "text-gray-700 group-hover:text-indigo-600")}>
+                  <span className={cn("font-semibold text-sm capitalize", isActive ? "text-white" : "text-gray-700 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-white")}>
                     {l.listName === "dashboard" ? "Home" : l.listName}
                   </span>
                 )}
@@ -75,7 +75,7 @@ function Sidebar({ list, sidebarWidth }) {
         })}
       </div>
 
-      <div className="mt-auto flex flex-col gap-1 w-full pt-4 border-t border-gray-100 bg-white">
+      <div className="mt-auto flex flex-col gap-1 w-full pt-4 border-t border-gray-100 dark:border-[#1e293b] bg-white dark:bg-[#151c2c]">
         {[
           { name: "help", icon: <TbHelp /> },
           { name: "settings", icon: <IoMdSettings /> }
@@ -95,15 +95,15 @@ function Sidebar({ list, sidebarWidth }) {
                   "flex items-center rounded-xl transition-all duration-200 group relative",
                   isCollapsed ? "justify-center p-3" : "px-4 py-3 gap-3",
                   isActive
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-200"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-indigo-600"
+                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-none"
+                    : "text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b] hover:text-indigo-600 dark:hover:text-white"
                 )}
               >
                 <div className={cn("text-xl transition-transform duration-200", !isActive && "group-hover:scale-110")}>
                   {item.icon}
                 </div>
                 {!isCollapsed && (
-                  <span className={cn("font-semibold text-sm capitalize", isActive ? "text-white" : "text-gray-700 group-hover:text-indigo-600")}>
+                  <span className={cn("font-semibold text-sm capitalize", isActive ? "text-white" : "text-gray-700 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-white")}>
                     {item.name}
                   </span>
                 )}

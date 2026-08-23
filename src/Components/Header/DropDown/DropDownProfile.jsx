@@ -66,11 +66,11 @@ export default function DropDownProfile() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className="inline-flex items-center justify-center rounded-xl hover:ring-2 hover:ring-blue-200 transition-all">
+        <MenuButton className="inline-flex items-center justify-center rounded-xl hover:ring-2 hover:ring-blue-200 transition-all bg-white dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] p-0.5">
           <img
             src={userAvatar}
             alt="avatar"
-            className="w-9 h-9 rounded-xl object-cover border-2 border-gray-100"
+            className="w-8 h-8 rounded-xl object-cover"
           />
         </MenuButton>
       </div>
@@ -83,7 +83,7 @@ export default function DropDownProfile() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden">
+        <MenuItems className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden">
           {/* User Info Header */}
           <div
             className="px-4 py-4 border-b border-gray-100"

@@ -80,7 +80,7 @@ export default function DropDownSetting() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 transition-all">
+        <MenuButton className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white dark:bg-[#0b0f19] hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b] transition-all">
           <img src={settings} alt="settings" className="w-5 h-5" />
         </MenuButton>
       </div>
@@ -94,7 +94,7 @@ export default function DropDownSetting() {
         leaveTo="transform opacity-0 scale-95"
       >
         <MenuItems
-          className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden"
+          className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden"
         >
           {/* Header */}
           <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-2">

@@ -70,8 +70,8 @@ const kpiDatasets = {
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
-        <p className="text-gray-900 font-bold mb-2">{label}</p>
+      <div className="bg-white dark:bg-[#151c2c] p-4 rounded-xl shadow-lg border border-gray-100 dark:border-[#1e293b]">
+        <p className="text-gray-900 dark:text-white font-bold mb-2">{label}</p>
         {payload.map((entry, index) => (
           <p key={index} className="text-sm font-medium flex items-center gap-2" style={{ color: entry.color }}>
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }}></span>
@@ -99,18 +99,18 @@ function Charts() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-gray-900"
+          className="text-3xl font-bold text-gray-900 dark:text-white"
         >
           Analytics & Performance
         </motion.h1>
 
-        <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-gray-200 shadow-sm">
+        <div className="flex items-center gap-2 bg-white dark:bg-[#151c2c] p-1 rounded-xl border border-gray-200 dark:border-[#1e293b] shadow-sm">
           {["Weekly", "Monthly", "Yearly"].map((range) => (
             <button
               key={range}
               onClick={() => setTimeRange(range)}
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                timeRange === range ? "bg-indigo-600 text-white shadow-sm" : "text-gray-600 hover:bg-gray-50"
+                timeRange === range ? "bg-indigo-600 text-white shadow-sm" : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b]"
               }`}
             >
               {range}
@@ -127,19 +127,19 @@ function Charts() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+            className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
           >
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-gray-500 text-sm font-medium">{kpi.label}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mt-1">{kpi.value}</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{kpi.label}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{kpi.value}</h3>
               </div>
-              <div className={`p-3 rounded-xl ${kpi.bg} ${kpi.color}`}>
+              <div className={`p-3 rounded-xl ${kpi.bg} ${kpi.color} dark:bg-indigo-900/30 dark:text-indigo-300`}>
                 <kpi.icon size={20} />
               </div>
             </div>
             <div className="mt-4 flex items-center gap-2 text-sm">
-              <span className={`font-semibold ${kpi.isPositive ? "text-emerald-600" : "text-red-500"}`}>
+              <span className={`font-semibold ${kpi.isPositive ? "text-emerald-600 dark:text-emerald-400" : "text-red-500"}`}>
                 {kpi.trend}
               </span>
               <span className="text-gray-400">vs last period</span>
@@ -156,11 +156,11 @@ function Charts() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm xl:col-span-2"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm xl:col-span-2"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-gray-900">Performance Overview</h3>
-            <span className="text-xs font-semibold px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full">{timeRange} View</span>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Performance Overview</h3>
+            <span className="text-xs font-semibold px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-full">{timeRange} View</span>
           </div>
           <div className="h-[350px] w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -192,9 +192,9 @@ function Charts() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
-          <h3 className="text-lg font-bold text-gray-900 mb-6">Study Hours Distribution ({timeRange})</h3>
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Study Hours Distribution ({timeRange})</h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={currentChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }} barSize={12} barGap={8}>
@@ -215,9 +215,9 @@ function Charts() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
-          <h3 className="text-lg font-bold text-gray-900 mb-6">Average Scores ({timeRange})</h3>
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Average Scores ({timeRange})</h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={currentChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>

@@ -108,7 +108,7 @@ export default function DropDownNotification() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className="relative inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 transition-all">
+        <MenuButton className="relative inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white dark:bg-[#0b0f19] hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b] transition-all">
           <img src={notification} alt="notification" className="w-5 h-5" />
           {unread > 0 && (
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
@@ -126,7 +126,7 @@ export default function DropDownNotification() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute right-[-60px] z-[9999] mt-3 w-84 origin-top-right rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden" style={{ width: "340px" }}>
+        <MenuItems className="absolute right-[-60px] z-[9999] mt-3 w-84 origin-top-right rounded-2xl bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden" style={{ width: "340px" }}>
           {/* Header */}
           <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
