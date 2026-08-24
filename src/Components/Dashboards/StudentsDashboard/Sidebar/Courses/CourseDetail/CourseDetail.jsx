@@ -148,31 +148,31 @@ function CourseDetail() {
   return (
     <div className="my-6 flex flex-col gap-6 w-full max-w-[1600px] mx-auto p-4 lg:p-8">
       {/* Header Bar */}
-      <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row justify-between md:items-center gap-4">
+      <div className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm flex flex-col md:flex-row justify-between md:items-center gap-4">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-semibold hover:bg-gray-200 transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl text-sm font-semibold hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors shadow-sm"
           >
             <FiArrowLeft size={18} /> Back
           </button>
           <div>
-            <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">{course.subject}</span>
-            <h1 className="text-2xl font-bold text-gray-900 leading-tight">{course.title || course.subject}</h1>
+            <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{course.subject}</span>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white leading-tight">{course.title || course.subject}</h1>
           </div>
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3 text-xs font-semibold text-gray-500">
+          <div className="flex items-center gap-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
             <span className="flex items-center gap-1.5"><FiBookOpen size={16} className="text-indigo-500" /> {course.lessonsList.length} Lessons</span>
             <span className="flex items-center gap-1.5"><FiClock size={16} className="text-indigo-500" /> {course.totalHours || 20}h Total</span>
           </div>
 
           <div className="flex flex-col items-end">
-            <span className="text-xs text-gray-500 font-medium">Progress</span>
-            <span className="text-base font-bold text-indigo-600">{course.progress}%</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Progress</span>
+            <span className="text-base font-bold text-indigo-600 dark:text-indigo-400">{course.progress}%</span>
           </div>
-          <div className="w-36 bg-gray-100 rounded-full h-3">
+          <div className="w-36 bg-gray-100 dark:bg-slate-800 rounded-full h-3">
             <div className="bg-indigo-600 h-3 rounded-full transition-all duration-500" style={{ width: `${course.progress}%` }}></div>
           </div>
         </div>
@@ -192,10 +192,10 @@ function CourseDetail() {
           </div>
 
           {/* Lesson Action Bar */}
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <h3 className="text-xl font-bold text-gray-900">{currentLesson?.title}</h3>
-              <p className="text-xs text-gray-500 mt-1">Duration: {currentLesson?.duration} • Lesson {activeLessonIndex + 1} of {course.lessonsList.length}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">{currentLesson?.title}</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Duration: {currentLesson?.duration} • Lesson {activeLessonIndex + 1} of {course.lessonsList.length}</p>
             </div>
 
             <button
@@ -203,7 +203,7 @@ function CourseDetail() {
               className={cn(
                 "flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-colors shadow-sm",
                 currentLesson?.completed 
-                  ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
+                  ? "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200"
                   : "bg-indigo-600 text-white hover:bg-indigo-700"
               )}
             >
@@ -213,22 +213,22 @@ function CourseDetail() {
           </div>
 
           {/* Lesson Comments */}
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-            <h4 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
-              <FiMessageSquare className="text-indigo-600" />
+          <div className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm">
+            <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+              <FiMessageSquare className="text-indigo-600 dark:text-indigo-400" />
               Lesson Discussion & Questions
             </h4>
 
             <div className="flex flex-col gap-4 mb-6 max-h-60 overflow-y-auto pr-2">
               {comments.map(c => (
-                <div key={c.id} className="flex gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                <div key={c.id} className="flex gap-3 bg-gray-50 dark:bg-[#0b0f19] p-4 rounded-xl border border-gray-100 dark:border-[#1e293b]">
                   <img src={c.avatar} alt="avatar" className="w-10 h-10 rounded-full shadow-sm object-cover" />
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-sm text-gray-900">{c.name}</span>
-                      <span className="text-xs text-gray-400">{c.time}</span>
+                      <span className="font-bold text-sm text-gray-900 dark:text-white">{c.name}</span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500">{c.time}</span>
                     </div>
-                    <p className="text-sm text-gray-700">{c.text}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{c.text}</p>
                   </div>
                 </div>
               ))}
@@ -241,7 +241,7 @@ function CourseDetail() {
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Leave a comment or question..."
-                className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="flex-1 px-4 py-3 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
               <button type="submit" className="px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm flex items-center gap-2">
                 <FiSend size={16} /> Post
@@ -251,8 +251,8 @@ function CourseDetail() {
         </div>
 
         {/* Right: Lesson Playlist */}
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-4 h-fit">
-          <h3 className="font-bold text-gray-900 text-lg pb-3 border-b border-gray-100">
+        <div className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm flex flex-col gap-4 h-fit">
+          <h3 className="font-bold text-gray-900 dark:text-white text-lg pb-3 border-b border-gray-100 dark:border-[#1e293b]">
             Course Playlist ({course.lessonsList.length} Lessons)
           </h3>
 
@@ -264,12 +264,12 @@ function CourseDetail() {
                 className={cn(
                   "p-4 rounded-xl cursor-pointer border transition-all flex items-center justify-between",
                   activeLessonIndex === idx 
-                    ? "bg-indigo-50 border-indigo-200 text-indigo-900 font-bold shadow-sm"
-                    : "bg-gray-50 border-gray-100 text-gray-700 hover:bg-gray-100"
+                    ? "bg-indigo-50 dark:bg-indigo-950/60 border-indigo-200 dark:border-indigo-800 text-indigo-900 dark:text-indigo-200 font-bold shadow-sm"
+                    : "bg-gray-50 dark:bg-[#0b0f19] border-gray-100 dark:border-[#1e293b] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1e293b]"
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <FiPlayCircle size={18} className={activeLessonIndex === idx ? "text-indigo-600" : "text-gray-400"} />
+                  <FiPlayCircle size={18} className={activeLessonIndex === idx ? "text-indigo-600 dark:text-indigo-400" : "text-gray-400"} />
                   <div>
                     <p className="text-sm leading-snug">{lesson.title}</p>
                     <span className="text-xs text-gray-400 font-normal">{lesson.duration}</span>

@@ -89,7 +89,7 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
       {/* Slide-out Panel */}
       <div
         className={cn(
-          "fixed top-0 bottom-0 right-0 w-full sm:w-[500px] bg-white shadow-2xl border-l border-gray-100 z-[999999999] flex flex-col transition-transform duration-300 ease-in-out",
+          "fixed top-0 bottom-0 right-0 w-full sm:w-[500px] bg-white dark:bg-[#151c2c] shadow-2xl border-l border-gray-100 dark:border-[#1e293b] z-[999999999] flex flex-col transition-transform duration-300 ease-in-out",
           showAddEventSide ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -108,12 +108,12 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
         </div>
 
         {/* Form Body */}
-        <div className="flex-1 overflow-y-auto p-6 bg-gray-50 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-[#0b0f19] custom-scrollbar">
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             
             {/* Title */}
             <div>
-              <label htmlFor="title" className="block text-sm font-bold text-gray-700 mb-1.5 flex items-center gap-2">
+              <label htmlFor="title" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5 flex items-center gap-2">
                 <FiType className="text-indigo-500" /> Event Title
               </label>
               <input
@@ -122,14 +122,14 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                 placeholder="e.g. Mathematics Midterm"
                 value={Event.title}
                 onChange={(e) => setEvent({ ...Event, title: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm"
                 required
               />
             </div>
 
             {/* Description */}
             <div>
-              <label htmlFor="description" className="block text-sm font-bold text-gray-700 mb-1.5 flex items-center gap-2">
+              <label htmlFor="description" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5 flex items-center gap-2">
                 <FiAlignLeft className="text-indigo-500" /> Description
               </label>
               <textarea
@@ -138,13 +138,13 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                 value={Event.description}
                 onChange={(e) => setEvent({ ...Event, description: e.target.value })}
                 rows="3"
-                className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm resize-none"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm resize-none"
               ></textarea>
             </div>
 
             {/* Date */}
             <div>
-              <label htmlFor="date" className="block text-sm font-bold text-gray-700 mb-1.5 flex items-center gap-2">
+              <label htmlFor="date" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5 flex items-center gap-2">
                 <FiCalendar className="text-indigo-500" /> Date
               </label>
               <input
@@ -154,7 +154,7 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                 onChange={(e) => setEvent({ ...Event, date: new Date(e.target.value) })}
                 min="2026-01-01"
                 max="2026-12-31"
-                className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700"
+                className="w-full px-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700 dark:text-white"
                 required
               />
             </div>
@@ -162,7 +162,7 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
             {/* Time Grid */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="start" className="block text-sm font-bold text-gray-700 mb-1.5 flex items-center gap-2">
+                <label htmlFor="start" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5 flex items-center gap-2">
                   <FiClock className="text-indigo-500" /> Start Time
                 </label>
                 <input
@@ -170,12 +170,12 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                   id="start"
                   value={Event.startTime}
                   onChange={(e) => setEvent({ ...Event, startTime: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700"
+                  className="w-full px-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700 dark:text-white"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="end" className="block text-sm font-bold text-gray-700 mb-1.5 flex items-center gap-2">
+                <label htmlFor="end" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5 flex items-center gap-2">
                   <FiClock className="text-indigo-500" /> End Time
                 </label>
                 <input
@@ -183,16 +183,16 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                   id="end"
                   value={Event.endTime}
                   onChange={(e) => setEvent({ ...Event, endTime: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700"
+                  className="w-full px-4 py-2.5 bg-white dark:bg-[#151c2c] border border-gray-200 dark:border-[#1e293b] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-shadow shadow-sm text-gray-700 dark:text-white"
                   required
                 />
               </div>
             </div>
 
             {/* Colors */}
-            <div className="grid grid-cols-2 gap-4 pt-2 border-t border-gray-200">
+            <div className="grid grid-cols-2 gap-4 pt-2 border-t border-gray-200 dark:border-[#1e293b]">
               <div>
-                <label htmlFor="color-title" className="block text-sm font-bold text-gray-700 mb-1.5">
+                <label htmlFor="color-title" className="block text-sm font-bold text-gray-700 dark:text-gray-200 mb-1.5">
                   Event Color
                 </label>
                 <div className="flex items-center gap-2">
@@ -203,7 +203,7 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
                     onChange={(e) => setEvent({ ...Event, colorTitle: e.target.value })}
                     className="w-10 h-10 rounded cursor-pointer border-0 p-0"
                   />
-                  <span className="text-xs font-mono text-gray-500 uppercase">{Event.colorTitle}</span>
+                  <span className="text-xs font-mono text-gray-500 dark:text-gray-400 uppercase">{Event.colorTitle}</span>
                 </div>
               </div>
             </div>
@@ -212,11 +212,11 @@ function SideBarEvent({ addEvent, showAddEventSide, setShowAddEventSide }) {
         </div>
 
         {/* Footer */}
-        <div className="p-6 bg-white border-t border-gray-100 flex items-center gap-4">
+        <div className="p-6 bg-white dark:bg-[#151c2c] border-t border-gray-100 dark:border-[#1e293b] flex items-center gap-4">
           <button 
             type="button" 
             onClick={() => setShowAddEventSide(false)}
-            className="flex-1 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-sm"
+            className="flex-1 py-3 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors shadow-sm"
           >
             Cancel
           </button>

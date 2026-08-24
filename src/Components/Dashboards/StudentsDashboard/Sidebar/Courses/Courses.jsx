@@ -385,54 +385,54 @@ function Courses() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative cursor-default"
+              className="bg-white dark:bg-[#151c2c] rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative cursor-default"
             >
-              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900">Create New Course</h3>
-                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100 dark:border-[#1e293b]">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Create New Course</h3>
+                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                   <FiX size={20} />
                 </button>
               </div>
 
               <form onSubmit={handleAddCourse} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Course Title</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Course Title</label>
                   <input 
                     type="text" 
                     required 
                     value={newSubject} 
                     onChange={(e) => setNewSubject(e.target.value)} 
                     placeholder="e.g. Data Structures & Algorithms" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Description</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Description</label>
                   <textarea 
                     rows="3" 
                     value={newDesc} 
                     onChange={(e) => setNewDesc(e.target.value)} 
                     placeholder="Short course summary..." 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Total Hours</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Total Hours</label>
                   <input 
                     type="number" 
                     value={newHours} 
                     onChange={(e) => setNewHours(e.target.value)} 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
-                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button 
                     type="button" 
                     onClick={() => setShowAddModal(false)} 
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Cancel
                   </button>
@@ -461,52 +461,52 @@ function Courses() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative cursor-default"
+              className="bg-white dark:bg-[#151c2c] rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative cursor-default"
             >
-              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900">Edit Course</h3>
-                <button onClick={() => setEditingCourse(null)} className="text-gray-400 hover:text-gray-600 transition-colors">
+              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100 dark:border-[#1e293b]">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Edit Course</h3>
+                <button onClick={() => setEditingCourse(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                   <FiX size={20} />
                 </button>
               </div>
 
               <form onSubmit={handleSaveCourseEdit} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Course Title</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Course Title</label>
                   <input 
                     type="text" 
                     required 
                     value={newSubject} 
                     onChange={(e) => setNewSubject(e.target.value)} 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Description</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Description</label>
                   <textarea 
                     rows="3" 
                     value={newDesc} 
                     onChange={(e) => setNewDesc(e.target.value)} 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Total Hours</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Total Hours</label>
                   <input 
                     type="number" 
                     value={newHours} 
                     onChange={(e) => setNewHours(e.target.value)} 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
-                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button 
                     type="button" 
                     onClick={() => setEditingCourse(null)} 
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Cancel
                   </button>

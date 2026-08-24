@@ -323,7 +323,7 @@ function Assignments() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 400, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-y-0 overflow-x-hidden right-0 w-full sm:w-[500px] bg-white shadow-2xl border-l border-gray-200 z-[9999999] flex flex-col"
+            className="fixed inset-y-0 overflow-x-hidden right-0 w-full sm:w-[500px] bg-white dark:bg-[#151c2c] shadow-2xl border-l border-gray-200 dark:border-[#1e293b] z-[9999999] flex flex-col"
           >
             {/* Drawer Header */}
             <div className="h-24 bg-gradient-to-r from-indigo-600 to-blue-500 p-6 flex justify-between items-start text-white">
@@ -340,7 +340,7 @@ function Assignments() {
             </div>
 
             {/* Drawer Tabs */}
-            <div className="flex items-center px-6 border-b border-gray-100 pt-4">
+            <div className="flex items-center px-6 border-b border-gray-100 dark:border-[#1e293b] pt-4">
               {move.map((tab, idx) => {
                 const isActive = location.pathname.includes(tab);
                 return (
@@ -349,14 +349,14 @@ function Assignments() {
                     to={`${tab}/${id}`}
                     className={cn(
                       "capitalize pb-3 text-sm font-semibold transition-colors relative mr-6",
-                      isActive ? "text-indigo-600" : "text-gray-500 hover:text-gray-800"
+                      isActive ? "text-indigo-600 dark:text-indigo-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
                     )}
                   >
                     {tab}
                     {isActive && (
                       <motion.div
                         layoutId="drawerTabIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 rounded-t-full"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-t-full"
                       />
                     )}
                   </Link>
@@ -365,7 +365,7 @@ function Assignments() {
             </div>
 
             {/* Drawer Content Area (Outlet) */}
-            <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
+            <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-[#0b0f19]">
               <Outlet />
             </div>
           </motion.div>
@@ -388,74 +388,78 @@ function Assignments() {
       {/* Create Assignment Modal */}
       <AnimatePresence>
         {showAddModal && (
-          <div className="fixed inset-0 z-[99999999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <div 
+            onClick={() => setShowAddModal(false)}
+            className="fixed inset-0 z-[99999999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm cursor-pointer"
+          >
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative"
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-[#151c2c] rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative cursor-default"
             >
-              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900">Create Assignment</h3>
-                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100 dark:border-[#1e293b]">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Create Assignment</h3>
+                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                   <FiX size={20} />
                 </button>
               </div>
 
               <form onSubmit={handleAddAssignment} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Subject</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Subject</label>
                   <input 
                     type="text" 
                     required 
                     value={newTitle} 
                     onChange={(e) => setNewTitle(e.target.value)} 
                     placeholder="e.g. Mathematics" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Assignment Title</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Assignment Title</label>
                   <input 
                     type="text" 
                     required 
                     value={newSubject} 
                     onChange={(e) => setNewSubject(e.target.value)} 
                     placeholder="e.g. Algebra Unit 2 Quiz" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Due Date</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Due Date</label>
                     <input 
                       type="text" 
                       value={newDate} 
                       onChange={(e) => setNewDate(e.target.value)} 
                       placeholder="Aug 25" 
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Due Time</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Due Time</label>
                     <input 
                       type="text" 
                       value={newTime} 
                       onChange={(e) => setNewTime(e.target.value)} 
                       placeholder="23:59" 
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Initial Status</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Initial Status</label>
                   <select 
                     value={newStatus} 
                     onChange={(e) => setNewStatus(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                   >
                     <option value="pending">Pending</option>
                     <option value="completed">Completed</option>
@@ -463,11 +467,11 @@ function Assignments() {
                   </select>
                 </div>
 
-                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button 
                     type="button" 
                     onClick={() => setShowAddModal(false)} 
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Cancel
                   </button>

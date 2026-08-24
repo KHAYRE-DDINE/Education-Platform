@@ -327,46 +327,46 @@ function Library() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative cursor-default"
+              className="bg-white dark:bg-[#151c2c] rounded-3xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative cursor-default"
             >
-              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900">Upload New Book</h3>
-                <button onClick={() => setShowUploadModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100 dark:border-[#1e293b]">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Upload New Book</h3>
+                <button onClick={() => setShowUploadModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                   <FiX size={20} />
                 </button>
               </div>
 
               <form onSubmit={handleSubmitUpload} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Book Title</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Book Title</label>
                   <input 
                     type="text" 
                     required 
                     value={uploadTitle} 
                     onChange={(e) => setUploadTitle(e.target.value)} 
                     placeholder="e.g. Modern Quantum Physics" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Author Name</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Author Name</label>
                   <input 
                     type="text" 
                     value={uploadAuthor} 
                     onChange={(e) => setUploadAuthor(e.target.value)} 
                     placeholder="e.g. Dr. Niels Bohr" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Category</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Category</label>
                     <select 
                       value={uploadCategory} 
                       onChange={(e) => setUploadCategory(e.target.value)} 
-                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
+                      className="w-full px-3 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
                     >
                       <option value="Physics">Physics</option>
                       <option value="Mathematics">Mathematics</option>
@@ -378,11 +378,11 @@ function Library() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Format</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Format</label>
                     <select 
                       value={uploadFormat} 
                       onChange={(e) => setUploadFormat(e.target.value)} 
-                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
+                      className="w-full px-3 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium"
                     >
                       <option value="PDF">PDF</option>
                       <option value="EPUB">EPUB</option>
@@ -392,19 +392,19 @@ function Library() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Select File</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Select File</label>
                   <input 
                     type="file" 
                     onChange={(e) => setSelectedFile(e.target.files[0])} 
-                    className="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" 
+                    className="w-full text-xs text-gray-500 dark:text-gray-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 dark:file:bg-indigo-950/60 file:text-indigo-700 dark:file:text-indigo-300 hover:file:bg-indigo-100" 
                   />
                 </div>
 
-                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button 
                     type="button" 
                     onClick={() => setShowUploadModal(false)} 
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Cancel
                   </button>
@@ -433,7 +433,7 @@ function Library() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] shadow-2xl overflow-hidden flex flex-col border border-gray-100 cursor-default"
+              className="bg-white dark:bg-[#151c2c] rounded-3xl w-full max-w-3xl max-h-[90vh] shadow-2xl overflow-hidden flex flex-col border border-gray-100 dark:border-[#1e293b] cursor-default"
             >
               {/* Header */}
               <div className="p-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-white flex justify-between items-center">
@@ -452,37 +452,37 @@ function Library() {
               </div>
 
               {/* Body */}
-              <div className="p-6 overflow-y-auto flex flex-col md:flex-row gap-6 bg-gray-50">
+              <div className="p-6 overflow-y-auto flex flex-col md:flex-row gap-6 bg-gray-50 dark:bg-[#0b0f19]">
                 <div className="md:w-1/3 flex flex-col items-center gap-4 shrink-0">
                   <img 
                     src={selectedBook.image || fallbackBookCover} 
                     alt={selectedBook.title} 
                     onError={(e) => { e.target.onerror = null; e.target.src = fallbackBookCover; }}
-                    className="w-48 h-64 object-cover rounded-2xl shadow-lg border-2 border-white"
+                    className="w-48 h-64 object-cover rounded-2xl shadow-lg border-2 border-white dark:border-slate-800"
                   />
-                  <div className="w-full bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center">
-                    <span className="text-xs text-gray-400 uppercase font-bold tracking-wider block mb-1">Author</span>
-                    <h4 className="font-bold text-gray-900 text-sm">{selectedBook.author}</h4>
-                    <span className="text-xs text-indigo-600 font-semibold block mt-2">File Size: {selectedBook.size}</span>
+                  <div className="w-full bg-white dark:bg-[#151c2c] p-4 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm text-center">
+                    <span className="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold tracking-wider block mb-1">Author</span>
+                    <h4 className="font-bold text-gray-900 dark:text-white text-sm">{selectedBook.author}</h4>
+                    <span className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold block mt-2">File Size: {selectedBook.size}</span>
                   </div>
                 </div>
 
                 <div className="flex-1 flex flex-col gap-5">
-                  <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2 text-base">
-                      <FiFileText className="text-indigo-600" />
+                  <div className="bg-white dark:bg-[#151c2c] p-5 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2 text-base">
+                      <FiFileText className="text-indigo-600 dark:text-indigo-400" />
                       About this Book
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                       {selectedBook.description || "Comprehensive academic reference resource designed for secondary and higher education curriculum standards."}
                     </p>
                   </div>
 
-                  <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="font-bold text-gray-900 mb-3 text-base">Table of Contents & Modules</h3>
+                  <div className="bg-white dark:bg-[#151c2c] p-5 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-base">Table of Contents & Modules</h3>
                     <div className="flex flex-col gap-2">
                       {(selectedBook.toc || ["Chapter 1: Core Fundamentals", "Chapter 2: Advanced Practice", "Chapter 3: Summary Exercises"]).map((ch, i) => (
-                        <div key={i} className="flex items-center gap-3 p-2.5 bg-gray-50 rounded-xl text-xs font-semibold text-gray-700">
+                        <div key={i} className="flex items-center gap-3 p-2.5 bg-gray-50 dark:bg-[#0b0f19] rounded-xl text-xs font-semibold text-gray-700 dark:text-gray-300">
                           <FiCheckCircle className="text-indigo-500 shrink-0" />
                           <span>{ch}</span>
                         </div>
@@ -498,8 +498,8 @@ function Library() {
                       <FiDownload size={18} /> Download {selectedBook.format} File
                     </button>
                     <button 
-                      onClick={() => { setSelectedBook(null); toast.success("Added to active reading queue!"); }}
-                      className="px-5 py-3 bg-gray-200 text-gray-700 rounded-xl font-bold text-sm hover:bg-gray-300 transition-colors"
+                      onClick={() => setSelectedBook(null)}
+                      className="px-5 py-3 bg-gray-200 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-bold text-sm hover:bg-gray-300 dark:hover:bg-slate-700 transition-colors"
                     >
                       Close
                     </button>

@@ -97,29 +97,29 @@ export default function DropDownSetting() {
           className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden"
         >
           {/* Header */}
-          <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-2">
-            <TbSettings size={16} className="text-gray-600" />
-            <span className="font-semibold text-gray-800 text-sm">
+          <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1e293b] flex items-center gap-2">
+            <TbSettings size={16} className="text-gray-600 dark:text-gray-400" />
+            <span className="font-semibold text-gray-800 dark:text-white text-sm">
               Quick Settings
             </span>
           </div>
 
           {/* Dark Mode Toggle */}
-          <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+          <div className="px-4 py-3 border-b border-gray-100 dark:border-[#1e293b] flex items-center justify-between">
             <div className="flex items-center gap-2">
               {isDarkMode ? (
                 <TbMoon size={16} className="text-indigo-500" />
               ) : (
                 <TbSun size={16} className="text-amber-500" />
               )}
-              <span className="text-sm text-gray-700 font-medium">
+              <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                 {isDarkMode ? "Dark Mode" : "Light Mode"}
               </span>
             </div>
             <button
               onClick={handleToggleDarkMode}
               className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${
-                isDarkMode ? "bg-indigo-500" : "bg-gray-200"
+                isDarkMode ? "bg-indigo-500" : "bg-gray-200 dark:bg-slate-700"
               }`}
             >
               <span
@@ -138,21 +138,21 @@ export default function DropDownSetting() {
                   <button
                     onClick={() => navigate(item.path)}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 transition-colors text-left ${
-                      focus ? "bg-gray-50" : "bg-white"
+                      focus ? "bg-gray-50 dark:bg-[#1e293b]" : "bg-white dark:bg-[#151c2c]"
                     }`}
                   >
                     <div
-                      className={`w-7 h-7 rounded-lg ${item.bg} ${item.color} flex items-center justify-center flex-shrink-0`}
+                      className={`w-7 h-7 rounded-lg ${item.bg} dark:bg-slate-800 ${item.color} dark:text-indigo-400 flex items-center justify-center flex-shrink-0`}
                     >
                       {item.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-sm font-medium text-gray-800 dark:text-white">
                         {item.label}
                       </p>
-                      <p className="text-xs text-gray-400">{item.desc}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-400">{item.desc}</p>
                     </div>
-                    <TbChevronRight size={14} className="text-gray-300" />
+                    <TbChevronRight size={14} className="text-gray-300 dark:text-gray-500" />
                   </button>
                 )}
               </MenuItem>
@@ -160,7 +160,7 @@ export default function DropDownSetting() {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-3 border-t border-gray-100">
+          <div className="px-4 py-3 border-t border-gray-100 dark:border-[#1e293b]">
             <button
               onClick={() => navigate("dashboard/settings")}
               className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white text-xs rounded-xl font-semibold transition-colors"

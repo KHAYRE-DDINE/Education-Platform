@@ -149,8 +149,8 @@ function Resources() {
       />
       <div className="mb-6 flex justify-between items-end">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Shared Resources</h2>
-          <p className="text-gray-500 text-sm mt-1">Study materials provided by your teachers for this assignment.</p>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Shared Resources</h2>
+          <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Study materials provided by your teachers for this assignment.</p>
         </div>
         <button 
           onClick={() => fileInputRef.current?.click()}
@@ -167,7 +167,7 @@ function Resources() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
             key={res.id}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group cursor-pointer"
+            className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group cursor-pointer"
           >
             {/* Image Container */}
             <div className="relative h-48 w-full overflow-hidden">
@@ -177,7 +177,7 @@ function Resources() {
                 alt={res.title} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm font-semibold text-xs text-gray-800">
+              <div className="absolute top-4 left-4 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm font-semibold text-xs text-gray-800 dark:text-gray-200">
                 {getTypeIcon(res.type)}
                 <span className="uppercase tracking-wider">{res.type}</span>
               </div>
@@ -185,21 +185,21 @@ function Resources() {
 
             {/* Content */}
             <div className="p-5 flex flex-col flex-1">
-              <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">{res.subject}</span>
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors line-clamp-1">{res.title}</h3>
-              <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-1">
+              <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">{res.subject}</span>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">{res.title}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1">
                 {res.description}
               </p>
               
-              <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-50 dark:border-[#1e293b]">
                 <div className="flex flex-col">
-                  <span className="text-xs font-semibold text-gray-900">{res.size}</span>
-                  <span className="text-[11px] font-medium text-gray-400">Added {res.date}</span>
+                  <span className="text-xs font-semibold text-gray-900 dark:text-white">{res.size}</span>
+                  <span className="text-[11px] font-medium text-gray-400 dark:text-gray-500">Added {res.date}</span>
                 </div>
                 
                 <button 
                   onClick={() => handleDownloadResource(res)}
-                  className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-indigo-600 hover:text-white transition-colors shadow-sm group-hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors shadow-sm group-hover:scale-110"
                 >
                   {res.type === 'link' ? <FiExternalLink size={18} /> : <FiDownload size={18} />}
                 </button>
