@@ -75,7 +75,7 @@ function Sidebar({ list, sidebarWidth }) {
         })}
       </div>
 
-      <div className="mt-auto flex flex-col gap-1 w-full pt-4 border-t border-gray-100 dark:border-[#1e293b] bg-white dark:bg-[#151c2c]">
+      <div className="mt-auto flex flex-col gap-1 w-full pt-4 border-t border-gray-100 dark:border-[#1e293b]">
         {[
           { name: "help", icon: <TbHelp /> },
           { name: "settings", icon: <IoMdSettings /> }

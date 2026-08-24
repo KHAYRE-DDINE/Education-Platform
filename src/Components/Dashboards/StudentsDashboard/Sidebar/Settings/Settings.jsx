@@ -36,9 +36,10 @@ const sectionVariants = {
 function Toggle({ checked, onChange }) {
   return (
     <button
+      type="button"
       onClick={() => onChange(!checked)}
       className={`relative w-11 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
-        checked ? "bg-blue-500" : "bg-gray-200"
+        checked ? "bg-blue-500" : "bg-gray-200 dark:bg-slate-700"
       }`}
     >
       <span

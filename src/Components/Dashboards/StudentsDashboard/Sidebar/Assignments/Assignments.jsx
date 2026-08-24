@@ -186,7 +186,9 @@ function Assignments() {
               onClick={() => setActiveTab(tab)}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-colors shadow-sm",
-                activeTab === tab ? "bg-indigo-600 text-white" : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                activeTab === tab
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white dark:bg-[#151c2c] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b]"
               )}
             >
               {tab}
@@ -199,34 +201,34 @@ function Assignments() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+          className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm overflow-hidden"
         >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Assignment</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Due Date</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Teacher</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-right">Actions</th>
+                <tr className="bg-gray-50 dark:bg-[#0b0f19] border-b border-gray-100 dark:border-[#1e293b]">
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Assignment</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Due Date</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Teacher</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1e293b]">
                 {filteredAssignments.map((item) => (
                   <tr 
                     key={item.id} 
                     onClick={() => openDrawer(item.id)}
-                    className="hover:bg-indigo-50/50 transition-colors cursor-pointer group"
+                    className="hover:bg-indigo-50/50 dark:hover:bg-[#1e293b]/70 transition-colors cursor-pointer group"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-3">
-                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm", item.color)}>
+                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm text-white", item.color)}>
                           {item.title.charAt(0)}
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{item.title}</p>
-                          <p className="text-xs text-gray-500">{item.subject}</p>
+                          <p className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{item.title}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{item.subject}</p>
                         </div>
                       </div>
                     </td>
