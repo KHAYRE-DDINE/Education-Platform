@@ -186,7 +186,9 @@ function Assignments() {
               onClick={() => setActiveTab(tab)}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-colors shadow-sm",
-                activeTab === tab ? "bg-indigo-600 text-white" : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                activeTab === tab
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white dark:bg-[#151c2c] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e293b] border border-gray-200 dark:border-[#1e293b]"
               )}
             >
               {tab}
@@ -199,64 +201,66 @@ function Assignments() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+          className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm overflow-hidden"
         >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Assignment</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Due Date</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Teacher</th>
-                  <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-right">Actions</th>
+                <tr className="bg-gray-50 dark:bg-[#0b0f19] border-b border-gray-100 dark:border-[#1e293b]">
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Assignment</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Due Date</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Teacher</th>
+                  <th className="px-6 py-4 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50">
+              <tbody className="divide-y divide-gray-50 dark:divide-[#1e293b]">
                 {filteredAssignments.map((item) => (
                   <tr 
                     key={item.id} 
                     onClick={() => openDrawer(item.id)}
-                    className="hover:bg-indigo-50/50 transition-colors cursor-pointer group"
+                    className="hover:bg-indigo-50/50 dark:hover:bg-[#1e293b]/70 transition-colors cursor-pointer group"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-3">
-                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm", item.color)}>
+                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm text-white", item.color)}>
                           {item.title.charAt(0)}
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{item.title}</p>
-                          <p className="text-xs text-gray-500">{item.subject}</p>
+                          <p className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{item.title}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{item.subject}</p>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {getStatusBadge(item.status)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex flex-col">
-                        <span className="text-sm font-semibold text-gray-900 flex items-center gap-1.5"><FiCalendar className="text-gray-400"/> {item.date}</span>
-                        <span className="text-xs text-gray-500 flex items-center gap-1.5"><FiClock className="text-gray-400"/> {item.time}</span>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <div className="flex items-center gap-1.5">
+                        <FiCalendar className="text-gray-400" size={14} />
+                        <span>{item.date}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <img src={item.teacher} alt="teacher" className="w-8 h-8 rounded-full border-2 border-white shadow-sm" />
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-2">
+                        <img src={item.teacher} alt="teacher" className="w-8 h-8 rounded-full object-cover border border-gray-100 dark:border-gray-700" />
+                      </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right">
-                      <div className="flex items-center justify-end gap-2">
+                    <td className="px-6 py-4 text-right">
+                      <div className="flex items-center justify-end gap-2" onClick={(e) => e.stopPropagation()}>
                         <button 
                           onClick={(e) => handleToggleComplete(item.id, item.status, e)}
                           title="Toggle Complete"
-                          className="p-2 text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                          className="p-2 rounded-lg text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors"
                         >
-                          <FiCheckCircle size={18} />
+                          <FiCheckCircle size={16} />
                         </button>
                         <button 
                           onClick={(e) => handleDeleteAssignment(item.id, e)}
-                          title="Delete Assignment"
-                          className="p-2 text-gray-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                          title="Delete Assignment" 
+                          className="p-2 rounded-lg text-gray-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30 transition-colors"
                         >
-                          <FiTrash2 size={18} />
+                          <FiTrash2 size={16} />
                         </button>
                       </div>
                     </td>
@@ -264,9 +268,8 @@ function Assignments() {
                 ))}
               </tbody>
             </table>
-            
             {filteredAssignments.length === 0 && (
-              <div className="p-8 text-center text-gray-500 font-medium">
+              <div className="py-12 text-center text-gray-400 font-medium">
                 No assignments found.
               </div>
             )}
@@ -297,17 +300,17 @@ function Assignments() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+          className="bg-white dark:bg-[#151c2c] p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-gray-900">Notifications</h3>
-            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 text-sm font-medium cursor-pointer hover:underline">Settings</span>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Notifications</h3>
+            <span onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 text-sm font-medium cursor-pointer hover:underline">Settings</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <img src={config} alt="config" className="w-24 h-auto mb-4" />
-            <h4 className="text-gray-900 font-bold mb-2">Configure your alerts</h4>
-            <p className="text-gray-500 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
-            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 font-semibold text-sm hover:underline">Setup Alerts →</button>
+            <h4 className="text-gray-900 dark:text-white font-bold mb-2">Configure your alerts</h4>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Be notified of important events in your class or school so you never miss a thing.</p>
+            <button onClick={() => navigate('/dashboard/settings')} className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm hover:underline">Setup Alerts →</button>
           </div>
         </motion.div>
       </div>
@@ -320,7 +323,7 @@ function Assignments() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 400, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-y-0 overflow-x-hidden right-0 w-full sm:w-[500px] bg-white shadow-2xl border-l border-gray-200 z-[9999999] flex flex-col"
+            className="fixed inset-y-0 overflow-x-hidden right-0 w-full sm:w-[500px] bg-white dark:bg-[#151c2c] shadow-2xl border-l border-gray-200 dark:border-[#1e293b] z-[9999999] flex flex-col"
           >
             {/* Drawer Header */}
             <div className="h-24 bg-gradient-to-r from-indigo-600 to-blue-500 p-6 flex justify-between items-start text-white">
@@ -337,7 +340,7 @@ function Assignments() {
             </div>
 
             {/* Drawer Tabs */}
-            <div className="flex items-center px-6 border-b border-gray-100 pt-4">
+            <div className="flex items-center px-6 border-b border-gray-100 dark:border-[#1e293b] pt-4">
               {move.map((tab, idx) => {
                 const isActive = location.pathname.includes(tab);
                 return (
@@ -346,14 +349,14 @@ function Assignments() {
                     to={`${tab}/${id}`}
                     className={cn(
                       "capitalize pb-3 text-sm font-semibold transition-colors relative mr-6",
-                      isActive ? "text-indigo-600" : "text-gray-500 hover:text-gray-800"
+                      isActive ? "text-indigo-600 dark:text-indigo-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
                     )}
                   >
                     {tab}
                     {isActive && (
                       <motion.div
                         layoutId="drawerTabIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 rounded-t-full"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-t-full"
                       />
                     )}
                   </Link>
@@ -362,7 +365,7 @@ function Assignments() {
             </div>
 
             {/* Drawer Content Area (Outlet) */}
-            <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
+            <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-[#0b0f19]">
               <Outlet />
             </div>
           </motion.div>
@@ -385,74 +388,78 @@ function Assignments() {
       {/* Create Assignment Modal */}
       <AnimatePresence>
         {showAddModal && (
-          <div className="fixed inset-0 z-[99999999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <div 
+            onClick={() => setShowAddModal(false)}
+            className="fixed inset-0 z-[99999999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm cursor-pointer"
+          >
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative"
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-[#151c2c] rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative cursor-default"
             >
-              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-                <h3 className="text-xl font-bold text-gray-900">Create Assignment</h3>
-                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+              <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100 dark:border-[#1e293b]">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Create Assignment</h3>
+                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
                   <FiX size={20} />
                 </button>
               </div>
 
               <form onSubmit={handleAddAssignment} className="flex flex-col gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Subject</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Subject</label>
                   <input 
                     type="text" 
                     required 
                     value={newTitle} 
                     onChange={(e) => setNewTitle(e.target.value)} 
                     placeholder="e.g. Mathematics" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Assignment Title</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Assignment Title</label>
                   <input 
                     type="text" 
                     required 
                     value={newSubject} 
                     onChange={(e) => setNewSubject(e.target.value)} 
                     placeholder="e.g. Algebra Unit 2 Quiz" 
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Due Date</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Due Date</label>
                     <input 
                       type="text" 
                       value={newDate} 
                       onChange={(e) => setNewDate(e.target.value)} 
                       placeholder="Aug 25" 
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Due Time</label>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Due Time</label>
                     <input 
                       type="text" 
                       value={newTime} 
                       onChange={(e) => setNewTime(e.target.value)} 
                       placeholder="23:59" 
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Initial Status</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wider mb-1">Initial Status</label>
                   <select 
                     value={newStatus} 
                     onChange={(e) => setNewStatus(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                   >
                     <option value="pending">Pending</option>
                     <option value="completed">Completed</option>
@@ -460,11 +467,11 @@ function Assignments() {
                   </select>
                 </div>
 
-                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button 
                     type="button" 
                     onClick={() => setShowAddModal(false)} 
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Cancel
                   </button>

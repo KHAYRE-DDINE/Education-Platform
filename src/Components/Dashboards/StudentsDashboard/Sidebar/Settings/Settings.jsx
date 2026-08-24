@@ -36,9 +36,10 @@ const sectionVariants = {
 function Toggle({ checked, onChange }) {
   return (
     <button
+      type="button"
       onClick={() => onChange(!checked)}
       className={`relative w-11 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
-        checked ? "bg-blue-500" : "bg-gray-200"
+        checked ? "bg-blue-500" : "bg-gray-200 dark:bg-slate-700"
       }`}
     >
       <span
@@ -57,13 +58,13 @@ function SectionCard({ title, icon, children, index }) {
       initial="hidden"
       animate="visible"
       variants={sectionVariants}
-      className="settings-card bg-white rounded-2xl border border-gray-100 overflow-hidden mb-5 shadow-sm"
+      className="settings-card bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] overflow-hidden mb-5 shadow-sm"
     >
-      <div className="px-6 py-4 border-b border-gray-100 flex items-center gap-3">
-        <span className="w-8 h-8 rounded-lg bg-blue-50 text-blue-500 flex items-center justify-center">
+      <div className="px-6 py-4 border-b border-gray-100 dark:border-[#1e293b] flex items-center gap-3">
+        <span className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400 flex items-center justify-center">
           {icon}
         </span>
-        <h2 className="font-semibold text-gray-800 text-sm">{title}</h2>
+        <h2 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{title}</h2>
       </div>
       <div className="p-6">{children}</div>
     </motion.div>
@@ -94,7 +95,8 @@ function Settings() {
     systemUpdates: true,
   });
 
-  const [appearance, setAppearance] = useState("light");
+  const { theme, changeTheme } = useAuthContext();
+  const [appearance, setAppearance] = useState(theme || "light");
   const [passwords, setPasswords] = useState({
     current: "",
     next: "",
@@ -458,16 +460,20 @@ function Settings() {
           ].map(({ key, label, icon }) => (
             <button
               key={key}
-              onClick={() => setAppearance(key)}
+              onClick={() => {
+                setAppearance(key);
+                changeTheme(key);
+                toast.success(`Theme set to ${label}`);
+              }}
               className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all ${
-                appearance === key
-                  ? "border-blue-500 bg-blue-50 text-blue-600"
-                  : "border-gray-200 text-gray-500 hover:border-gray-300"
+                (appearance || theme) === key
+                  ? "border-blue-500 bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300 dark:border-blue-500"
+                  : "border-gray-200 bg-white dark:bg-[#0b0f19] text-gray-500 dark:text-gray-400 dark:border-[#1e293b] hover:bg-gray-50 dark:hover:bg-[#1e293b]/70"
               }`}
             >
               {icon}
               <span className="text-xs font-medium">{label}</span>
-              {appearance === key && (
+              {(appearance || theme) === key && (
                 <span className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                   <TbCheck size={10} className="text-white" />
                 </span>

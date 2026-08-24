@@ -33,7 +33,7 @@
           "promotions": false,
           "systemUpdates": true
         },
-        "appearance": "light",
+        "appearance": "dark",
         "privacy": {
           "profileVisible": true,
           "showProgress": false,
@@ -124,10 +124,10 @@
       "id": 4,
       "title": "Physics",
       "subject": "Kinematics",
-      "status": "pending",
+      "status": "completed",
       "date": "Aug 22",
       "time": "10:30",
-      "color": "bg-indigo-100 text-indigo-700"
+      "color": "bg-emerald-100 text-emerald-700"
     }
   ],
   "classes": [

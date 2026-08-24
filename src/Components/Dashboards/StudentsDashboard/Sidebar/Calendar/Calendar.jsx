@@ -325,7 +325,7 @@ function Calender() {
       />
 
       {/* Header / Toolbar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-[#151c2c] p-4 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm">
         
         {/* Left Side: Title & Navigation */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
@@ -333,23 +333,23 @@ function Calender() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-bold text-gray-900"
+            className="text-2xl font-bold text-gray-900 dark:text-white"
           >
             Calendar
           </motion.h1>
 
           <div className="flex items-center gap-2">
-            <button onClick={onTodayClick} className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold rounded-lg transition-colors">
+            <button onClick={onTodayClick} className="px-3 py-1.5 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 text-sm font-semibold rounded-lg transition-colors">
               Today
             </button>
-            <div className="flex items-center bg-gray-50 rounded-lg p-1 border border-gray-200">
-              <button onClick={onPrevClick} className="p-1.5 hover:bg-white rounded-md text-gray-600 transition-colors shadow-sm-hover">
+            <div className="flex items-center bg-gray-50 dark:bg-[#0b0f19] rounded-lg p-1 border border-gray-200 dark:border-[#1e293b]">
+              <button onClick={onPrevClick} className="p-1.5 hover:bg-white dark:hover:bg-[#1e293b] rounded-md text-gray-600 dark:text-gray-300 transition-colors shadow-sm-hover">
                 <FiChevronLeft size={18} />
               </button>
-              <span className="min-w-[140px] text-center text-sm font-bold text-gray-800">
+              <span className="min-w-[140px] text-center text-sm font-bold text-gray-800 dark:text-white">
                 {dateText}
               </span>
-              <button onClick={onNextClick} className="p-1.5 hover:bg-white rounded-md text-gray-600 transition-colors shadow-sm-hover">
+              <button onClick={onNextClick} className="p-1.5 hover:bg-white dark:hover:bg-[#1e293b] rounded-md text-gray-600 dark:text-gray-300 transition-colors shadow-sm-hover">
                 <FiChevronRight size={18} />
               </button>
             </div>
@@ -365,33 +365,33 @@ function Calender() {
               placeholder="Search events..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48 transition-all"
+              className="pl-9 pr-4 py-2 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] text-gray-800 dark:text-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48 transition-all"
             />
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
-            <FiFilter className="text-gray-500" size={16} />
+          <div className="hidden sm:flex items-center gap-2 bg-gray-50 dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] rounded-xl px-3 py-2">
+            <FiFilter className="text-gray-500 dark:text-gray-400" size={16} />
             <select
               value={activeFilter}
               onChange={(e) => setActiveFilter(e.target.value)}
-              className="bg-transparent text-sm font-medium text-gray-700 focus:outline-none"
+              className="bg-transparent text-sm font-medium text-gray-700 dark:text-gray-300 focus:outline-none"
             >
-              <option value="all">All</option>
-              <option value="today">Selected Day</option>
-              <option value="week">Selected Week</option>
-              <option value="month">Selected Month</option>
-              <option value="with-description">With Description</option>
+              <option value="all" className="dark:bg-[#0b0f19]">All</option>
+              <option value="today" className="dark:bg-[#0b0f19]">Selected Day</option>
+              <option value="week" className="dark:bg-[#0b0f19]">Selected Week</option>
+              <option value="month" className="dark:bg-[#0b0f19]">Selected Month</option>
+              <option value="with-description" className="dark:bg-[#0b0f19]">With Description</option>
             </select>
           </div>
 
-          <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200">
+          <div className="flex bg-gray-50 dark:bg-[#0b0f19] p-1 rounded-xl border border-gray-200 dark:border-[#1e293b]">
             {['month', 'week', 'day'].map((v) => (
               <button
                 key={v}
                 onClick={() => setView(Views[v.toUpperCase()])}
                 className={cn(
                   "px-3 py-1.5 rounded-lg text-sm font-semibold capitalize transition-colors",
-                  view === Views[v.toUpperCase()] ? "bg-white text-indigo-600 shadow-sm" : "text-gray-500 hover:text-gray-700"
+                  view === Views[v.toUpperCase()] ? "bg-white dark:bg-[#151c2c] text-indigo-600 dark:text-indigo-400 shadow-sm" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
                 )}
               >
                 {v}
@@ -413,7 +413,7 @@ function Calender() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex-1 min-h-[600px] bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+        className="flex-1 min-h-[600px] bg-white dark:bg-[#151c2c] p-4 sm:p-6 rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm overflow-hidden"
       >
         <Calendar
           localizer={localizer}
@@ -444,8 +444,8 @@ function Calender() {
           onView={(newView) => setView(newView)}
         />
 
-        <div className="pt-5 border-t border-gray-100 mt-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-3">
+        <div className="pt-5 border-t border-gray-100 dark:border-[#1e293b] mt-4">
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3">
             Events in this {view}
           </h3>
 
@@ -457,14 +457,14 @@ function Calender() {
                 .map((event) => (
                   <div
                     key={event.id}
-                    className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2"
+                    className="rounded-lg border border-gray-100 dark:border-[#1e293b] bg-gray-50 dark:bg-[#0b0f19] px-3 py-2"
                   >
-                    <p className="text-sm font-semibold text-gray-900">{event.title}</p>
-                    <p className="text-xs text-gray-600 mt-1">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">{event.title}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                       {moment(event.start).format("ddd, MMM D, YYYY - HH:mm")} to {moment(event.end).format("HH:mm")}
                     </p>
                     {event.description && (
-                      <p className="text-xs text-gray-500 mt-1 line-clamp-2">{event.description}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">{event.description}</p>
                     )}
                   </div>
                 ))}

@@ -66,11 +66,11 @@ export default function DropDownProfile() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className="inline-flex items-center justify-center rounded-xl hover:ring-2 hover:ring-blue-200 transition-all">
+        <MenuButton className="inline-flex items-center justify-center rounded-xl hover:ring-2 hover:ring-blue-200 transition-all bg-white dark:bg-[#0b0f19] border border-gray-200 dark:border-[#1e293b] p-0.5">
           <img
             src={userAvatar}
             alt="avatar"
-            className="w-9 h-9 rounded-xl object-cover border-2 border-gray-100"
+            className="w-8 h-8 rounded-xl object-cover"
           />
         </MenuButton>
       </div>
@@ -83,26 +83,25 @@ export default function DropDownProfile() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden">
+        <MenuItems className="absolute right-0 z-[9999] mt-3 w-64 origin-top-right rounded-2xl bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] shadow-2xl ring-1 ring-black/5 focus:outline-none overflow-hidden">
           {/* User Info Header */}
           <div
-            className="px-4 py-4 border-b border-gray-100"
-            style={{ background: "linear-gradient(135deg, #EFF6FF, #F5F3FF)" }}
+            className="px-4 py-4 border-b border-gray-100 dark:border-[#1e293b] bg-indigo-50/50 dark:bg-indigo-950/40"
           >
             <div className="flex items-center gap-3">
               <div className="relative">
                 <img
                   src={userAvatar}
                   alt="avatar"
-                  className="w-11 h-11 rounded-xl object-cover border-2 border-white shadow-sm"
+                  className="w-11 h-11 rounded-xl object-cover border-2 border-white dark:border-slate-800 shadow-sm"
                 />
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full" />
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-white dark:border-[#151c2c] rounded-full" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-gray-900 text-sm truncate">
+                <p className="font-semibold text-gray-900 dark:text-white text-sm truncate">
                   {fullName}
                 </p>
-                <p className="text-xs text-gray-500 truncate">
+                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
                   {email}
                 </p>
                 <div className="flex items-center gap-1 mt-1">
@@ -117,12 +116,12 @@ export default function DropDownProfile() {
             {/* Progress Bar */}
             <div className="mt-3">
               <div className="flex justify-between items-center mb-1">
-                <span className="text-[10px] text-gray-500 font-medium">
+                <span className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
                   Profile completion
                 </span>
-                <span className="text-[10px] text-blue-500 font-bold">85%</span>
+                <span className="text-[10px] text-blue-500 dark:text-blue-400 font-bold">85%</span>
               </div>
-              <div className="h-1.5 bg-white rounded-full overflow-hidden">
+              <div className="h-1.5 bg-white dark:bg-slate-800 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"
                   style={{ width: "85%" }}
@@ -139,21 +138,21 @@ export default function DropDownProfile() {
                   <button
                     onClick={() => navigate(item.path)}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 transition-colors text-left ${
-                      focus ? "bg-gray-50" : "bg-white"
+                      focus ? "bg-gray-50 dark:bg-[#1e293b]" : "bg-white dark:bg-[#151c2c]"
                     }`}
                   >
                     <div
-                      className={`w-7 h-7 rounded-lg ${item.bg} ${item.color} flex items-center justify-center flex-shrink-0`}
+                      className={`w-7 h-7 rounded-lg ${item.bg} dark:bg-slate-800 ${item.color} dark:text-indigo-400 flex items-center justify-center flex-shrink-0`}
                     >
                       {item.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-800">
+                      <p className="text-sm font-medium text-gray-800 dark:text-white">
                         {item.label}
                       </p>
-                      <p className="text-xs text-gray-400">{item.desc}</p>
+                      <p className="text-xs text-gray-400 dark:text-gray-400">{item.desc}</p>
                     </div>
-                    <TbChevronRight size={14} className="text-gray-300" />
+                    <TbChevronRight size={14} className="text-gray-300 dark:text-gray-500" />
                   </button>
                 )}
               </MenuItem>
@@ -161,13 +160,13 @@ export default function DropDownProfile() {
           </div>
 
           {/* Sign Out */}
-          <div className="px-3 py-3 border-t border-gray-100">
+          <div className="px-3 py-3 border-t border-gray-100 dark:border-[#1e293b]">
             <MenuItem>
               {({ focus }) => (
                 <button
                   onClick={logout}
-                  className={`w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-red-500 transition-colors ${
-                    focus ? "bg-red-50" : "hover:bg-red-50"
+                  className={`w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-red-500 dark:text-red-400 transition-colors ${
+                    focus ? "bg-red-50 dark:bg-red-950/40" : "hover:bg-red-50 dark:hover:bg-red-950/40"
                   }`}
                 >
                   <TbLogout size={16} />

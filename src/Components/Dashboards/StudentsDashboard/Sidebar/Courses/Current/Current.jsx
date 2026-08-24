@@ -105,11 +105,11 @@ function Current() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               onClick={() => navigate(`/dashboard/courses/details/${course.id}`)}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer"
+              className="bg-white dark:bg-[#151c2c] rounded-2xl border border-gray-100 dark:border-[#1e293b] shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer"
             >
               {/* Header Color Block */}
-              <div className={cn("h-28 p-5 flex justify-between items-start relative", colorSoft)}>
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-2xl">
+              <div className={cn("h-28 p-5 flex justify-between items-start relative", colorSoft, "dark:bg-indigo-950/40")}>
+                <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#151c2c] shadow-sm flex items-center justify-center text-2xl">
                   {course.icon || (course.image ? <img src={course.image} alt={course.title} className="w-8 h-8 object-contain" /> : "📚")}
                 </div>
 
@@ -117,14 +117,14 @@ function Current() {
                   <button 
                     onClick={(e) => handleOpenEdit(e, course)}
                     title="Edit Course"
-                    className="p-2 rounded-lg bg-white/80 hover:bg-white text-gray-700 hover:text-indigo-600 transition-colors shadow-sm"
+                    className="p-2 rounded-lg bg-white/80 dark:bg-[#151c2c]/90 hover:bg-white text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition-colors shadow-sm"
                   >
                     <FiEdit2 size={14} />
                   </button>
                   <button 
                     onClick={(e) => handleDeleteCourse(e, course.id, course.title || course.subject)}
                     title="Delete Course"
-                    className="p-2 rounded-lg bg-white/80 hover:bg-white text-gray-700 hover:text-rose-600 transition-colors shadow-sm"
+                    className="p-2 rounded-lg bg-white/80 dark:bg-[#151c2c]/90 hover:bg-white text-gray-700 dark:text-gray-200 hover:text-rose-600 transition-colors shadow-sm"
                   >
                     <FiTrash2 size={14} />
                   </button>
@@ -134,15 +134,15 @@ function Current() {
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                     {course.title || course.subject}
                   </h3>
-                  <p className="text-sm text-gray-500 line-clamp-2 mb-4">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">
                     {course.description}
                   </p>
 
                   {/* Meta stats */}
-                  <div className="flex items-center gap-4 text-xs font-medium text-gray-500 mb-4">
+                  <div className="flex items-center gap-4 text-xs font-medium text-gray-500 dark:text-gray-400 mb-4">
                     <span className="flex items-center gap-1.5"><FiBookOpen size={14} className="text-indigo-500" /> {course.lessons || 12} lessons</span>
                     <span className="flex items-center gap-1.5"><FiClock size={14} className="text-indigo-500" /> {course.totalHours || 20}h total</span>
                   </div>
@@ -150,17 +150,17 @@ function Current() {
                   {/* Progress Bar */}
                   <div className="mb-5">
                     <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-xs font-bold text-gray-700">Course Progress</span>
-                      <span className="text-xs font-bold text-indigo-600">{progress}%</span>
+                      <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Course Progress</span>
+                      <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{progress}%</span>
                     </div>
-                    <div className="w-full bg-gray-100 rounded-full h-2">
+                    <div className="w-full bg-gray-100 dark:bg-slate-800 rounded-full h-2">
                       <div className="bg-indigo-600 h-2 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
                     </div>
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-[#1e293b]">
                   <button
                     onClick={(e) => { e.stopPropagation(); navigate(`/dashboard/courses/details/${course.id}`); }}
                     className="flex-1 py-2.5 bg-indigo-600 text-white rounded-xl font-semibold text-sm hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 shadow-sm"
@@ -169,7 +169,7 @@ function Current() {
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); navigate("/dashboard/assignments"); }}
-                    className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors"
+                    className="px-4 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-200 rounded-xl font-semibold text-sm hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
                   >
                     Assignments
                   </button>
@@ -188,7 +188,7 @@ function Current() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 relative"
+              className="bg-white dark:bg-[#151c2c] rounded-2xl p-6 w-full max-w-md shadow-2xl border border-gray-100 dark:border-[#1e293b] relative"
             >
               <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
                 <h3 className="text-xl font-bold text-gray-900">Edit Course</h3>

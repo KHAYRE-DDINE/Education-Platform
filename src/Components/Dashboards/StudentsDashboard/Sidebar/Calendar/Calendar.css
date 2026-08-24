@@ -69,3 +69,42 @@
 .modern-calendar .rbc-day-slot .rbc-time-slot {
   border-top: 1px dashed #E5E7EB !important;
 }
+
+/* ================= DARK MODE OVERRIDES FOR CALENDAR ================= */
+html.dark .modern-calendar .rbc-header,
+html.dark .rbc-header {
+  background-color: #0b0f19 !important;
+  color: #94a3b8 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .modern-calendar .rbc-day-bg,
+html.dark .rbc-day-bg {
+  border-color: #1e293b !important;
+  background-color: #151c2c !important;
+}
+
+html.dark .modern-calendar .rbc-day-bg:hover {
+  background-color: #1e293b !important;
+}
+
+html.dark .modern-calendar .rbc-off-range-bg,
+html.dark .rbc-off-range-bg {
+  background-color: #0b0f19 !important;
+}
+
+html.dark .modern-calendar .rbc-today,
+html.dark .rbc-today {
+  background-color: #1e293b !important;
+}
+
+html.dark .modern-calendar .rbc-date-cell,
+html.dark .rbc-date-cell {
+  color: #f1f5f9 !important;
+}
+
+html.dark .modern-calendar .rbc-time-header,
+html.dark .modern-calendar .rbc-timeslot-group,
+html.dark .modern-calendar .rbc-day-slot .rbc-time-slot {
+  border-color: #1e293b !important;
+}

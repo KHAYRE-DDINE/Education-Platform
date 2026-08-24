@@ -155,3 +155,160 @@ p.terms a {
 @media (min-width: 1280px) {}
 
 @media (min-width: 1536px) {}
+
+/* ================= COMPREHENSIVE DARK MODE STYLES ================= */
+html.dark,
+html.dark body,
+html.dark #root,
+html.dark main,
+html.dark .dashboard,
+html.dark .students-dashboard,
+html.dark .sidebar,
+html.dark .right-side,
+html.dark .content-area,
+html.dark .page,
+html.dark .wrapper,
+html.dark .help-page,
+html.dark .settings-page {
+  color-scheme: dark;
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Header & Sidebar Navigation */
+html.dark header {
+  background-color: #151c2c !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark aside,
+html.dark .sidebar-nav {
+  background-color: #151c2c !important;
+  border-right-color: #1e293b !important;
+}
+
+/* Default Dark Backgrounds for All Cards, Panels & Boxes */
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-white\/90,
+html.dark .bg-white\/20,
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-gray-200\/50,
+html.dark .bg-[#F8FAFF],
+html.dark .bg-[#F9FAFB],
+html.dark .bg-gray-50\/40,
+html.dark .settings-card,
+html.dark .guide-card,
+html.dark .faq-item,
+html.dark .right-box {
+  background-color: #151c2c !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
+}
+
+/* Controlled Hover State in Dark Mode: Subtle Dark Highlight, Never Light */
+html.dark button:hover,
+html.dark a:hover,
+html.dark .hover\:bg-gray-50:hover,
+html.dark .hover\:bg-gray-100:hover,
+html.dark .hover\:bg-gray-200:hover,
+html.dark .hover\:bg-white:hover,
+html.dark .hover\:border-gray-300:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+/* Text Overrides */
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+/* Border Overrides */
+html.dark .border-gray-50,
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-grayD {
+  border-color: #1e293b !important;
+}
+
+/* Shadows */
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-2xl {
+  box-shadow: 0 4px 25px -2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Form Controls & Inputs */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Calendar Component (react-big-calendar) Dark Mode */
+html.dark .rbc-calendar,
+html.dark .rbc-month-view,
+html.dark .rbc-time-view,
+html.dark .rbc-agenda-view {
+  background-color: #151c2c !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .rbc-header,
+html.dark .rbc-day-bg,
+html.dark .rbc-month-row,
+html.dark .rbc-day-slot,
+html.dark .rbc-time-header-content,
+html.dark .rbc-time-content {
+  border-color: #1e293b !important;
+}
+
+html.dark .rbc-off-range-bg {
+  background-color: #0b0f19 !important;
+}
+
+html.dark .rbc-today {
+  background-color: #1e293b !important;
+}
+
+html.dark .rbc-event {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Data Tables (react-data-table-component) & Native Tables */
+html.dark table,
+html.dark th,
+html.dark td,
+html.dark tr,
+html.dark .rdt_Table,
+html.dark .rdt_TableRow,
+html.dark .rdt_TableHeadRow,
+html.dark .rdt_Pagination {
+  background-color: #151c2c !important;
+  color: #f1f5f9 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .rdt_TableRow:hover {
+  background-color: #1e293b !important;
+}
