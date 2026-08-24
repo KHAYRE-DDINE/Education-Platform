@@ -7,7 +7,7 @@ function Face() {
   const location = useLocation();
   return (
     <div
-      className={`face  md:w-[65%] bg-secondary-200 flex justify-center items-center ${
+      className={`face md:w-[65%] bg-secondary-200 dark:bg-[#080b12] border-l dark:border-[#1e293b] flex justify-center items-center ${
         location.pathname === "/login" || location.pathname === "/Login"
           ? "h-firstHeightFace"
           : location.pathname.includes("/register-by-username")

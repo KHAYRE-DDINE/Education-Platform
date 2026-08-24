@@ -312,3 +312,96 @@ html.dark .rdt_Pagination {
 html.dark .rdt_TableRow:hover {
   background-color: #1e293b !important;
 }
+
+/* Authentication Pages (Login, Register, Signer, OTP, Forgot Password) Dark Theme */
+html.dark .page,
+html.dark .login,
+html.dark .wrapper,
+html.dark .form,
+html.dark .register,
+html.dark .forgot,
+html.dark .fgPassword,
+html.dark .classCode {
+  background-color: #0b0f19 !important;
+  color: #f8fafc !important;
+}
+
+html.dark .login .form h1.title,
+html.dark .register .title,
+html.dark .forgot h1.title {
+  color: #ffffff !important;
+}
+
+html.dark .login .form span.or {
+  color: #94a3b8 !important;
+}
+
+html.dark .login .form span.or::after,
+html.dark .login .form span.or::before {
+  background-color: #1e293b !important;
+}
+
+html.dark .inputs fieldset label,
+html.dark .register :is(p, .birth span),
+html.dark .login .form p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .inputs fieldset input,
+html.dark .register .birth form select,
+html.dark .writeYourEmail input[type="email"],
+html.dark .writeYourEmail input[type="password"] {
+  background-color: #151c2c !important;
+  border-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+html.dark .inputs fieldset input:focus,
+html.dark .register .birth form select:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Social Login Buttons (Google, Apple, Facebook, Email/Password Switch) */
+html.dark .way a,
+html.dark .other {
+  background-color: #151c2c !important;
+  border: 1px solid #1e293b !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+html.dark .way a:hover,
+html.dark .other:hover {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Role Selector Tabs (Learner / Teacher / Parent) */
+html.dark .register .signer {
+  border-color: #1e293b !important;
+  background-color: #151c2c !important;
+}
+
+html.dark .register .signer .btn {
+  background-color: #151c2c !important;
+  color: #94a3b8 !important;
+}
+
+html.dark .register .signer .btn.clicked {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Auth Links & Action Text */
+html.dark .login .form p a,
+html.dark .inputs fieldset label a,
+html.dark .register .links a {
+  color: #818cf8 !important;
+}
+
+html.dark .login .form p a:hover,
+html.dark .inputs fieldset label a:hover,
+html.dark .register .links a:hover {
+  color: #a5b4fc !important;
+}
