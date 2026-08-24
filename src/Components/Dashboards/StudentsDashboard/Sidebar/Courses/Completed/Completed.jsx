@@ -63,27 +63,27 @@ function Completed() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: index * 0.08 }}
-          className="bg-white border border-gray-100 rounded-xl shadow-sm p-4"
+          className="bg-white dark:bg-[#151c2c] border border-gray-100 dark:border-[#1e293b] rounded-xl shadow-sm p-4"
         >
           <div className="flex items-center gap-4">
             <img
               src={course.image}
               alt={course.title}
-              className="w-20 h-20 object-contain rounded-lg bg-gray-50"
+              className="w-20 h-20 object-contain rounded-lg bg-gray-50 dark:bg-[#0b0f19]"
             />
             <div className="flex-1">
-              <p className="text-xs font-semibold text-emerald-700 bg-emerald-50 inline-block px-2 py-1 rounded-full">
+              <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 inline-block px-2 py-1 rounded-full">
                 Completed
               </p>
-              <h3 className="text-base font-bold text-gray-900 mt-2">
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mt-2">
                 {course.title}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">{course.subject}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{course.subject}</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600 mt-4">{course.description}</p>
-          <div className="mt-4 flex items-center justify-between text-sm text-gray-600">
-            <span>Final Grade: <strong className="text-gray-900">{course.grade}</strong></span>
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">{course.description}</p>
+          <div className="mt-4 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+            <span>Final Grade: <strong className="text-gray-900 dark:text-white">{course.grade}</strong></span>
             <span>Finished: {course.completedOn}</span>
           </div>
           {course.certificateReady && (
